@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('menuDirectora', function () {
+Route::get('menu/Directora', function () {
     return view('directora.menuDirectora');
 });
 
