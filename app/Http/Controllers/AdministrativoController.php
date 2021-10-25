@@ -14,7 +14,7 @@ class AdministrativoController extends Controller
      */
     public function index()
     {
-        //
+        return view('directora.menuDirectora');
     }
 
     /**

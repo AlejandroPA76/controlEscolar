@@ -7,9 +7,9 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('menu/Directora', function () {
-    return view('directora.menuDirectora');
-});
+// Route::get('products', 'ProductsController@index')->name('products.index');
+
+Route::get('administrativo', 'AdministrativoController@index')->name('administrativo');
 
 Route::get('directoraEstudiantes', function () {
     return view('directora.estudiantes');
