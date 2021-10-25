@@ -7,8 +7,7 @@ Route::get('/', function () {
     return view('login');
 });
 
-// esta es la nueva ruta que usaremos
-Route::get('administrativo', 'AdministrativoController@index')->name('administrativo');
+Route::get('administrativo', 'AdministrativoController@index')->name('admin');
 
 Route::get('menu/directora', function () {
     return view('directora.menuDirectora');
