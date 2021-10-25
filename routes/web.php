@@ -10,6 +10,11 @@ Route::get('/', function () {
 
 Route::get('administrativo', 'AdministrativoController@index')->name('administrativo');
 
+Route::get('menu/directora', function () {
+    return view('directora.menuDirectora');
+}); 
+
+// borramos la ruta
 
 Route::get('/directora/estudiantes', function () {
     return view('directora.estudiantes');
