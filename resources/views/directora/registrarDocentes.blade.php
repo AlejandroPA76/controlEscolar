@@ -12,11 +12,32 @@
                       <h1>Datos del Docente</h1>
                         <form action="" autocomplete="off">
                             <div class="form-group">
-                              <label>Nombre:</label>
-                                <input type="text" class="form-control" name="username">
+                              <label>Matricula:</label>
+                                <input type="text" class="form-control" name="matricula" required>
                             </div>
+
+                            <div class="form-group">
+                              <label>Nombre:</label>
+                                <input type="text" class="form-control" name="nombre" required>
+                            </div>
+
                             <div class="form-group">
                               <label>Apellidos:</label>
+                                <input type="text" class="form-control" name="apellidos">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Usuario:</label>
+                                <input type="text" class="form-control" name="user">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Contrasena:</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Confirmar contrasena:</label>
                                 <input type="password" class="form-control" name="password">
                             </div>
 

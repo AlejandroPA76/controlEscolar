@@ -15,6 +15,11 @@ class CreateAdministrativosTable extends Migration
     {
         Schema::create('administrativos', function (Blueprint $table) {
             $table->id();
+            $table->string('rol');
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->string('usuario')->unique();
+            $table->string('contraseña');
             $table->timestamps();
         });
     }

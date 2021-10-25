@@ -7,60 +7,60 @@ Route::get('/', function () {
     return view('login');
 });
 
-// Route::get('products', 'ProductsController@index')->name('products.index');
 
 Route::get('administrativo', 'AdministrativoController@index')->name('administrativo');
 
-Route::get('directoraEstudiantes', function () {
+
+Route::get('/directora/estudiantes', function () {
     return view('directora.estudiantes');
 })->name('directoraEstudiantes');
 
-Route::get('directoraTutores', function () {
+Route::get('/directora/tutores', function () {
     return view('directora.tutores');
 })->name('directoraTutores');
 
-Route::get('directoraRegistrarTutores', function () {
+Route::get('/directora/registrar/tutores', function () {
     return view('directora.registrarTutores');
 })->name('directoraRegistrarTutores');
 
-Route::get('directoraAgregarAlumno', function () {
+Route::get('directora/agregar/alumno', function () {
     return view('directora.agregarAlumno');
 })->name('directoraAgregarAlumno');
 
 
-Route::get('directoraCrearGrupo', function () {
+Route::get('directora/crear/grupo', function () {
     return view('directora.crearGrupo');
 })->name('directoraCrearGrupo');
 
-Route::get('directoraDocentes', function () {
+Route::get('directora/docentes', function () {
     return view('directora.docentes');
 })->name('directora.directoraDocentes');
 
-Route::get('directoraRegistrarDocentes', function () {
+Route::get('directora/registrar/docentes', function () {
     return view('directora.registrarDocentes');
 })->name('directora.registrarDocentes');
 
 
-Route::get('menuDocente', function () {
+Route::get('menu/docente', function () {
     return view('docente.menuDocente');
 })->name('menuDocente');
 
-Route::get('menuTutor', function () {
+Route::get('menu/tutor', function () {
     return view('tutor.menuTutor');
 })->name('menuTutor');
 
-Route::get('menuTutorObservaciones', function () {
+Route::get('menu/tutor/observaciones', function () {
     return view('tutor.observaciones');
 })->name('menuTutorObservaciones');
 
-Route::get('menuContador', function () {
+Route::get('menu/contador', function () {
     return view('contador.menuContador');
 })->name('menuContador');
 
-Route::get('menuContadorHistorialDePagos', function () {
+Route::get('menu/contador/historial/Pagos', function () {
     return view('contador.historialDePagos');
 })->name('menuContadorHistorialDePagos');
 
-Route::get('menuContadorHistorialDePagosReciente', function () {
+Route::get('menu/contador/historial/Pagos/recientes', function () {
     return view('contador.historialDePagosReciente');
 })->name('menuContadorHistorialDePagosReciente');
