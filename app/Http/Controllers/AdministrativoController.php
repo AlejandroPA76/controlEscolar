@@ -58,6 +58,7 @@ class AdministrativoController extends Controller
     public function edit(Administrativo $administrativo)
     {
         //
+        //holaaaaaaa
     }
 
     /**
