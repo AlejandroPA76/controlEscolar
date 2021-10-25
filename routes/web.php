@@ -14,8 +14,6 @@ Route::get('menu/directora', function () {
     return view('directora.menuDirectora');
 }); 
 
-// borramos la ruta
-
 Route::get('/directora/estudiantes', function () {
     return view('directora.estudiantes');
 })->name('directoraEstudiantes');
