@@ -1,46 +1,74 @@
 <?php
 
+use App\Http\Controllers\TutorControlller;
+use App\Models\Administrativo;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    return view('login');
+    return view('auth.login');
 });
 
-Route::get('administrativo', 'AdministrativoController@index')->name('admin');
+Route::get('menu/index', 'AdministrativoController@index')->name('admin.index');
+// ----------------------------------------------------------------------------------
 
-Route::get('menu/directora', function () {
-    return view('directora.menuDirectora');
-}); 
+Route::get('admin/index/tutores', 'TutorController@index')->name('admin.indexTutores');
 
-Route::get('/directora/estudiantes', function () {
-    return view('directora.estudiantes');
-})->name('directoraEstudiantes');
+Route::get('admin/created/tutores', 'TutorController@create')->name('admin.createdTutores');
 
-Route::get('/directora/tutores', function () {
-    return view('directora.tutores');
-})->name('directoraTutores');
+Route::post('admin/store/tutores', 'TutorController@store')->name('admin.storeTutores');
 
-Route::get('/directora/registrar/tutores', function () {
-    return view('directora.registrarTutores');
-})->name('directoraRegistrarTutores');
+Route::get('admin/show/{tutor}', 'TutorController@show')->name('admin.showTutores');
 
-Route::get('directora/agregar/alumno', function () {
-    return view('directora.agregarAlumno');
-})->name('directoraAgregarAlumno');
+Route::get('admin/edit/{tutor}', 'TutorController@edit')->name('admin.editTutores');
 
+Route::put('admin/{tutor}/update', 'TutorController@update')->name('admin.updateTutores');
 
-Route::get('directora/crear/grupo', function () {
-    return view('directora.crearGrupo');
-})->name('directoraCrearGrupo');
+Route::delete('admin/destroy/{tutor}', 'TutorController@destroy')->name('admin.destroyTutores');
+// ----------------------------------------------------------------------------------------------------------------
 
-Route::get('directora/docentes', function () {
-    return view('directora.docentes');
-})->name('directora.directoraDocentes');
+Route::get('admin/index/estudiantes', 'EstudianteController@index')->name('admin.indexEstudiantes');
 
-Route::get('directora/registrar/docentes', function () {
-    return view('directora.registrarDocentes');
-})->name('directora.registrarDocentes');
+Route::get('admin/created/estudiantes', 'EstudianteController@create')->name('admin.createdEstudiantes');
+
+Route::post('admin/store/estudiantes', 'EstudianteController@store')->name('admin.storeEstudiantes');
+
+Route::get('admin/show/{estudiante}', 'EstudianteController@show')->name('admin.showEstudiantes');
+
+Route::get('admin/edit/estudiantes', 'EstudianteController@edit')->name('admin.editEstudiantes');
+
+Route::put('admin/{estudiantes}/update', 'EstudianteController@update')->name('admin.updateEstudiantes');
+
+Route::delete('admin/destroy/{estudiante}', 'EstudianteController@destroy')->name('admin.destroyEstudiantes');
+// ----------------------------------------------------------------------------------------------------------------
+
+Route::get('admin/index/docentes', 'DocenteController@index')->name('admin.indexDocente');
+
+Route::get('admin/created/docentes', 'DocenteController@create')->name('admin.createdDocente');
+
+Route::post('admin/store/docentes', 'DocenteController@store')->name('admin.storeDocente');
+
+Route::get('admin/show/{docentes}', 'DocenteController@show')->name('admin.showDocente');
+
+Route::get('admin/edit/docentes', 'DocenteController@edit')->name('admin.editDocente');
+
+Route::put('admin/{docentes}/update', 'DocenteController@update')->name('admin.updateDocente');
+
+Route::delete('admin/destroy/{docentes}', 'DocenteController@destroy')->name('admin.destroyDocente');
+// ----------------------------------------------------------------------------------------------------------------
+
+Route::get('admin/crear/grupo', function () {
+    return view('administrativo.crearGrupo');
+})->name('admin.crearGrupo');
+
+Route::get('admin/docentes', function () {
+    return view('administrativo.docentes');
+})->name('admin.indexDocentes');
+
+Route::get('admin/registrar/docentes', function () {
+    return view('administrativo.registrarDocentes');
+})->name('admin.registrarDocentes');
 
 
 Route::get('menu/docente', function () {
@@ -66,3 +94,7 @@ Route::get('menu/contador/historial/Pagos', function () {
 Route::get('menu/contador/historial/Pagos/recientes', function () {
     return view('contador.historialDePagosReciente');
 })->name('menuContadorHistorialDePagosReciente');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

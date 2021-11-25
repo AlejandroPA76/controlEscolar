@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tutor;
+use App\Models\Estudiante;
 use Illuminate\Http\Request;
 
 class TutorController extends Controller
@@ -14,7 +15,8 @@ class TutorController extends Controller
      */
     public function index()
     {
-        //
+        $tutores = Tutor::Paginate(10);
+        return view('administrativo.tutores.indexTutores', compact('tutores'));
     }
 
     /**
@@ -24,7 +26,8 @@ class TutorController extends Controller
      */
     public function create()
     {
-        //
+        return view('administrativo.tutores.createdTutores');
+
     }
 
     /**
@@ -35,7 +38,24 @@ class TutorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        Tutor::create($request->only(
+            'nombre',
+            'apellido_p',
+            'apellido_m', 
+            'usuario',) + [
+            'contraseña' => bcrypt (request()->input('contraseña'))
+         ]);
+
+        $estudiante = new Estudiante;
+        $estudiante->nombre=$request->input('nombrealumno');
+        $estudiante->apellido_p=$request->input('apellido_p_a');
+        $estudiante->apellido_m=$request->input('apellido_m_a');
+        $estudiante->matricula=$request->input('matricula_a');
+        $estudiante->save();
+
+        return redirect()->route('admin.indexTutores');
+
     }
 
     /**
@@ -46,7 +66,10 @@ class TutorController extends Controller
      */
     public function show(Tutor $tutor)
     {
-        //
+        // $tutor = Tutor::findOrFail($tutor);
+        // return view('administrativo.showTutores')->with($tutor);
+
+        return view('administrativo.tutores.showTutores', compact('tutor'));
     }
 
     /**
@@ -57,7 +80,10 @@ class TutorController extends Controller
      */
     public function edit(Tutor $tutor)
     {
-        //
+        return view('administrativo.tutores.editTutores')->with([
+            'tutor'=>$tutor,
+        ]);
+
     }
 
     /**
@@ -69,7 +95,14 @@ class TutorController extends Controller
      */
     public function update(Request $request, Tutor $tutor)
     {
-        //
+        $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'usuario');
+        $contraseña = $request->input('contraseña');
+        if ($contraseña)
+        $data['contraseña']=bcrypt($contraseña);
+
+        $tutor->update($data);
+        return redirect()->route('admin.indexTutores')
+        ->withSuccess("El usuario tutor con el id {$tutor->id} ha sido editado");
     }
 
     /**
@@ -80,6 +113,9 @@ class TutorController extends Controller
      */
     public function destroy(Tutor $tutor)
     {
-        //
+        $tutor->delete();
+
+        return redirect()->route('admin.indexTutores')
+        ->withSuccess("El producto con el id {$tutor->id} ha sido borrado");
     }
 }
