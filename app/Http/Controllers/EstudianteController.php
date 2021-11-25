@@ -14,8 +14,12 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes = Estudiante::Paginate(10);
-        return view('administrativo.estudiantes.indexEstudiante', compact('estudiantes'));
+        // Estudiante::Paginate(10);
+        return view('administrativo.estudiantes.indexEstudiante')->with([
+            'estudiantes'=>Estudiante::Paginate(3),
+        ]);
+
+       
     }
 
     /**
@@ -60,9 +64,8 @@ class EstudianteController extends Controller
      */
     public function edit(Estudiante $estudiante)
     {
-        return view('administrativo.tutores.editEstudiante')->with([
+        return view('administrativo.estudiantes.editEstudiante')->with([
             'estudiante'=>$estudiante,
-
         ]);
     }
 
@@ -75,7 +78,12 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, Estudiante $estudiante)
     {
-        //
+        $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'matricula');
+
+        $estudiante->update($data);
+        return redirect()->route('admin.indexEstudiantes')
+        ->withSuccess("El usuario tutor con el id {$estudiante->id} ha sido editado");
+
     }
 
     /**
@@ -88,7 +96,7 @@ class EstudianteController extends Controller
     {
         $estudiante->delete();
 
-        return redirect()->route('admin.indexTutores')
+        return redirect()->route('admin.indexEstudiantes')
         ->withSuccess("El producto con el id {$estudiante->id} ha sido borrado");
     }
 }
