@@ -14,7 +14,8 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        //
+        $docentes = Docente::Paginate(10);
+        return view('administrativo.docentes.indexDocentes', compact('docentes'));
     }
 
     /**
@@ -24,7 +25,8 @@ class DocenteController extends Controller
      */
     public function create()
     {
-        //
+        return view('administrativo.docentes.createdDocente');
+
     }
 
     /**
@@ -35,7 +37,14 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Docente::create($request->only(
+            'nombre',
+            'matricula',
+            'apellido_p',
+            'apellido_m', 
+            'usuario',) + [
+            'contraseña' => bcrypt (request()->input('contraseña'))
+         ]);
     }
 
     /**

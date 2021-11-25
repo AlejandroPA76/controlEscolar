@@ -14,7 +14,8 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        //
+        $estudiantes = Estudiante::Paginate(10);
+        return view('administrativo.estudiantes.indexEstudiante', compact('estudiantes'));
     }
 
     /**
@@ -24,7 +25,8 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        //
+        return view('administrativo.estudiantes.createdEstudiante');
+
     }
 
     /**
@@ -35,7 +37,7 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -46,7 +48,8 @@ class EstudianteController extends Controller
      */
     public function show(Estudiante $estudiante)
     {
-        //
+        return view('administrativo.estudiantes.showEstudiante', compact('estudiante'));
+
     }
 
     /**
@@ -57,7 +60,10 @@ class EstudianteController extends Controller
      */
     public function edit(Estudiante $estudiante)
     {
-        //
+        return view('administrativo.tutores.editEstudiante')->with([
+            'estudiante'=>$estudiante,
+
+        ]);
     }
 
     /**
@@ -80,6 +86,9 @@ class EstudianteController extends Controller
      */
     public function destroy(Estudiante $estudiante)
     {
-        //
+        $estudiante->delete();
+
+        return redirect()->route('admin.indexTutores')
+        ->withSuccess("El producto con el id {$estudiante->id} ha sido borrado");
     }
 }

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Administrativo;
+use App\Models\Tutor;
+use App\Models\Estudiante;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Hash;
+use Illuminate\Support\Facades\DB;
 
 class AdministrativoController extends Controller
 {
@@ -14,7 +18,7 @@ class AdministrativoController extends Controller
      */
     public function index()
     {
-        return view('directora.menuDirectora');
+        
     }
 
     /**
@@ -24,7 +28,7 @@ class AdministrativoController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,7 +39,8 @@ class AdministrativoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
     }
 
     /**
@@ -58,6 +63,7 @@ class AdministrativoController extends Controller
     public function edit(Administrativo $administrativo)
     {
         //
+        //holaaaaaaa
     }
 
     /**

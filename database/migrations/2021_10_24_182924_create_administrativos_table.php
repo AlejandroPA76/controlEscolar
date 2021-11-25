@@ -17,7 +17,8 @@ class CreateAdministrativosTable extends Migration
             $table->id();
             $table->string('rol');
             $table->string('nombre');
-            $table->string('apellido');
+            $table->string('apellido_p');
+            $table->string('apellido_m');
             $table->string('usuario')->unique();
             $table->string('contraseña');
             $table->timestamps();
