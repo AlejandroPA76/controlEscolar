@@ -14,64 +14,50 @@
     <div class="col">
       <div class="card">
         <div class="card-body">   
-          <h1>Lista de estudiantes</h1> 
+          <h1>Editar estudiantes</h1>
           
-          <table class="table table-white">
-            <thead>
-              <tr>
-                <th scope="col">id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Fernando</td>
-                <td>Cruz</td>
-                <td>
-                  
-                  <button type="button" class="btn btn-primary">ver</button>
-                  <button type="button" class="btn btn-warning">editar</button>
-                  <button type="button" class="btn btn-danger">eliminar</button>
-                  
-                </td>
-              </tr>
-              
-              
-              <tr>
-                <th scope="row">2</th>
-                <td>Fernando</td>
-                <td>Cruz</td>
-                <td>
-                  <button type="button" class="btn btn-primary">ver</button>
-                  <button type="button" class="btn btn-warning">editar</button>
-                  <button type="button" class="btn btn-danger">eliminar</button>
-                  
-                </td>
-              </tr>
-              
-              <tr>
-      <th scope="row">3</th>
-      <td>Fernando</td>
-      <td>Cruz</td>
-      <td>
-        <button type="button" class="btn btn-primary">ver</button>
-        <button type="button" class="btn btn-warning">editar</button>
-        <button type="button" class="btn btn-danger">eliminar</button>
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
+          <form method="POST" action ="{{ route('admin.updateEstudiantes', $estudiante->id) }}">
+            @csrf
+            @method('PUT')
 
+            <div class="form-group">
+              <label >Nombre</label>
+                <input type="text" class="form-control" name="nombre" 
+                value="{{$estudiante->nombre}}">
+                  </div>
 
-</div>
-</div>
-</div>
-</div>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label>Primer apellido</label>
+                            <input type="text" class="form-control" name="apellido_p" 
+                            value="{{$estudiante->apellido_p }}">
+                          </div>
+                          
+                          <div class="form-group col-md-6">
+                            <label o_m">Segundo apellido</label>
+                            <input type="text" class="form-control" name="apellido_m" 
+                            value="{{ $estudiante->apellido_m }}">
+                          </div>
+                        </div>
+
+                          <div class="form-group col-md-6">
+                            <label la"> Matricula</label>
+                            <input type="password" class="form-control" name="matricula"  
+                            value="{{$estudiante->matricula }}">
+                          </div>
+                        </div>
+                        <br>
+                        <div class="form-row">
+                      
+                          <button type="submit" class="btn btn-primary">Actualizar</button>
+                    </div>
+                        {{-- estudianate --}}
+                  </form> 
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 @endsection

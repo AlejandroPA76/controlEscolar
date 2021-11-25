@@ -6,7 +6,7 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
-          <h4>Datos del Tutor</h4>
+          <h4>Editar del Tutor</h4>
           <form method="POST" action ="{{ route('admin.updateTutores',$tutor->id) }}">
             @csrf
             @method('PUT')

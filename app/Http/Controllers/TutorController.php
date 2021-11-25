@@ -54,6 +54,8 @@ class TutorController extends Controller
         $estudiante->matricula=$request->input('matricula_a');
         $estudiante->save();
 
+
+
         return redirect()->route('admin.indexTutores');
 
     }
@@ -82,6 +84,7 @@ class TutorController extends Controller
     {
         return view('administrativo.tutores.editTutores')->with([
             'tutor'=>$tutor,
+
         ]);
 
     }
@@ -103,6 +106,8 @@ class TutorController extends Controller
         $tutor->update($data);
         return redirect()->route('admin.indexTutores')
         ->withSuccess("El usuario tutor con el id {$tutor->id} ha sido editado");
+
+        
     }
 
     /**

@@ -53,7 +53,7 @@
                                 <a href="{{route('admin.indexTutores')}}" class="d-block text-light p-3 border-0"><i ></i>
                                     Tutores</a>
                 
-                                <a href="{{route('admin.indexDocente')}}" class="d-block text-light p-3 border-0"><i ></i>
+                                <a href="{{route('admin.indexDocentes')}}" class="d-block text-light p-3 border-0"><i ></i>
                                     Docentes</a>
                                 <a href="{{route('admin.index')}}" class="d-block text-light p-3 border-0"><i ></i>
                                     Grupos</a>

@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('menu/index', 'AdministrativoController@index')->name('admin.index');
+Route::get('admin/index', 'AdministrativoController@index')->name('admin.index');
 // ----------------------------------------------------------------------------------
 
 Route::get('admin/index/tutores', 'TutorController@index')->name('admin.indexTutores');
@@ -19,13 +19,13 @@ Route::get('admin/created/tutores', 'TutorController@create')->name('admin.creat
 
 Route::post('admin/store/tutores', 'TutorController@store')->name('admin.storeTutores');
 
-Route::get('admin/show/{tutor}', 'TutorController@show')->name('admin.showTutores');
+Route::get('admin/show-tutor/{tutor}', 'TutorController@show')->name('admin.showTutores');
 
-Route::get('admin/edit/{tutor}', 'TutorController@edit')->name('admin.editTutores');
+Route::get('admin/edit-tutor/{tutor}', 'TutorController@edit')->name('admin.editTutores');
 
-Route::put('admin/{tutor}/update', 'TutorController@update')->name('admin.updateTutores');
+Route::put('admin/tutores/{tutor}/update', 'TutorController@update')->name('admin.updateTutores');
 
-Route::delete('admin/destroy/{tutor}', 'TutorController@destroy')->name('admin.destroyTutores');
+Route::delete('admin/tutores/destroy/{tutor}', 'TutorController@destroy')->name('admin.destroyTutores');
 // ----------------------------------------------------------------------------------------------------------------
 
 Route::get('admin/index/estudiantes', 'EstudianteController@index')->name('admin.indexEstudiantes');
@@ -34,28 +34,28 @@ Route::get('admin/created/estudiantes', 'EstudianteController@create')->name('ad
 
 Route::post('admin/store/estudiantes', 'EstudianteController@store')->name('admin.storeEstudiantes');
 
-Route::get('admin/show/{estudiante}', 'EstudianteController@show')->name('admin.showEstudiantes');
+Route::get('admin/show-estudiantes/{estudiante}', 'EstudianteController@show')->name('admin.showEstudiantes');
 
-Route::get('admin/edit/estudiantes', 'EstudianteController@edit')->name('admin.editEstudiantes');
+Route::get('admin/edit-estudiantes/{estudiante}', 'EstudianteController@edit')->name('admin.editEstudiantes');
 
-Route::put('admin/{estudiantes}/update', 'EstudianteController@update')->name('admin.updateEstudiantes');
+Route::put('admin/estudiantes/{estudiante}/update', 'EstudianteController@update')->name('admin.updateEstudiantes');
 
-Route::delete('admin/destroy/{estudiante}', 'EstudianteController@destroy')->name('admin.destroyEstudiantes');
+Route::delete('admin/estudiantes/destroy/{estudiante}', 'EstudianteController@destroy')->name('admin.destroyEstudiantes');
 // ----------------------------------------------------------------------------------------------------------------
 
-Route::get('admin/index/docentes', 'DocenteController@index')->name('admin.indexDocente');
+Route::get('admin/index/docentes', 'DocenteController@index')->name('admin.indexDocentes');
 
-Route::get('admin/created/docentes', 'DocenteController@create')->name('admin.createdDocente');
+Route::get('admin/created/docentes', 'DocenteController@create')->name('admin.createdDocentes');
 
-Route::post('admin/store/docentes', 'DocenteController@store')->name('admin.storeDocente');
+Route::post('admin/store/docentes', 'DocenteController@store')->name('admin.storeDocentes');
 
-Route::get('admin/show/{docentes}', 'DocenteController@show')->name('admin.showDocente');
+Route::get('admin/show-docentes/{docentes}', 'DocenteController@show')->name('admin.showDocentes');
 
-Route::get('admin/edit/docentes', 'DocenteController@edit')->name('admin.editDocente');
+Route::get('admin/edit-docentes/docentes', 'DocenteController@edit')->name('admin.editDocentes');
 
-Route::put('admin/{docentes}/update', 'DocenteController@update')->name('admin.updateDocente');
+Route::put('admin/docentes-update/{docentes}', 'DocenteController@update')->name('admin.updateDocentes');
 
-Route::delete('admin/destroy/{docentes}', 'DocenteController@destroy')->name('admin.destroyDocente');
+Route::delete('admin/docentes/destroy/{docentes}', 'DocenteController@destroy')->name('admin.destroyDocentes');
 // ----------------------------------------------------------------------------------------------------------------
 
 Route::get('admin/crear/grupo', function () {

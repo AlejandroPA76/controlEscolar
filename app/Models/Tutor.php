@@ -13,7 +13,6 @@ class Tutor extends Model
         'nombre',
         'usuario',
         'contraseña',
-        'confirmcontraseña',
         'apellido_p',
         'apellido_m',
     ];
