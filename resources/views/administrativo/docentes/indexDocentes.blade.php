@@ -19,7 +19,7 @@
           <h4>docentees</h4>
         </div>
           <div class="ml-2">
-            <a class="btn btn-success btn-md ml-4 " href="{{ route('admin.createdDocente')}}">Crear</a>
+            <a class="btn btn-success btn-md ml-4 " href="{{ route('admin.createdDocentes')}}">Crear</a>
           </div>
           <div class="table-responsive">
             <table class="table">
@@ -44,12 +44,12 @@
                   <td>{{$docente->usuario}}</td>
                   <td>{{$docente->created_at}}</td>
                   <td>
-                    <a class="btn btn-link" href="{{ route('admin.showdocentees', $docente->id) }}">Ver</a>
+                    <a class="btn btn-link" href="{{ route('admin.showDocentes', $docente->id) }}">Ver</a>
                         {{-- podemo usar el titulo del procto paara que se muestre en la url en lugar del id como se obe¿serva en la siguiente linea  se hace junto con el parametro de las rutas--}}
                         {{-- <a class="btn btn-link" href="{{ route('docentes.show', ['docente' => $docente->title]) }}">Ver</a> --}}
-                        <a class="btn btn-link" href="{{ route('admin.editdocentees', ['docente'=>$docente->id]) }}">Editar</a>
+                        <a class="btn btn-link" href="{{ route('admin.editDocentes', $docente->id) }}">Editar</a>
 
-                      <form method="POST" class="d-inLine" action="{{ route('admin.destroydocentees', $docente->id) }}">
+                      <form method="POST" class="d-inLine" action="{{ route('admin.destroyDocentes', $docente->id) }}">
                          @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-link">Borrar</button>

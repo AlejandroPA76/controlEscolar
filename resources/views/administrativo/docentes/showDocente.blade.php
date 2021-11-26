@@ -2,69 +2,31 @@
 
 @section('content')
     
+<div class="container mt-3">
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido paterno</th>
+      <th scope="col">Apellido materno</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">fecha de creacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <h5>Informacion del docente</h5>
+      <th scope="row">{{ $docentes->id }}</th>
+      <td>{{ $docentes->nombre }}</td>
+      <td>{{ $docentes->apellido_p }}</td>
+      <td>{{ $docentes->apellido_m }}</td>
+      <td>{{ $docentes->usuario }}</td>
+      <td>{{ $docentes->created_at }}</td>
+    </tr>
+  </tbody>
+</table>
 
-<!-- no additional media querie or css is required -->
-<div class="container">
-    <div class="row" style="height:100vh">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Datos del Docente</h3>
-                    <form>
-                        <div class="form-group">
-                          <label>Matricula</label>
-                          <input type="text" class="form-control"  placeholder="Opcional">
-                        </div>
-                      
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="inputEmail4">Primer nombre</label>
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="">
-                        </div>
-
-                        <div class="form-group col-md-6">
-                          <label for="inputPassword4">Segundo nombre</label>
-                          <input type="password" class="form-control" id="inputPassword4" placeholder="">
-                        </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="inputEmail4">Primer apellido</label>
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="">
-                        </div>
-
-                        <div class="form-group col-md-6">
-                          <label for="inputPassword4">Segundo apellido</label>
-                          <input type="password" class="form-control" id="inputPassword4" placeholder="">
-                        </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="inputEmail4">usuario</label>
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="">
-                        </div>
-
-                        <div class="form-group col-md-6">
-                          <label for="inputPassword4">Contraseña</label>
-                          <input type="password" class="form-control" id="inputPassword4" placeholder="">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="inputAddress2">Confirmar contraseña</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="">
-                      </div>
-                      <button type="submit" class="btn btn-primary">Registrar</button>
-                    </form> 
-        
-                
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+</div>
 @endsection
