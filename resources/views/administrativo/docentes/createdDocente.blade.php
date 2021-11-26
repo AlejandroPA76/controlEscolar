@@ -14,8 +14,8 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
-          <h4>Datos del Tutor</h4>
-          <form action="{{route ('admin.storeDocente')}}" method="post">
+          <h4>Datos del docente</h4>
+          <form action="{{route ('admin.storeDocentes')}}" method="post">
             @csrf
 
             <div class="form-group">

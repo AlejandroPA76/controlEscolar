@@ -15,5 +15,6 @@ class Docente extends Model
         'contraseña',
         'apellido_p',
         'apellido_m',
+        'matricula',
     ];
 }

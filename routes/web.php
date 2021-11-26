@@ -53,7 +53,7 @@ Route::get('admin/show-docentes/{docentes}', 'DocenteController@show')->name('ad
 
 Route::get('admin/edit-docentes/docentes', 'DocenteController@edit')->name('admin.editDocentes');
 
-Route::put('admin/docentes-update/{docentes}', 'DocenteController@update')->name('admin.updateDocentes');
+Route::put('admin/docentes/{docentes}/update', 'DocenteController@update')->name('admin.updateDocentes');
 
 Route::delete('admin/docentes/destroy/{docentes}', 'DocenteController@destroy')->name('admin.destroyDocentes');
 // ----------------------------------------------------------------------------------------------------------------
@@ -62,22 +62,9 @@ Route::get('admin/crear/grupo', function () {
     return view('administrativo.crearGrupo');
 })->name('admin.crearGrupo');
 
-Route::get('admin/docentes', function () {
-    return view('administrativo.docentes');
-})->name('admin.indexDocentes');
-
-Route::get('admin/registrar/docentes', function () {
-    return view('administrativo.registrarDocentes');
-})->name('admin.registrarDocentes');
 
 
-Route::get('menu/docente', function () {
-    return view('docente.menuDocente');
-})->name('menuDocente');
 
-Route::get('menu/tutor', function () {
-    return view('tutor.menuTutor');
-})->name('menuTutor');
 
 Route::get('menu/tutor/observaciones', function () {
     return view('tutor.observaciones');
