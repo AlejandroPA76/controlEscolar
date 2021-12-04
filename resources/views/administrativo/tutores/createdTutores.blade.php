@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
     
@@ -9,7 +9,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- no additional media querie or css is required -->
-<div class="container mt-2">
+<div class="container-fluid mt-3">
   <div class="row justify-content-center align-items-center" style="">
     <div class="col">
       <div class="card">
@@ -18,6 +18,10 @@
           <form action="{{route ('admin.storeTutores')}}" method="post">
             @csrf
 
+            {{-- <div class="form-group">
+              <label for="name">Nombre</label>
+                <input type="text" class="form-control" name="name" placeholder="Ingrese el nombre" autofocus>
+                  </div> --}}
             <div class="form-group">
               <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre" autofocus>
@@ -37,15 +41,52 @@
 
                         <div class="form-row">
                           <div class="form-group col-md-6">
-                            <label for="usuario"> Usuario</label>
-                            <input type="text" class="form-control" name="usuario" placeholder="por ej: nombre@apellido">
+                            <label for="email"> Usuario</label>
+                            <input type="text" class="form-control" name="email" placeholder="por ej: nombre@apellido">
                           </div>
                           
                           <div class="form-group col-md-6">
-                            <label for="contraseña"> Contraseña</label>
-                            <input type="password" class="form-control" name="contraseña" placeholder="Crea una contraseña">
+                            <label for="password"> Contraseña</label>
+                            <input type="password" class="form-control" name="password" placeholder="Crea una contraseña">
                           </div>
                         </div>
+                        
+                        
+                        {{-- <div class="row">
+                          <label for="roles" class="col-sm-2 col-form-label">Roles</label>
+                          <div class="col-sm-7">
+                              <div class="form-group">
+                                  <div class="tab-content">
+                                      <div class="tab-pane active">
+                                          <table class="table">
+                                              <tbody>
+                                                  @foreach ($roles as $id => $role)
+                                                  <tr>
+                                                      <td>
+                                                          <div class="form-check">
+                                                              <label class="form-check-label">
+                                                                  <input class="form-check-input" type="checkbox" name="roles[]"
+                                                                      value="{{ $id }}"
+                                                                  >
+                                                                  <span class="form-check-sign">
+                                                                      <span class="check"></span>
+                                                                  </span>
+                                                              </label>
+                                                          </div>
+                                                      </td>
+                                                      <td>
+                                                          {{ $role }}
+                                                      </td>
+                                                  </tr>
+                                                  @endforeach
+                                              </tbody>
+                                          </table>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div> --}}
+
                         
                         <br>
                         {{-- estudianate --}}

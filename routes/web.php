@@ -10,7 +10,17 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('admin/index', 'AdministrativoController@index')->name('admin.index');
+Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
+Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('users.show');
+Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
+
+
+// ---------------------------------------------------------------------------------
+Route::get('panel/index', 'AdministrativoController@index')->name('panel.index');
 // ----------------------------------------------------------------------------------
 
 Route::get('admin/index/tutores', 'TutorController@index')->name('admin.indexTutores');
@@ -51,7 +61,7 @@ Route::post('admin/store/docentes', 'DocenteController@store')->name('admin.stor
 
 Route::get('admin/show-docentes/{docentes}', 'DocenteController@show')->name('admin.showDocentes');
 
-Route::get('admin/edit-docentes/docentes', 'DocenteController@edit')->name('admin.editDocentes');
+Route::get('admin/edit-docentes/{docentes}', 'DocenteController@edit')->name('admin.editDocentes');
 
 Route::put('admin/docentes/{docentes}/update', 'DocenteController@update')->name('admin.updateDocentes');
 
@@ -61,10 +71,6 @@ Route::delete('admin/docentes/destroy/{docentes}', 'DocenteController@destroy')-
 Route::get('admin/crear/grupo', function () {
     return view('administrativo.crearGrupo');
 })->name('admin.crearGrupo');
-
-
-
-
 
 Route::get('menu/tutor/observaciones', function () {
     return view('tutor.observaciones');
@@ -81,6 +87,17 @@ Route::get('menu/contador/historial/Pagos', function () {
 Route::get('menu/contador/historial/Pagos/recientes', function () {
     return view('contador.historialDePagosReciente');
 })->name('menuContadorHistorialDePagosReciente');
+
+Route::resource('permissions', PermissionController::class);
+Route::resource('roles', RoleController::class);
+
+// Route::get('permissions', 'PermissionController@edit')->name('permissions.edit');
+// Route::put('permissions/update/{permission}', 'PermissionController@update')->name('permissions.update');
+// Route::delete('permissions/delete/{permission}', 'PermissionController@destroy')->name('permissions.destroy');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

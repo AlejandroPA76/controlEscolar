@@ -1,9 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
     
 
-<div class="container mt-3">
+<div class="container-fluid mt-3">
 
   <table class="table table-bordered">
     <thead>

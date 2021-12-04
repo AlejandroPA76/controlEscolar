@@ -18,7 +18,7 @@ class AdministrativoController extends Controller
      */
     public function index()
     {
-        
+        return view('layouts.dashboard');
     }
 
     /**

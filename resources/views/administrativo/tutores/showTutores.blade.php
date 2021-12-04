@@ -1,8 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
 
-<div class="container mt-3">
+<div class="container-fluid mt-3">
 
   <table class="table table-bordered">
     <thead>
@@ -12,6 +12,7 @@
       <th scope="col">Apellido paterno</th>
       <th scope="col">Apellido materno</th>
       <th scope="col">Usuario</th>
+      {{-- <th scope="col">Rol</th> --}}
       <th scope="col">fecha de creacion</th>
     </tr>
   </thead>
@@ -22,7 +23,15 @@
       <td>{{ $tutor->nombre }}</td>
       <td>{{ $tutor->apellido_p }}</td>
       <td>{{ $tutor->apellido_m }}</td>
-      <td>{{ $tutor->usuario }}</td>
+      {{-- <td>{{ $users->email }}</td> --}}
+      <td> @forelse ($tutor->roles as $role)
+      
+      <span class="badge rounded-pill bg-success text-white">{{$role->name}}</span>    
+      @empty
+      <span class="badge bg-danger bg-danger">Sin asignar rol</span>    
+      
+      @endforelse
+    </td>
       <td>{{ $tutor->created_at }}</td>
     </tr>
   </tbody>

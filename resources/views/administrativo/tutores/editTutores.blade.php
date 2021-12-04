@@ -1,7 +1,7 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
-<div class="container mt-2">
+<div class="container-fluid mt-3">
   <div class="row justify-content-center align-items-center" style="">
     <div class="col">
       <div class="card">
@@ -45,7 +45,36 @@
                           </div>
                         </div>
                         <br>
-                        <div class="form-row">
+
+                        <div class="row">
+                          <label for="name" class="col-sm-2 col-form-label">Agregar rol del usuario</label>
+                        <table class="table">
+                                    <tbody>
+                                        @foreach ($roles as $id => $role)
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            name="roles[]"
+                                                            value="{{ $id }}" {{ $tutor->roles->contains($id) ? 'checked' : ''}}
+                                                        >
+                                                        <span class="form-check-sign">
+                                                            <span class="check" value=""></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{ $role }}
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                        </div>
+
+                        <div class="form-row mt-2">
                       
                           <button type="submit" class="btn btn-primary">Actualizar</button>
                     </div>

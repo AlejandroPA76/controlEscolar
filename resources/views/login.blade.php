@@ -10,22 +10,35 @@
                 <div class="card">
                     <div class="card-body">
                       <h1>Iniciar sesion</h1>
-                        <form action="" autocomplete="off">
+                      
+                      <form method="POST" action="{{ route('login') }}">
+                        @csrf
                             <div class="form-group">
                               <label>Ingresa tu usuario:</label>
-                                <input type="text" class="form-control" name="username">
-                            </div>
+                              <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                              @error('email')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror                            </div>
                             <div class="form-group">
                               <label>Ingresa tu contrasena:</label>
-                                <input type="password" class="form-control" name="password">
-                            </div>
+                              <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                              @error('password')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror                            </div>
                             <div >
                                <a href="" class="float-right">Usuario nuevo?,registrate</a>
                             </div>
                             </div>
+                            <button type="submit" class="btn btn-primary">
+                              {{ __('Login') }}
+                          </button>
             
-                             
-                            <button type="button" id="sendlogin" class="btn btn-primary float-right">Iniciar Sesion</button>
                         </form>
                     </div>
                 </div>

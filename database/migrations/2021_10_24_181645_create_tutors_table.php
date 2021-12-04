@@ -16,11 +16,11 @@ class CreateTutorsTable extends Migration
         Schema::create('tutors', function (Blueprint $table) {
             $table->id();
             $table->string('rol')->nullable();
-            $table->string('nombre')->nullable();
+            $table->string('nombre');
             $table->string('apellido_p');
             $table->string('apellido_m');
-            $table->string('usuario')->unique();
-            $table->string('contraseña');
+            // $table->string('usuario')->unique();
+            // $table->string('contraseña');
             $table->timestamps();
         });
     }

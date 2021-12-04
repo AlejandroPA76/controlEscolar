@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tutor;
+use App\Models\User;
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
+use Spatie\Permission\Contracts\Role as ContractsRole;
+use Spatie\Permission\Models\Role;
 
 class TutorController extends Controller
 {
@@ -15,8 +18,9 @@ class TutorController extends Controller
      */
     public function index()
     {
+        $users=User::all();
         $tutores = Tutor::Paginate(10);
-        return view('administrativo.tutores.indexTutores', compact('tutores'));
+        return view('administrativo.tutores.indexTutores', compact('tutores', 'users'));
     }
 
     /**
@@ -39,13 +43,17 @@ class TutorController extends Controller
     public function store(Request $request)
     {
         
-        Tutor::create($request->only(
+        $tutores = Tutor::create($request->only(
             'nombre',
             'apellido_p',
             'apellido_m', 
-            'usuario',) + [
-            'contraseña' => bcrypt (request()->input('contraseña'))
-         ]);
+            ));
+        
+        $users = User::create($request->only(
+            // 'name',
+            'email',) + [
+            'password' => bcrypt (request()->input('password'))
+            ]);
 
         $estudiante = new Estudiante;
         $estudiante->nombre=$request->input('nombrealumno');
@@ -54,7 +62,8 @@ class TutorController extends Controller
         $estudiante->matricula=$request->input('matricula_a');
         $estudiante->save();
 
-
+        $roles = $request->input('roles', []);
+        $tutores->syncRoles($roles);
 
         return redirect()->route('admin.indexTutores');
 
@@ -66,10 +75,14 @@ class TutorController extends Controller
      * @param  \App\Models\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function show(Tutor $tutor)
+    public function show(Tutor $tutor, User $user)
     {
         // $tutor = Tutor::findOrFail($tutor);
         // return view('administrativo.showTutores')->with($tutor);
+
+        // $tutor->load('roles');
+        // $users = User::all();
+        $tutor->load('roles');
 
         return view('administrativo.tutores.showTutores', compact('tutor'));
     }
@@ -82,10 +95,11 @@ class TutorController extends Controller
      */
     public function edit(Tutor $tutor)
     {
-        return view('administrativo.tutores.editTutores')->with([
-            'tutor'=>$tutor,
+        $roles = Role::all()->pluck('name', 'id');
+        $tutor->load('roles');
 
-        ]);
+        return view('administrativo.tutores.editTutores', compact('tutor', 'roles'));
+
 
     }
 
@@ -104,6 +118,11 @@ class TutorController extends Controller
         $data['contraseña']=bcrypt($contraseña);
 
         $tutor->update($data);
+
+        $tutor->update($data);
+        $roles = $request->input('roles', []);
+        $tutor->syncRoles($roles);
+
         return redirect()->route('admin.indexTutores')
         ->withSuccess("El usuario tutor con el id {$tutor->id} ha sido editado");
 

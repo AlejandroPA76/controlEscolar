@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
     
@@ -9,7 +9,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- no additional media querie or css is required -->
-<div class="container">
+<div class="container-fluid mt-3">
   <div class="row" style="height:100vh">
     <div class="col">
       <div class="card">

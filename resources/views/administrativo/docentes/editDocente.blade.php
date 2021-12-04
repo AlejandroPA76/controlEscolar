@@ -1,8 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
     
-<div class="container mt-2">
+<div class="container-fluid mt-2">
   <div class="row justify-content-center align-items-center" style="">
     <div class="col">
       <div class="card">

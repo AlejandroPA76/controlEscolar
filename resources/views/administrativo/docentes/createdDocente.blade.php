@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
     
@@ -9,7 +9,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- no additional media querie or css is required -->
-<div class="container mt-2">
+<div class="container-fluid mt-2">
   <div class="row justify-content-center align-items-center" style="">
     <div class="col">
       <div class="card">
@@ -39,17 +39,17 @@
                           </div>
                         </div>
 
-                        <div class="form-row">
+                        {{-- <div class="form-row">
                           <div class="form-group col-md-6">
-                            <label for="usuario"> Usuario</label>
-                            <input type="text" class="form-control" name="usuario" placeholder="por ej: nombre@apellido">
+                            <label for="email"> Usuario</label>
+                            <input type="text" class="form-control" name="email" placeholder="por ej: nombre@apellido">
                           </div>
                           
                           <div class="form-group col-md-6">
                             <label for="contraseña"> Contraseña</label>
                             <input type="password" class="form-control" name="contraseña" placeholder="Crea una contraseña">
                           </div>
-                        </div>
+                        </div> --}}
 
                       <div class="form-row">
                       

@@ -16,26 +16,8 @@
             <!-- Navbar Brand-->
             {{-- <a class="text-light navbar-brand ps-3" href="index.html">Start Bootstrap</a> --}}
             <!-- Sidebar Toggle-->
-            <button class="btn btn-light btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Bucar" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-light" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
+            <button class="btn btn-light btn-sm  ml-10" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
         </nav>
         {{-- sidebar --}}
         <div id="layoutSidenav">
@@ -57,8 +39,14 @@
                                     Docentes</a>
                                 <a href="{{route('admin.index')}}" class="d-block text-light p-3 border-0"><i ></i>
                                     Grupos</a>
+                                <a href="{{route('permissions.index')}}" class="d-block text-light p-3 border-0"><i ></i>
+                                    Permisos</a>
+                                <a href="{{route('roles.index')}}" class="d-block text-light p-3 border-0"><i ></i>
+                                    Rol de usuarios</a>
                                 <a href="#" class="d-block text-light p-3 border-0"> <i></i>
                                     Pagos</a>
+                                <a href="{{route('users.index')}}" class="d-block text-light p-3 border-0"> <i></i>
+                                    Usuarios</a>
                             </div>
                         </div>
                     </div>
@@ -68,18 +56,6 @@
                 <main>
                     @yield('content')
                 </main>
-                {{-- <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer> --}}
             </div>
         </div>
         {{-- fin sidebar --}}

@@ -93,7 +93,7 @@ class DocenteController extends Controller
         $data['contraseña']=bcrypt($contraseña);
 
         $docentes->update($data);
-        return redirect()->route('admin.indexDocente')
+        return redirect()->route('admin.indexDocentes')
         ->withSuccess("El usuario tutor con el id {$docentes->id} ha sido editado");
 
         
@@ -105,11 +105,11 @@ class DocenteController extends Controller
      * @param  \App\Models\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Docente $docente)
+    public function destroy(Docente $docentes)
     {
-        $docente->delete();
+        $docentes->delete();
 
-        return redirect()->route('admin.indexDocente')
-        ->withSuccess("El producto con el id {$docente->id} ha sido borrado");
+        return redirect()->route('admin.indexDocentes')
+        ->withSuccess("El producto con el id {$docentes->id} ha sido borrado");
     }
 }

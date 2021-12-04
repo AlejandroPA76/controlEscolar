@@ -17,7 +17,7 @@ class CreateDocentesTable extends Migration
             $table->id();
             $table->integer('rol')->nullable();
             $table->string('matricula')->unique();
-            $table->string('nombre');
+            $table->string('nombre')->nullable();
             $table->string('apellido_p');
             $table->string('apellido_m');
             $table->string('usuario')->unique();

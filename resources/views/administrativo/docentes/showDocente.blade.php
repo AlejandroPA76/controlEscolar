@@ -1,8 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
     
-<div class="container mt-3">
+<div class="container-fluid mt-3">
 
   <table class="table table-bordered">
     <thead>
@@ -10,6 +10,7 @@
         <th scope="col">Id</th>
       <th scope="col">Nombre</th>
       <th scope="col">Apellido paterno</th>
+      <th scope="col">Apellido materno</th>
       <th scope="col">Apellido materno</th>
       <th scope="col">Usuario</th>
       <th scope="col">fecha de creacion</th>

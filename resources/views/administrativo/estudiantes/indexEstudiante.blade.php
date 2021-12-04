@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
     
@@ -8,7 +8,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container mt-3">
+<div class="container-fluid mt-3">
   <div class="row" style="height:100vh">
     <div class="col">
       <div class="card">

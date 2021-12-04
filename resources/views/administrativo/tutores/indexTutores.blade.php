@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
     
@@ -9,7 +9,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- no additional media querie or css is required -->
-<div class="container mt-3">
+<div class="container-fluid mt-3">
   <div class="row" style="height:100vh">
     <div class="col">
       <div class="card">
@@ -29,30 +29,39 @@
                 <th>Nombre</th>
                 <th>Apellido paterno</th>
                 <th>Apellido materno</th>
-                <th>Usuario</th>
-                <th>Creado</th>
+                {{-- <th>Usuario</th> --}}
+                {{-- <th>Rol del usuario</th> --}}
                 <th class="text-right" >Acciones</th>
               </thead>
               {{-- cuerpo --}}
               <tbody>
-                @foreach ($tutores as $tutor)
+              @foreach ($tutores as $tutor)
                 <tr>
                   <td>{{$tutor->id}}</td>
                   <td>{{$tutor->nombre}}</td>
                   <td>{{$tutor->apellido_p}}</td>
                   <td>{{$tutor->apellido_m}}</td>
-                  <td>{{$tutor->usuario}}</td>
-                  <td>{{$tutor->created_at}}</td>
+                  {{-- <td>{{$tutor->usuario}}</td> --}}
+                  
+                  {{-- <td>
+                    @forelse ($tutor->roles as $role)
+                        <span class="badge rounded-pill bg-success text-white">{{ $role->name }}</span>
+
+                    @empty
+                        <span class="badge bg-danger bg-danger ">No se ha agregado rol</span>
+                    @endforelse
+                  </td> --}}
+
                   <td>
-                    <a class="btn btn-link" href="{{ route('admin.showTutores', $tutor->id) }}">Ver</a>
+                    <a class="btn btn-info" href="{{ route('admin.showTutores', $tutor->id) }}">Ver</a>
                         {{-- podemo usar el titulo del procto paara que se muestre en la url en lugar del id como se obe¿serva en la siguiente linea  se hace junto con el parametro de las rutas--}}
                         {{-- <a class="btn btn-link" href="{{ route('tutors.show', ['tutor' => $tutor->title]) }}">Ver</a> --}}
-                        <a class="btn btn-link" href="{{ route('admin.editTutores', ['tutor'=>$tutor->id]) }}">Editar</a>
+                        <a class="btn btn-success" href="{{ route('admin.editTutores', ['tutor'=>$tutor->id]) }}">Editar</a>
 
                       <form method="POST" class="d-inLine" action="{{ route('admin.destroyTutores', $tutor->id) }}">
                          @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-link">Borrar</button>
+                        <button type="submit" class="btn btn-danger">Borrar</button>
                       </form>
                   </td>
                 </tr>

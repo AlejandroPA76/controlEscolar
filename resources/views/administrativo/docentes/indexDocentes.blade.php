@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('content')
     
@@ -9,19 +9,19 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- no additional media querie or css is required -->
-<div class="container mt-3">
+<div class="container-fluid mt-3">
   <div class="row" style="height:100vh">
     <div class="col">
       <div class="card">
         
       <div class="card-body"> 
-        <div class="ml-3">
-          <h4>docentees</h4>
+        <div class="ml-1">
+          <h4>Docentes</h4>
         </div>
-          <div class="ml-2">
+          <div class="ml-">
             <a class="btn btn-success btn-md ml-4 " href="{{ route('admin.createdDocentes')}}">Crear</a>
           </div>
-          <div class="table-responsive">
+          <div class="table-responsive mt-3">
             <table class="table">
               {{-- encabezado --}}
               <thead class="text primary">
