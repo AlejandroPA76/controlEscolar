@@ -43,18 +43,25 @@ class TutorController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $tutores = Tutor::create($request->only(
-            'nombre',
-            'apellido_p',
-            'apellido_m', 
-            ));
-        
         $users = User::create($request->only(
             // 'name',
             'email',) + [
             'password' => bcrypt (request()->input('password'))
             ]);
+
+
+        // $ultimoregistro = Producto::latest()->first()->id;
+        $user=User::latest()->first()->id;
+        echo($user);
+        $tutores = Tutor::create($request->only(
+            'nombre',
+            'apellido_p',
+            'apellido_m', 
+            'user_id'
+            )
+    );
+        
+        
 
         $estudiante = new Estudiante;
         $estudiante->nombre=$request->input('nombrealumno');
@@ -64,7 +71,7 @@ class TutorController extends Controller
         $estudiante->save();
 
         $roles = $request->input('roles', []);
-        $tutores->syncRoles($roles);
+        $users->syncRoles($roles);
 
         return redirect()->route('admin.indexTutores');
 

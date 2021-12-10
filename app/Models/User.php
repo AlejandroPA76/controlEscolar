@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Tutor;
 
 class User extends Authenticatable
 {
@@ -49,5 +50,9 @@ class User extends Authenticatable
     public function encrypt ($pass)
     {
         return Hash::make($pass);;
+    }
+
+    public function tutor(){
+        return $this->belongsTo('App\Tutor');
     }
 }
