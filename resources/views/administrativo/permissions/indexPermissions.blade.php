@@ -34,12 +34,18 @@
                         <td>{{$permission->guard_name}}</td>
                         <td>{{$permission->created_at}}</td>
                         <td>
-                            <a class="btn btn-link" href="{{ route('permissions.show', $permission->id) }}">Ver</a>
-                            <a class="btn btn-link" href="{{ route('permissions.edit', $permission->id) }}">Editar</a>
+                            <a href="{{ route('permissions.show', $permission->id) }}" class="btn btn-info">
+                              <i class="material-icons">Ver</i>
+                            </a>
+                            <a  href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-warning">
+                              <i class="material-icons">Editar</i>
+                            </a>
                             <form method="POST" class="d-inLine" action="{{ route('permissions.destroy', $permission->id) }}">
                                 @csrf
                                @method('DELETE')
-                               <button type="submit" class="btn btn-link">Borrar</button>
+                               <button type="submit" class="btn btn-danger">
+                                 <i class="material-icons">Borrar</i>
+                               </button>
                              </form>
                         </td>
                       </tr>

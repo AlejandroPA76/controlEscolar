@@ -44,15 +44,17 @@
                   <td>{{$docente->usuario}}</td>
                   <td>{{$docente->created_at}}</td>
                   <td>
-                    <a class="btn btn-primary" href="{{ route('admin.showDocentes', $docente->id) }}">Ver</a>
+                    <a class="btn btn-info"><i class="material-icons" href="{{ route('admin.showDocentes', $docente->id) }}">Ver</a>
                         {{-- podemo usar el titulo del procto paara que se muestre en la url en lugar del id como se obe¿serva en la siguiente linea  se hace junto con el parametro de las rutas--}}
                         {{-- <a class="btn btn-link" href="{{ route('docentes.show', ['docente' => $docente->title]) }}">Ver</a> --}}
-                        <a class="btn btn-warning" href="{{ route('admin.editDocentes', $docente->id) }}">Editar</a>
+                        <a class="btn btn-warning"><i class="material-icons" href="{{ route('admin.editDocentes', $docente->id) }}">Editar</a>
 
                       <form method="POST" class="d-inLine" action="{{ route('admin.destroyDocentes', $docente->id) }}">
                          @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Borrar</button>
+                        <button type="submit" class="btn btn-danger" class="material-icons">
+                          <i class="material-icons">Borrar</i>
+                        </button>
                       </form>
                   </td>
                 </tr>
