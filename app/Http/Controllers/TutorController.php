@@ -51,14 +51,16 @@ class TutorController extends Controller
 
 
         // $ultimoregistro = Producto::latest()->first()->id;
-        $user=User::latest()->first()->id;
-        echo($user);
+        $userlast=User::latest()->first()->id;
+        echo($userlast);
         $tutores = Tutor::create($request->only(
             'nombre',
             'apellido_p',
             'apellido_m', 
-            'user_id'
+            'user_id'=>'userlast',
             )
+        //$tutores->user_id=$userlast;
+        
     );
         
         

@@ -17,6 +17,7 @@ class Tutor extends Model
         // 'contraseña',
         'apellido_p',
         'apellido_m',
+        'user_id',
     ];
     
     public function guardName(){
