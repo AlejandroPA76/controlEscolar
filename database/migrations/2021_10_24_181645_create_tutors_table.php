@@ -21,6 +21,10 @@ class CreateTutorsTable extends Migration
             $table->string('apellido_m');
             // $table->string('usuario')->unique();
             // $table->string('contraseña');
+
+            $table->foreignId('user_id')
+            ->constrained('users')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
