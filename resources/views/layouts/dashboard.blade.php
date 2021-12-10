@@ -57,7 +57,11 @@
             margin-left: -15rem;
         }
         }
-        </style>    
+        </style>
+        
+        <link rel="stylesheet" href="{{asset('css/all.css')}}">
+        
+        
     </head>
     <body class="sb-nav-fixed">
 
@@ -100,7 +104,10 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <button class="btn btn-primary" id="menu-toggle">Ocultar</button>
+            <button class="btn btn-primary" id="menu-toggle">
+                <i class="fas fa-ellipsis-v"></i>          
+            </button>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>

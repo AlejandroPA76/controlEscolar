@@ -52,7 +52,7 @@
                         </div>
                         
                         
-                        {{-- <div class="row">
+                        <div class="row">
                           <label for="roles" class="col-sm-2 col-form-label">Roles</label>
                           <div class="col-sm-7">
                               <div class="form-group">
@@ -85,7 +85,7 @@
                                   </div>
                               </div>
                           </div>
-                      </div> --}}
+                      </div> 
 
                         
                         <br>

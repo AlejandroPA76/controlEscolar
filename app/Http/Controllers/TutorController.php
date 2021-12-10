@@ -30,7 +30,8 @@ class TutorController extends Controller
      */
     public function create()
     {
-        return view('administrativo.tutores.createdTutores');
+        $roles = Role::all()->pluck('name', 'id');
+        return view('administrativo.tutores.createdTutores', compact('roles'));
 
     }
 
