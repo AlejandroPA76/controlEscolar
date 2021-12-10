@@ -64,7 +64,7 @@ class TutorController extends Controller
         $estudiante->save();
 
         $roles = $request->input('roles', []);
-        $tutores->syncRoles($roles);
+        $users->syncRoles($roles);
 
         return redirect()->route('admin.indexTutores');
 
