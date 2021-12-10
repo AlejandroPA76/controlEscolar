@@ -63,13 +63,14 @@ class TutorController extends Controller
         ]);
 
         
-        
+        $tutor=Tutor::latest()->first()->id;
 
         $estudiante = new Estudiante;
         $estudiante->nombre=$request->input('nombrealumno');
         $estudiante->apellido_p=$request->input('apellido_p_a');
         $estudiante->apellido_m=$request->input('apellido_m_a');
         $estudiante->matricula=$request->input('matricula_a');
+        $estudiante->tutor_id=$tutor;
         $estudiante->save();
 
         //$roles = $request->input('roles', []);
