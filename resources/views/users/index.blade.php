@@ -50,10 +50,9 @@
 
                                 <a href="{{ route('users.show', $user->id) }}" class="btn btn-info"><i class="material-icons">Ver</i></a>
                                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="material-icons">Editar</i></a>
-
-                               <form action="{{ route('users.delete', $user->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
-                                @csrf
-                                @method('DELETE')
+                                <form action="{{ route('users.delete', $user->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
+                                  @csrf
+                                  @method('DELETE')
                                     <button class="btn btn-danger" type="submit" rel="tooltip">
                                     <i class="material-icons">Borrar</i>
                                     </button>
