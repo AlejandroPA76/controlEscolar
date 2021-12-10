@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Docente;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DocenteController extends Controller
@@ -37,15 +38,27 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
+        $users = User::create($request->only(
+            // 'name',
+            'email',) + [
+            'password' => bcrypt (request()->input('password'))
+            ]);
+
+
+        // $ultimoregistro = Producto::latest()->first()->id;
+        $user=User::latest()->first()->id;
+        //echo($user);
+
         Docente::create($request->only(
             'nombre',
             'matricula',
             'apellido_p',
-            'apellido_m', 
-            'usuario',) + [
-            'contraseña' => bcrypt (request()->input('contraseña'))
-         ]);
-
+            'apellido_m', ) +
+            ['user_id' => $user
+        ]);
+        $roles = $request->input('roles');
+        $users->syncRoles($roles);
+        
          return redirect()->route('admin.indexDocentes');
     }
 

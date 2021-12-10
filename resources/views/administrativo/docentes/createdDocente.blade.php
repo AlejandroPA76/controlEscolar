@@ -39,18 +39,19 @@
                           </div>
                         </div>
 
-                        {{-- <div class="form-row">
+                         <div class="form-row">
                           <div class="form-group col-md-6">
                             <label for="email"> Usuario</label>
                             <input type="text" class="form-control" name="email" placeholder="por ej: nombre@apellido">
                           </div>
                           
                           <div class="form-group col-md-6">
-                            <label for="contraseña"> Contraseña</label>
-                            <input type="password" class="form-control" name="contraseña" placeholder="Crea una contraseña">
+                            <label for="password"> Contraseña</label>
+                            <input type="password" class="form-control" name="password" placeholder="Crea una contraseña">
                           </div>
-                        </div> --}}
-
+                        </div> 
+                      <input type="hidden" name="roles" value="2">
+                      
                       <div class="form-row">
                       
                         <button type="submit" class="btn btn-primary">Registrar</button>

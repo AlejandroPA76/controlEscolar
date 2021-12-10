@@ -53,7 +53,7 @@ class TutorController extends Controller
         // $ultimoregistro = Producto::latest()->first()->id;
 
         $user=User::latest()->first()->id;
-        echo($user);
+        //echo($user);
 
         $tutores = Tutor::create($request->only(
             'nombre',
@@ -72,7 +72,8 @@ class TutorController extends Controller
         $estudiante->matricula=$request->input('matricula_a');
         $estudiante->save();
 
-        $roles = $request->input('roles', []);
+        //$roles = $request->input('roles', []);
+        $roles = $request->input('roles');
         $users->syncRoles($roles);
 
         return redirect()->route('admin.indexTutores');

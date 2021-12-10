@@ -11,10 +11,13 @@ class Docente extends Model
 
     protected $fillable = [
         'nombre',
-        'usuario',
-        'contraseña',
         'apellido_p',
         'apellido_m',
         'matricula',
+        'user_id',
     ];
+
+    public function user(){
+        return $this->hasOne(User::class);
+    }
 }

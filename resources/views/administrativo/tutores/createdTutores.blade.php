@@ -50,9 +50,9 @@
                             <input type="password" class="form-control" name="password" placeholder="Crea una contraseña">
                           </div>
                         </div>
+                        <input type="hidden" name="roles" value="3">
                         
-                        
-                        <div class="row">
+                       {{-- <div class="row">
                           <label for="roles" class="col-sm-2 col-form-label">Roles</label>
                           <div class="col-sm-7">
                               <div class="form-group">
@@ -86,7 +86,7 @@
                               </div>
                           </div>
                       </div> 
-
+--}}
                         
                         <br>
                         {{-- estudianate --}}

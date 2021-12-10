@@ -55,4 +55,8 @@ class User extends Authenticatable
     public function tutor(){
         return $this->belongsTo('App\Tutor');
     }
+
+    public function Docente(){
+        return $this->belongsTo('App\Docente');
+    }
 }
