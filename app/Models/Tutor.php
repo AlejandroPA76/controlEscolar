@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\User;
+use App\Models\Estudiante;
 
 class Tutor extends Model
 {
@@ -27,4 +28,8 @@ class Tutor extends Model
     public function user(){
         return $this->hasOne(User::class);
     }
+
+    public function estudiante(){
+        return $this->hasMany(Estudiante::class);
+    } 
 }
