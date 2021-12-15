@@ -14,7 +14,7 @@ class GrupoController extends Controller
      */
     public function index()
     {
-        //
+        return view('administrativo.grupos.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class GrupoController extends Controller
      */
     public function create()
     {
-        //
+        return view('administrativo.grupos.create');
     }
 
     /**

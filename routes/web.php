@@ -68,9 +68,9 @@ Route::put('admin/docentes/{docentes}/update', 'DocenteController@update')->name
 Route::delete('admin/docentes/destroy/{docentes}', 'DocenteController@destroy')->name('admin.destroyDocentes');
 // ----------------------------------------------------------------------------------------------------------------
 
-Route::get('admin/crear/grupo', function () {
-    return view('administrativo.crearGrupo');
-})->name('admin.crearGrupo');
+Route::resource('grupos', GrupoController::class);
+
+// ---------------------------------------------------------------------------------------------
 
 Route::get('menu/tutor/observaciones', function () {
     return view('tutor.observaciones');

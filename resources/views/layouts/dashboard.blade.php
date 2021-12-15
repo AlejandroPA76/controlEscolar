@@ -79,7 +79,7 @@
             <a href="{{route('admin.indexDocentes')}}" class="list-group-item list-group-item-action bg-light">Docentes</a>
             @endcan
 
-            <a href="#" class="list-group-item list-group-item-action bg-light">Grupos</a>
+            <a href="{{route('grupos.index')}}" class="list-group-item list-group-item-action bg-light">Grupos</a>
             
             @can('observaciones_index')
             <a href="#" class="list-group-item list-group-item-action bg-light">Observaciones</a>
