@@ -48,15 +48,17 @@
                   </div>
 
                   <div class="form-group">
-                                <label for="exampleFormControlSelect1">Docente:</label>
+                                <label for="exampleFormControlSelect1">S eleciona al docente:</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>Fernando Cruz</option>
-                                  <option>Gerardo Hernandez</option>
-                                  <option>Oscar Portillo</option>
+                                  @foreach($docenteslist as $docente)
+                                  <option> {{$docente->id}}-{{$docente->nombre}}</option>
+                                  @endforeach
                                 </select>
                               </div>
 
                       <div>
+
+
                       <a href="{{route('grupos.store')}}" type="button" id="sendlogin" class="btn btn-primary float-right">Crear Grupo</a>
                   
                       </div>

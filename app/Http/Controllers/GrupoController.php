@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grupo;
+use App\Models\Docente;
 use Illuminate\Http\Request;
 
 class GrupoController extends Controller
@@ -14,7 +15,9 @@ class GrupoController extends Controller
      */
     public function index()
     {
-        return view('administrativo.grupos.index');
+        //obtengo todos los grupos para desplegarlos en una tabla
+        $grupos=Grupo::all();
+        return view('administrativo.grupos.index',compact('grupos'));
     }
 
     /**
@@ -23,7 +26,13 @@ class GrupoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {
+        //trago todos los docente y los guardo el docenteslist y luego lo mando a la vista
+        //crear grupo, eso con el fin de seleccional al docente con un combobox
+        $docenteslist=Docente::all();
+
+        return view('administrativo.grupos.create',compact('docenteslist'));
         return view('administrativo.grupos.create');
     }
 
@@ -46,7 +55,8 @@ class GrupoController extends Controller
      */
     public function show(Grupo $grupo)
     {
-        //
+               
+            
     }
 
     /**
@@ -82,4 +92,6 @@ class GrupoController extends Controller
     {
         //
     }
+
+
 }
