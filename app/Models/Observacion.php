@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Grupo extends Model
+class Observacion extends Model
 {
     use HasFactory;
 
-    public function listaGrupo(){
-        return $this->belongsTo(ListaGrupo::class);
+    // relacion polimirfica
+    public function observable(){
+        return $this->morphTo();
     }
 }

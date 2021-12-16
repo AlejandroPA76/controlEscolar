@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Grupo extends Model
+class Comprobante extends Model
 {
     use HasFactory;
-
-    public function listaGrupo(){
-        return $this->belongsTo(ListaGrupo::class);
-    }
 }

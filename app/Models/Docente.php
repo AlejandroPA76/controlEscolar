@@ -20,4 +20,14 @@ class Docente extends Model
     public function user(){
         return $this->hasOne(User::class);
     }
+
+    // relacion polimrfica de uno a muchos
+    public function observaciones(){
+        return $this->morphMany(Observacion::class, 'observable');
+    }
+
+    public function listaGrupo(){
+        return $this->belongsTo(ListaGrupo::class);
+    }
+
 }
