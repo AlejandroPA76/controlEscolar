@@ -50,10 +50,13 @@
                     </a>
                         {{-- podemo usar el titulo del procto paara que se muestre en la url en lugar del id como se obe¿serva en la siguiente linea  se hace junto con el parametro de las rutas--}}
                         {{-- <a class="btn btn-link" href="{{ route('estudiantes.show', ['estudiante' => $estudiante->title]) }}">Ver</a> --}}
-                    <a class="btn btn-warning" href="{{ route('admin.editEstudiantes',  $estudiante->id) }}">
+                    @can('estudiante_edit')
+                        <a class="btn btn-warning" href="{{ route('admin.editEstudiantes',  $estudiante->id) }}">
                       <i class="material-icons">Editar</i>
                     </a>
-
+                    @endcan
+                    
+                    @can('estudiante_destroy')
                       <form method="POST" class="d-inLine" action="{{ route('admin.destroyEstudiantes',$estudiante->id) }}">
                          @csrf
                         @method('DELETE')
@@ -61,6 +64,7 @@
                            <i class="material-icons">Borrar</i>
                         </button>
                       </form>
+                      @endcan
                   </td>
                 </tr>
                 @endforeach
