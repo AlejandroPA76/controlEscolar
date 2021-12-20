@@ -15,11 +15,10 @@ class CreateDocentesTable extends Migration
     {
         Schema::create('docentes', function (Blueprint $table) {
             $table->id();
-            $table->string('matricula')->unique();
             $table->string('nombre')->nullable();
             $table->string('apellido_p');
             $table->string('apellido_m');
-            
+            $table->string('matricula')->unique();
              $table->foreignId('user_id')
             ->constrained('users')
             ->onDelete('cascade');

@@ -96,24 +96,24 @@
                         <h4>Datos del alumno</h4>
             <div class="form-group">
               <label for="nombrealumno">Nombre del alumno</label>
-                <input type="text" class="form-control" name="nombrealumno[]" placeholder="Ingrese el nombre" autofocus>
+                <input type="text" class="form-control" name="nombrealumno" placeholder="Ingrese el nombre" autofocus>
                   </div>
 
                       <div class="form-row">
                           <div class="form-group col-md-6">
                             <label for="apellido_p_a">Primer apellido</label>
-                            <input type="text" class="form-control" name="apellido_p_a[]" placeholder="ingrese el apellido materno">
+                            <input type="text" class="form-control" name="apellido_p_a" placeholder="ingrese el apellido materno">
                           </div>
                           
                           <div class="form-group col-md-6">
                             <label for="apellido_m_a">Segundo apellido</label>
-                            <input type="text" class="form-control" name="apellido_m_a[]" placeholder="ingrese el apellido paterno">
+                            <input type="text" class="form-control" name="apellido_m_a" placeholder="ingrese el apellido paterno">
                           </div>
                       </div>
 
                           <div class="form-group ml-0">
                             <label>Matricula del alumno</label>
-                            <input type="text" class="form-control" name="matricula_a[]" placeholder="ingrese el apellido paterno">
+                            <input type="text" class="form-control" name="matricula_a" placeholder="ingrese el apellido paterno">
                           </div>
                           <div class="button">
                             <button type="button" id="add_alu">agrear alumno</button>

@@ -48,7 +48,7 @@
                   </div>
 
                   <div class="form-group">
-                                <label for="exampleFormControlSelect1">S eleciona al docente:</label>
+                                <label for="exampleFormControlSelect1">Seleciona al docente:</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
                                   @foreach($docenteslist as $docente)
                                   <option> {{$docente->id}}-{{$docente->nombre}}</option>

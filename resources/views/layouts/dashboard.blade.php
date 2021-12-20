@@ -82,7 +82,8 @@
             @endcan
 
             @can('grupos_index')
-            <a href="{{route('grupos.index')}}" class="list-group-item list-group-item-action bg-light">Grupos</a>
+            <a href="{{route('grupos.index')}}" class="list-group-item list-group-item-action bg-light">
+            Asignar Grupos</a>
             @endcan
 
             @can('observaciones_index')
