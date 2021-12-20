@@ -23,7 +23,7 @@ class DocenteSeeder extends Seeder
     ];
     DB::table('users')->insert($data);*/
     $d= User::create([
-            'name' => 'alex',
+            'name' => 'aleex',
             'email' => 'alejandro@h.com',
             'password' => '1234',
 
