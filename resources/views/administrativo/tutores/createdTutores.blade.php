@@ -6,6 +6,9 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- no additional media querie or css is required -->
@@ -93,25 +96,28 @@
                         <h4>Datos del alumno</h4>
             <div class="form-group">
               <label for="nombrealumno">Nombre del alumno</label>
-                <input type="text" class="form-control" name="nombrealumno" placeholder="Ingrese el nombre" autofocus>
+                <input type="text" class="form-control" name="nombrealumno[]" placeholder="Ingrese el nombre" autofocus>
                   </div>
 
                       <div class="form-row">
                           <div class="form-group col-md-6">
                             <label for="apellido_p_a">Primer apellido</label>
-                            <input type="text" class="form-control" name="apellido_p_a" placeholder="ingrese el apellido materno">
+                            <input type="text" class="form-control" name="apellido_p_a[]" placeholder="ingrese el apellido materno">
                           </div>
                           
                           <div class="form-group col-md-6">
                             <label for="apellido_m_a">Segundo apellido</label>
-                            <input type="text" class="form-control" name="apellido_m_a" placeholder="ingrese el apellido paterno">
+                            <input type="text" class="form-control" name="apellido_m_a[]" placeholder="ingrese el apellido paterno">
                           </div>
                       </div>
 
                           <div class="form-group ml-0">
                             <label>Matricula del alumno</label>
-                            <input type="text" class="form-control" name="matricula_a" placeholder="ingrese el apellido paterno">
+                            <input type="text" class="form-control" name="matricula_a[]" placeholder="ingrese el apellido paterno">
                           </div>
+                          <div class="button">
+                            <button type="button" id="add_alu">agrear alumno</button>
+                        </div>
 
                       <div class="form-row">
                       
@@ -125,3 +131,21 @@
         </div>
       </div>
       @endsection
+
+
+     <script type="text/javascript">
+   
+       $(document).ready(function() {
+    $("#add_alu").click(function(){
+        var contador = $("input[type='nombre_alumno']").length;
+
+        $(this).before('<div><label for="nombrealumno'+ contador +'">holaa:</label><input type="text" id="nombrealumno'+ contador +'" name="nombrealumno[]"/><button type="button" class="delete_email">Del</button></div>');
+    });
+
+    $(document).on('click', '.delete_email', function(){
+        $(this).parent().remove();
+    });
+});
+
+
+     </script>

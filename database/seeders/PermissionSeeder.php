@@ -58,6 +58,12 @@ class PermissionSeeder extends Seeder
             'admin_edit',
             'admin_destroy',
             
+            'grupos_index',
+            'grupos_create',
+            'grupos_show',
+            'grupos_edit',
+            'grupos_destroy',
+
             'observaciones_index',
             'observaciones_create',
             'observaciones_show',

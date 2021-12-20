@@ -72,31 +72,38 @@
         <div class="list-group list-group-flush">
             
             <a href="{{route('admin.indexEstudiantes')}}" class="list-group-item list-group-item-action bg-light">Estudiantes</a>
+            
             @can('tutor_index')
             <a href="{{route('admin.indexTutores')}}" class="list-group-item list-group-item-action bg-light">Tutores</a>
             @endcan
+
             @can('docente_index')
             <a href="{{route('admin.indexDocentes')}}" class="list-group-item list-group-item-action bg-light">Docentes</a>
             @endcan
 
+            @can('grupos_index')
             <a href="{{route('grupos.index')}}" class="list-group-item list-group-item-action bg-light">Grupos</a>
-            
+            @endcan
+
             @can('observaciones_index')
             <a href="#" class="list-group-item list-group-item-action bg-light">Observaciones</a>
             @endcan
+
             @can('permission_index')
             <a href="{{route('permissions.index')}}" class="list-group-item list-group-item-action bg-light">Permisos a usuarios</a>
             @endcan
+
             @can('role_index')
             <a href="{{route('roles.index')}}" class="list-group-item list-group-item-action bg-light">Roles de usuario</a>
             @endcan
+
             @can('user_index')
             <a href="{{route('users.index')}}" class="list-group-item list-group-item-action bg-light">Usuarios</a>
             @endcan
-            @can('tutor_index')
 
+            {{-- @can('tutor_index') --}}
             <a href="#" class="list-group-item list-group-item-action bg-light">Pagos</a>
-            @endcan
+            {{-- @endcan --}}
         </div>
         </div>
         <!-- /#sidebar-wrapper -->
