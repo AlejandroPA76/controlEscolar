@@ -15,9 +15,12 @@ class CreateGruposTable extends Migration
     {
         Schema::create('grupos', function (Blueprint $table) {
             $table->id();
-            $table->integer('cupo_maximo');
-            $table->integer('grado')->unique();
             $table->string('grupo_nombre');
+            $table->integer('grado')->unique();          
+            $table->foreignId('nivel_id')->constrained('nivels');
+            $table->foreignId('docente_id')->constrained('docentes');
+            $table->integer('cupo_maximo');
+
             $table->timestamps();
         });
     }
