@@ -9,7 +9,7 @@ class Nivel extends Model
 {
     use HasFactory;
 
-    public function listaGrupo(){
-        return $this->belongsTo(ListaGrupo::class);
+    public function Grupo(){
+        return $this->belongsTo(Grupo::class);
     }
 }

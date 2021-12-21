@@ -26,8 +26,8 @@ class Docente extends Model
         return $this->morphMany(Observacion::class, 'observable');
     }
 
-    public function listaGrupo(){
-        return $this->belongsTo(ListaGrupo::class);
+    public function Grupo(){
+        return $this->belongsTo(Grupo::class);
     }
 
 }

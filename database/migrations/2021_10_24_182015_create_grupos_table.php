@@ -19,10 +19,9 @@ class CreateGruposTable extends Migration
             $table->integer('grado')->unique();          
             $table->foreignId('nivel_id')->constrained('nivels');
             $table->foreignId('docente_id')->constrained('docentes');
-            $table->integer('cupo_maximo');
 
             $table->timestamps();
-        });
+             });
     }
 
     /**

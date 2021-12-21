@@ -15,16 +15,12 @@ class CreateListaGruposTable extends Migration
     {
         Schema::create('lista_grupos', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('docente_id')->unsigned();
             $table->bigInteger('estudiante_id')->unsigned();
-            $table->bigInteger('nivel_id')->unsigned();
             $table->bigInteger('ciclo_id')->unsigned();
             $table->bigInteger('grupo_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('docente_id')->references('id')->on('docentes');
             $table->foreign('estudiante_id')->references('id')->on('estudiantes');
-            $table->foreign('nivel_id')->references('id')->on('nivels');
             $table->foreign('ciclo_id')->references('id')->on('ciclo_escolars');
             $table->foreign('grupo_id')->references('id')->on('grupos');
         });
