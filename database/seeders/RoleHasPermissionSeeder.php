@@ -15,10 +15,18 @@ class RoleHasPermissionSeeder extends Seeder
      */
     public function run()
     {
-        // Admin
+        // SuperAdmin
         $admin_permissions = Permission::all();
         Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id'));
 
+        // Admin
+        $user_permissions = $admin_permissions->filter(function($permission) {
+            return substr($permission->name, 0, 5) != 'user_' &&
+                substr($permission->name, 0, 5) != 'role_' &&
+                substr($permission->name, 0, 11) != 'permission_';
+        });
+        Role::findOrFail(2)->permissions()->sync($user_permissions);
+        
         // Docente
         $user_permissions = $admin_permissions->filter(function($permission) {
             return substr($permission->name, 0, 5) != 'user_' &&
@@ -27,7 +35,7 @@ class RoleHasPermissionSeeder extends Seeder
                 substr($permission->name, 0, 6) != 'tutor_';
                 substr($permission->name, 0, 14) != 'observaciones_';
         });
-        Role::findOrFail(2)->permissions()->sync($user_permissions);
+        Role::findOrFail(3)->permissions()->sync($user_permissions);
         
         // tutor
         $user_permissions = $admin_permissions->filter(function($permission) {
@@ -41,7 +49,7 @@ class RoleHasPermissionSeeder extends Seeder
 
                 // return str_contains($permission->name, 0, 5) != 'user_';
         });
-        Role::findOrFail(3)->permissions()->sync($user_permissions);
+        Role::findOrFail(4)->permissions()->sync($user_permissions);
 
     }
 }

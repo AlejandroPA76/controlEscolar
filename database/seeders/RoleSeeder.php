@@ -16,6 +16,7 @@ class RoleSeeder extends Seeder
     {
         // declaroamos unnvaribale rol
         $roles=[
+            'SuperAdmin',
             'Admin',
             'Docente',
             'Tutor',
