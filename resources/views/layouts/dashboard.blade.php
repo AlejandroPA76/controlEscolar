@@ -157,12 +157,14 @@
             </ul>
             </div>
         </nav>
+        
         <div class="container-fluid">
+            
             @yield('content')
         </div>
         </div>
-        <!-- /#page-content-wrapper -->
         </div>
+        <!-- /#page-content-wrapper -->
         <!-- /#wrapper -->
     </body>
 </html>

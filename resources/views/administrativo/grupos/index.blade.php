@@ -51,7 +51,7 @@
                       </table>
                     </div>
                   </div>
-                  <div class="card-footer mr-auto">
+                  <div class="card-body mr-auto">
                     {{-- {{ $users->links() }} --}}
                   </div>
                 </div>

@@ -2,20 +2,31 @@
 
 @section('content')
 
-    <div class="container">
-    </div>
+    
     <div class="container-fluid mt-3">
         <div class="row" style="height:100vh">
           <div class="col">
             <div class="card">
-              
-            <div class="card-body"> 
-              <div class="ml-3">
-                <h4>Permisos de usuarios</h4>
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Permisos</h4>
+                <p class="card-category">Permisos registrados</p>
               </div>
-                <div class="ml-2">
+            <div class="card-body"> 
+              {{-- <div class="ml-3">
+                <h4>Permisos de usuarios</h4>
+              </div> --}}
+                {{-- <div class="ml-2">
                   <a class="btn btn-success btn-md ml-4 " href="{{ route('permissions.create')}}">Crear</a>
+                </div> --}}
+                
+                
+                <div class="row">
+                  <div class="col-12 text-left">
+                    <a href="{{ route('permissions.create') }}" class="btn btn-success">Crear permiso</a>
+                  </div>
                 </div>
+                <br>
+                
                 <div class="table-responsive">
                   <table class="table">
                     {{-- encabezado --}}
@@ -56,7 +67,7 @@
                   </table>
                 </div>
               </div>
-              <div class="card-footer mr-auto">
+              <div class="card-body mr-auto">
                 {{$permissions->links()}}
             </div>
             </div>

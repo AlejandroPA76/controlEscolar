@@ -20,7 +20,7 @@
 
             <div class="form-group">
               <label for="name">Nombre del permiso</label>
-                <input type="text" class="form-control" name="name"autofocus>
+                <input type="text" class="form-control" name="name"autofocus required>
                   </div>
 
                       <div class="form-row">

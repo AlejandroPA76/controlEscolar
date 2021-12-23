@@ -30,6 +30,7 @@
                   @endif
                 </div>
               </div>
+              <br>
               {{-- <div class="row">
                 <label for="username" class="col-sm-2 col-form-label">Nombre de usuario</label>
                 <div class="col-sm-7">
@@ -48,6 +49,8 @@
                   @endif
                 </div>
               </div>
+              <br>
+
               <div class="row">
                 <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
                 <div class="col-sm-7">
@@ -57,6 +60,7 @@
                   @endif
                 </div>
               </div>
+              <br>
               <div class="row">
                 <label for="roles" class="col-sm-2 col-form-label">Roles</label>
                 <div class="col-sm-7">

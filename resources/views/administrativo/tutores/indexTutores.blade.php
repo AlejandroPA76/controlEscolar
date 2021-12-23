@@ -13,14 +13,31 @@
   <div class="row" style="height:100vh">
     <div class="col">
       <div class="card">
-        
-      <div class="card-body"> 
-        <div class="ml-3">
-          <h4>Tutores</h4>
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">Tutores</h4>
+          @if (empty($tutores))
+        <div class="alert alert-warning">
+            Aun no esxiste una lista de productos
         </div>
-          <div class="ml-2">
+    @else
+          <p class="card-category">Tutores registrados</p>
+        </div>
+      <div class="card-body"> 
+        {{-- <div class="ml-3">
+          <h4>Tutores</h4>
+        </div> --}}
+        
+          {{-- <div class="ml-2">
             <a class="btn btn-success btn-md ml-4 " href="{{ route('admin.createdTutores')}}">Crear</a>
+          </div> --}}
+
+          <div class="row">
+            <div class="col-12 text-left">
+              <a href="{{ route('admin.createdTutores') }}" class="btn btn-success">Añadir Tutor</a>
+            </div>
           </div>
+          <br>
+
           <div class="table-responsive">
             <table class="table">
               {{-- encabezado --}}
@@ -74,11 +91,12 @@
             </table>
           </div>
         </div>
-        <div class="card-footer mr-auto">
+        <div class="card-body mr-auto">
           {{$tutores->links()}}
       </div>
       </div>
     </div>
   </div>
 </div>
+@endif
 @endsection

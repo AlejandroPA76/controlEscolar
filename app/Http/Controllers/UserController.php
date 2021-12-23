@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\UsuarioRequest;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterUsersRequest; // Validar informacion de los datos de registro de usuarios
@@ -26,7 +27,7 @@ class UserController extends Controller
         return view('users.create', compact('roles'));
     }
 
-    public function store(Request $request)
+    public function store(UsuarioRequest $request)
     {
         // $request->validate([
         //     'name' => 'required|min:3|max:5',
@@ -41,7 +42,11 @@ class UserController extends Controller
 
         $roles = $request->input('roles', []);
         $user->syncRoles($roles);
-        return redirect()->route('users.show', $user->id)->with('success', 'Usuario creado correctamente');
+
+        // session()->flash('success', "el usuario ha sido creado exitosamente");
+
+        return redirect()->route('users.index', $user->id)
+        ->withSuccess('Usuario creado correctamente');
     }
 
     public function show(User $user)
@@ -91,6 +96,6 @@ class UserController extends Controller
         }
 
         $user->delete();
-        return back()->with('succes', 'Usuario eliminado correctamente');
+        return back()->withSuccess('Usuario eliminado correctamente');
     }
 }

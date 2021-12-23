@@ -12,11 +12,14 @@
   <div class="row" style="height:100vh">
     <div class="col">
       <div class="card">
-        
-      <div class="card-body"> 
-        <div class="">
-          <h4>Estudiantes</h4>
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">Estudiantes</h4>
+          <p class="card-category">Estudiantes registrados</p>
         </div>
+      <div class="card-body"> 
+        {{-- <div class="">
+          <h4>Estudiantes</h4>
+        </div> --}}
 {{-- 
           <div class="ml-2">
             <a class="btn btn-success btn-md " href="{{ route('admin.createdEstudiantes')}}">Crear</a>
@@ -72,7 +75,7 @@
             </table>
           </div>
         </div>
-        <div class="card-footer mr-auto">
+        <div class="card-body">
           {{$estudiantes->links()}}
       </div>
       </div>

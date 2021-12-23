@@ -13,14 +13,24 @@
   <div class="row" style="height:100vh">
     <div class="col">
       <div class="card">
-        
-      <div class="card-body"> 
-        <div class="ml-1">
-          <h4>Docentes</h4>
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">Docentes</h4>
+          <p class="card-category">Docentes registrados</p>
         </div>
-          <div class="ml-">
+      <div class="card-body"> 
+        {{-- <div class="ml-1">
+          <h4>Docentes</h4>
+        </div> --}}
+          {{-- <div class="ml-">
             <a class="btn btn-success btn-md ml-4 " href="{{ route('admin.createdDocentes')}}">Crear</a>
+          </div> --}}
+
+          <div class="row">
+            <div class="col-12 text-left">
+              <a href="{{ route('admin.createdDocentes') }}" class="btn btn-success">Añadir docente</a>
+            </div>
           </div>
+
           <div class="table-responsive mt-3">
             <table class="table">
               {{-- encabezado --}}
@@ -47,7 +57,7 @@
                     <a class="btn btn-info"><i class="material-icons" href="{{ route('admin.showDocentes', $docente->id) }}">Ver</a>
                         {{-- podemo usar el titulo del procto paara que se muestre en la url en lugar del id como se obe¿serva en la siguiente linea  se hace junto con el parametro de las rutas--}}
                         {{-- <a class="btn btn-link" href="{{ route('docentes.show', ['docente' => $docente->title]) }}">Ver</a> --}}
-                        <a class="btn btn-warning"><i class="material-icons" href="{{ route('admin.editDocentes', $docente->id) }}">Editar</a>
+                    <a class="btn btn-warning"><i class="material-icons" href="{{ route('admin.editDocentes', $docente->id) }}">Editar</a>
 
                       <form method="POST" class="d-inLine" action="{{ route('admin.destroyDocentes', $docente->id) }}">
                          @csrf
@@ -63,7 +73,7 @@
             </table>
           </div>
         </div>
-        <div class="card-footer mr-auto">
+        <div class="card-body">
           {{$docentes->links()}}
       </div>
       </div>

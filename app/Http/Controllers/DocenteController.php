@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Docente;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\DocenteRequest;
 
 class DocenteController extends Controller
 {
@@ -36,7 +37,7 @@ class DocenteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DocenteRequest $request, Docente $docentes)
     {
         $users = User::create($request->only(
             // 'name',
@@ -49,7 +50,7 @@ class DocenteController extends Controller
         $user=User::latest()->first()->id;
         //echo($user);
 
-        Docente::create($request->only(
+        $docente = Docente::create($request->only(
             'nombre',
             'matricula',
             'apellido_p',
@@ -59,7 +60,7 @@ class DocenteController extends Controller
         $roles = $request->input('roles');
         $users->syncRoles($roles);
         
-         return redirect()->route('admin.indexDocentes');
+         return redirect()->route('admin.indexDocentes')->withSuccess('Docente creado correctamente');
     }
 
     /**
@@ -107,7 +108,7 @@ class DocenteController extends Controller
 
         $docentes->update($data);
         return redirect()->route('admin.indexDocentes')
-        ->withSuccess("El usuario tutor con el id {$docentes->id} ha sido editado");
+        ->withSuccess("Los datos del docente {$docentes->nombre} han sido actualizados.");
 
         
     }
@@ -123,6 +124,6 @@ class DocenteController extends Controller
         $docentes->delete();
 
         return redirect()->route('admin.indexDocentes')
-        ->withSuccess("El producto con el id {$docentes->id} ha sido borrado");
+        ->withSuccess("El Docente {$docentes->nombre} ha sido borrado correctamente");
     }
 }

@@ -16,7 +16,7 @@ class EstudianteController extends Controller
     {
         // Estudiante::Paginate(10);
         return view('administrativo.estudiantes.indexEstudiante')->with([
-            'estudiantes'=>Estudiante::Paginate(3),
+            'estudiantes'=>Estudiante::Paginate(2),
         ]);
 
        

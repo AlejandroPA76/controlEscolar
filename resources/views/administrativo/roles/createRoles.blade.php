@@ -26,7 +26,7 @@
                   <label for="name" class="col-sm-2 col-form-label">Nombre del rol</label>
                   <div class="col-sm-7">
                     <div class="form-group">
-                      <input type="text" class="form-control" name="name" autocomplete="off" autofocus>
+                      <input type="text" class="form-control" name="name" autocomplete="off" autofocus required>
                     </div>
                   </div>
                 </div>

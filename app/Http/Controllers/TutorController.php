@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EstudianteRequest;
 use App\Models\Tutor;
 use App\Models\User;
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
 use Spatie\Permission\Contracts\Role as ContractsRole;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\TutorRequest;
+
 
 class TutorController extends Controller
 {
@@ -41,7 +44,7 @@ class TutorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TutorRequest $request, EstudianteRequest $requestes)
     {
         $users = User::create($request->only(
             // 'name',
@@ -69,7 +72,7 @@ class TutorController extends Controller
         $estudiante->nombre=$request->input('nombrealumno');
         $estudiante->apellido_p=$request->input('apellido_p_a');
         $estudiante->apellido_m=$request->input('apellido_m_a');
-        $estudiante->matricula=$request->input('matricula_a');
+        $estudiante->matricula=$request->input('matricula');
         $estudiante->tutor_id=$tutor;
         $estudiante->save();
 

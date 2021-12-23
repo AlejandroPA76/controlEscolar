@@ -12,15 +12,24 @@
   <div class="row" style="height:100vh">
     <div class="col">
       <div class="card">
-        
-      <div class="card-body"> 
-        <div class="">
-          <h4>roles</h4>
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">Roles de usuarios</h4>
+          <p class="card-category">Roles de usuarios registrados</p>
         </div>
+      <div class="card-body"> 
+        {{-- <div class="">
+          <h4>roles</h4>
+        </div> --}}
 
-          <div class="ml-2">
+          {{-- <div class="ml-2">
             <a class="btn btn-success btn-md " href="{{ route('roles.create')}}">Crear</a>
-          </div> 
+          </div>  --}}
+
+          <div class="row">
+            <div class="col-12 text-left">
+              <a href="{{ route('roles.create') }}" class="btn btn-success">Crear rol de usuario</a>
+            </div>
+          </div>
 
           {{-- incio de la tabla --}}
           <div class="table-responsive mt-2">
@@ -75,7 +84,7 @@
           </div> 
           {{-- fin de la tabla --}}
         </div>
-        <div class="card-footer mr-auto">
+        <div class="card-body mr-auto">
           {{ $roles->links() }}
         </div>
       </div>

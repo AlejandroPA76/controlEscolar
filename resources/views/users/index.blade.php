@@ -8,15 +8,22 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Usuarios</h4>
-                    <p class="card-category">Usuarios registrados</p>
-                  </div>
-                  <div class="card-body">
-                    @if (session('success'))
-                    <div class="alert alert-success" role="success">
+                    <div class="form-row">
+                      <div class="form-group ">
+                        @if (session('success'))
+                    <div class="alert alert-warning text-right" role="success">
                       {{ session('success') }}
                     </div>
                     @endif
+
+                  </div>
+                </div>
+                    <h4 class="card-title">Usuarios</h4>
+                    <p class="card-category">Usuarios registrados</p>
+                  </div>
+
+                  <div class="card-body">
+                    
                     <div class="row">
                       <div class="col-12 text-right">
                         <a href="{{ route('users.create') }}" class="btn btn-success">Añadir usuario</a>
@@ -64,7 +71,7 @@
                       </table>
                     </div>
                   </div>
-                  <div class="card-footer mr-auto">
+                  <div class="card-body mr-auto">
                     {{ $users->links() }}
                   </div>
                 </div>

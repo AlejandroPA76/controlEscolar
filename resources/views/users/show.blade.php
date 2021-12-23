@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
-<div class="content">
+<div class="content mt-3">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -11,11 +11,13 @@
           </div>
           <!--body-->
           <div class="card-body">
+            
             @if (session('success'))
             <div class="alert alert-success" role="success">
               {{ session('success') }}
             </div>
             @endif
+
             <div class="row">
               <div class="col-md-4">
                 
