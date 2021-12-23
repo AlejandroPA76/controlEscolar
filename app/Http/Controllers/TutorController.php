@@ -80,7 +80,7 @@ class TutorController extends Controller
         $roles = $request->input('roles');
         $users->syncRoles($roles);
 
-        return redirect()->route('admin.indexTutores');
+        return redirect()->route('admin.indexTutores')->withSuccess('¡Los datos del tutor fueron agregados correctamente!');
 
     }
 
@@ -139,7 +139,7 @@ class TutorController extends Controller
         $tutor->syncRoles($roles);
 
         return redirect()->route('admin.indexTutores')
-        ->withSuccess("El usuario tutor con el id {$tutor->id} ha sido editado");
+        ->withSuccess("¡Los datos del tutor {$tutor->nombre} han sido actualizados!");
 
         
     }
@@ -155,6 +155,6 @@ class TutorController extends Controller
         $tutor->delete();
 
         return redirect()->route('admin.indexTutores')
-        ->withSuccess("El producto con el id {$tutor->id} ha sido borrado");
+        ->withSuccess("¡El tutor {$tutor->nombre} ha sido eliminado!");
     }
 }

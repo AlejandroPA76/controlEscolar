@@ -82,7 +82,7 @@ class EstudianteController extends Controller
 
         $estudiante->update($data);
         return redirect()->route('admin.indexEstudiantes')
-        ->withSuccess("El usuario tutor con el id {$estudiante->id} ha sido editado");
+        ->withSuccess("¡El estudiante {$estudiante->nombrealumno} ha sido actualizado!");
 
     }
 
@@ -97,6 +97,6 @@ class EstudianteController extends Controller
         $estudiante->delete();
 
         return redirect()->route('admin.indexEstudiantes')
-        ->withSuccess("El producto con el id {$estudiante->id} ha sido borrado");
+        ->withSuccess("¡El estudiante {$estudiante->nombrealumno} ha sido borrado!");
     }
 }

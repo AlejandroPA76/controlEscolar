@@ -9,7 +9,18 @@
                 <div class="card">
                   <div class="card-header card-header-primary">
                     <h4 class="card-title">Grupos</h4>
+                    <div class="text-left">
+                      <a href="{{ route('grupos.create') }}" class="btn btn-success">Crear grupo</a>
+                    </div>
+                    <br>
+                    @if(!isset($grupo->isEmpty))
+                    <div class="alert alert-warning">
+                      <strong>No se han creado grupos</strong> 
+                    </div>
+                    @else
+                        
                     <p class="card-category"> Listado de grupos</p>
+                    
                   </div>
                   <div class="card-body">
                     @if (session('success'))
@@ -17,13 +28,7 @@
                       {{ session('success') }}
                     </div>
                     @endif
-                    <div class="row">
-                      <div class="col-12 text-right">
-                        <a href="{{ route('grupos.create') }}" class="btn btn-success">Crear grupo</a>
-                      </div>
-                    </div>
-                    <br>
-
+                    
                     <div class="table-responsive">
                       <table class="table">
                         <thead class="text-primary">
@@ -61,4 +66,5 @@
         </div>
       </div>
     </div>
+    @endempty
 @endsection

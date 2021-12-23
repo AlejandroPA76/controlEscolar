@@ -1,7 +1,15 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    
+<script>
+  jQuery(document).ready(function($){
+      
+
+      $('#myModal').on('shown.bs.modal', function () {
+          $('#myInput').trigger('focus')
+          });
+  })
+  </script>
 
 <link href="//maxcdn.bootstdapcdn.com/bootstdap/4.0.0/css/bootstdap.min.css" rel="stylesheet" id="bootstdap-css">
 <script src="//maxcdn.bootstdapcdn.com/bootstdap/4.0.0/js/bootstdap.min.js"></script>
@@ -15,28 +23,18 @@
       <div class="card">
         <div class="card-header card-header-primary">
           <h4 class="card-title">Tutores</h4>
-          @if (empty($tutores))
-        <div class="alert alert-warning">
-            Aun no esxiste una lista de productos
-        </div>
-    @else
           <p class="card-category">Tutores registrados</p>
-        </div>
-      <div class="card-body"> 
-        {{-- <div class="ml-3">
-          <h4>Tutores</h4>
-        </div> --}}
-        
-          {{-- <div class="ml-2">
-            <a class="btn btn-success btn-md ml-4 " href="{{ route('admin.createdTutores')}}">Crear</a>
-          </div> --}}
-
-          <div class="row">
-            <div class="col-12 text-left">
-              <a href="{{ route('admin.createdTutores') }}" class="btn btn-success">Añadir Tutor</a>
-            </div>
+          <div class=" text-left">
+            <a href="{{ route('admin.createdTutores') }}" class="btn btn-success">Añadir Tutor</a>
           </div>
-          <br>
+        </div>
+      <div class="card-body">
+        @if (session('success'))
+            <div class="alert alert-primary" role="success">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  {{ session('success') }}
+            </div>
+        @endif 
 
           <div class="table-responsive">
             <table class="table">
@@ -77,15 +75,12 @@
                         <a href="{{ route('admin.editTutores', ['tutor'=>$tutor->id]) }}"
                           class="btn btn-warning"><i class="material-icons" >Editar</a>
 
-                      <form method="POST" class="d-inLine" action="{{ route('admin.destroyTutores', $tutor->id) }}">
-                         @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">
-                          <i class="material-icons">Borrar</i>
-                        </button>
-                      </form>
+                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#model-delete-{{$tutor->id}}">
+                      Eliminar
+                      </button>
                   </td>
                 </tr>
+                @include('administrativo.tutores.delete')
                 @endforeach
               </tbody>
             </table>
@@ -98,5 +93,4 @@
     </div>
   </div>
 </div>
-@endif
 @endsection

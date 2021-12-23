@@ -16,20 +16,17 @@
         <div class="card-header card-header-primary">
           <h4 class="card-title">Docentes</h4>
           <p class="card-category">Docentes registrados</p>
+          <div class="text-left">
+            <a href="{{ route('admin.createdDocentes') }}" class="btn btn-success">Añadir docente</a>
+          </div>
         </div>
       <div class="card-body"> 
-        {{-- <div class="ml-1">
-          <h4>Docentes</h4>
-        </div> --}}
-          {{-- <div class="ml-">
-            <a class="btn btn-success btn-md ml-4 " href="{{ route('admin.createdDocentes')}}">Crear</a>
-          </div> --}}
-
-          <div class="row">
-            <div class="col-12 text-left">
-              <a href="{{ route('admin.createdDocentes') }}" class="btn btn-success">Añadir docente</a>
-            </div>
-          </div>
+        @if (session('success'))
+        <div class="alert alert-primary" role="success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ session('success') }}
+        </div>
+        @endif
 
           <div class="table-responsive mt-3">
             <table class="table">
@@ -59,14 +56,11 @@
                         {{-- <a class="btn btn-link" href="{{ route('docentes.show', ['docente' => $docente->title]) }}">Ver</a> --}}
                     <a class="btn btn-warning"><i class="material-icons" href="{{ route('admin.editDocentes', $docente->id) }}">Editar</a>
 
-                      <form method="POST" class="d-inLine" action="{{ route('admin.destroyDocentes', $docente->id) }}">
-                         @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger" class="material-icons">
-                          <i class="material-icons">Borrar</i>
+                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#model-delete-{{$docente->id}}">
+                        Eliminar
                         </button>
-                      </form>
                   </td>
+                  @include('administrativo.docentes.delete')
                 </tr>
                 @endforeach
               </tbody>

@@ -17,14 +17,12 @@
           <p class="card-category">Estudiantes registrados</p>
         </div>
       <div class="card-body"> 
-        {{-- <div class="">
-          <h4>Estudiantes</h4>
-        </div> --}}
-{{-- 
-          <div class="ml-2">
-            <a class="btn btn-success btn-md " href="{{ route('admin.createdEstudiantes')}}">Crear</a>
-          </div> 
-           --}}
+        @if (session('success'))
+                          <div class="alert alert-primary" role="success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ session('success') }}
+                          </div>
+                          @endif
           <div class="table-responsive mt-2">
             <table class="table">
               {{-- encabezado --}}
@@ -60,13 +58,13 @@
                     @endcan
                     
                     @can('estudiante_destroy')
-                      <form method="POST" class="d-inLine" action="{{ route('admin.destroyEstudiantes',$estudiante->id) }}">
+                      {{-- <form method="POST" class="d-inLine" action="{{ route('admin.destroyEstudiantes',$estudiante->id) }}">
                          @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">
                            <i class="material-icons">Borrar</i>
                         </button>
-                      </form>
+                      </form> --}}
                       @endcan
                   </td>
                 </tr>

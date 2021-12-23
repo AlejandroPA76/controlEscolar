@@ -10,23 +10,18 @@
               <div class="card-header card-header-primary">
                 <h4 class="card-title">Permisos</h4>
                 <p class="card-category">Permisos registrados</p>
+                <div class="text-left">
+                  <a href="{{ route('permissions.create') }}" class="btn btn-success">Crear permiso</a>
+                </div>
               </div>
             <div class="card-body"> 
-              {{-- <div class="ml-3">
-                <h4>Permisos de usuarios</h4>
-              </div> --}}
-                {{-- <div class="ml-2">
-                  <a class="btn btn-success btn-md ml-4 " href="{{ route('permissions.create')}}">Crear</a>
-                </div> --}}
-                
-                
-                <div class="row">
-                  <div class="col-12 text-left">
-                    <a href="{{ route('permissions.create') }}" class="btn btn-success">Crear permiso</a>
-                  </div>
-                </div>
-                <br>
-                
+              @if (session('success'))
+              <div class="alert alert-primary" role="success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ session('success') }}
+              </div>
+              @endif
+               
                 <div class="table-responsive">
                   <table class="table">
                     {{-- encabezado --}}
@@ -35,6 +30,7 @@
                       <th>Nombre</th>
                       <th>Guard</th>
                       <th>Fecha de creacion</th>
+                      <th>Acciones</th>
                     </thead>
                     {{-- cuerpo --}}
                     <tbody>
@@ -51,15 +47,12 @@
                             <a  href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-warning">
                               <i class="material-icons">Editar</i>
                             </a>
-                            <form method="POST" class="d-inLine" action="{{ route('permissions.destroy', $permission->id) }}">
-                                @csrf
-                               @method('DELETE')
-                               <button type="submit" class="btn btn-danger">
-                                 <i class="material-icons">Borrar</i>
-                               </button>
-                             </form>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#model-delete-{{$permission->id}}">
+                              Eliminar
+                              </button>
                         </td>
                       </tr>
+                      @include('administrativo.permissions.delete')
                       @empty
                        Sin registrar permisos   
                       @endforelse

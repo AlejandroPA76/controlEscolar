@@ -15,22 +15,18 @@
         <div class="card-header card-header-primary">
           <h4 class="card-title">Roles de usuarios</h4>
           <p class="card-category">Roles de usuarios registrados</p>
+          <div class=" text-left">
+            <a href="{{ route('roles.create') }}" class="btn btn-success">Crear rol de usuario</a>
+          </div>
         </div>
       <div class="card-body"> 
-        {{-- <div class="">
-          <h4>roles</h4>
-        </div> --}}
-
-          {{-- <div class="ml-2">
-            <a class="btn btn-success btn-md " href="{{ route('roles.create')}}">Crear</a>
-          </div>  --}}
-
-          <div class="row">
-            <div class="col-12 text-left">
-              <a href="{{ route('roles.create') }}" class="btn btn-success">Crear rol de usuario</a>
-            </div>
-          </div>
-
+        @if (session('success'))
+        <div class="alert alert-primary" role="success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ session('success') }}
+        </div>
+        @endif
+          
           {{-- incio de la tabla --}}
           <div class="table-responsive mt-2">
             <table class="table">
@@ -63,16 +59,13 @@
                     <td>
                       <a href="{{ route('roles.show', $role->id) }}" class="btn btn-info"> Ver</a>
                       <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-success">Editar </a>
-
-                      <form action="{{ route('roles.destroy', $role->id) }}" method="post"
-                        onsubmit="return confirm('¿Estas seguro que deseas borrar?!')" style="display: inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" rel="tooltip" class="btn btn-danger">Borrar
+                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#model-delete-{{$role->id}}">
+                        Eliminar
                         </button>
-                      </form>
                     </td>
                   </tr>
+                  @include('administrativo.roles.delete')
+
                   @empty
                   <tr>
                     <td colspan="2">Sin registros.</td>
