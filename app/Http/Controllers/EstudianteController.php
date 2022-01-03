@@ -16,7 +16,7 @@ class EstudianteController extends Controller
     {
         // Estudiante::Paginate(10);
         return view('administrativo.estudiantes.indexEstudiante')->with([
-            'estudiantes'=>Estudiante::Paginate(2),
+            'estudiantes'=>Estudiante::where('tutor_id',auth()->id())->Paginate(5),
         ]);
 
        
