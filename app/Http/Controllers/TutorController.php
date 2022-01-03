@@ -44,9 +44,9 @@ class TutorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TutorRequest $request, EstudianteRequest $requestes)
+    public function store(TutorRequest $request)
     {
-        $users = User::create($request->only(
+          $users = User::create($request->only(
             // 'name',
             'email',) + [
             'password' => bcrypt (request()->input('password'))
@@ -68,14 +68,35 @@ class TutorController extends Controller
         
         $tutor=Tutor::latest()->first()->id;
 
-        $estudiante = new Estudiante;
-        $estudiante->nombre=$request->input('nombrealumno');
-        $estudiante->apellido_p=$request->input('apellido_p_a');
-        $estudiante->apellido_m=$request->input('apellido_m_a');
-        $estudiante->matricula=$request->input('matricula');
-        $estudiante->tutor_id=$tutor;
-        $estudiante->save();
+        $pruebas=array([$request->only('nombrealumno', 'apellido_p_a', 'apellido_m_a', 'matricula')]); 
 
+        //foreach donde recorro todos los inputs y el resultado se muestra en una lista de nombrealumno,apellidos y matricula 
+
+        foreach ($pruebas as list($a)) { 
+
+             //variable con la que obtengo el numero de nombres que hay en el input y esa son las iteraciones del for 
+
+            $max = count($a['nombrealumno']); 
+
+            //recorro cada una de las listas de datos es decir  
+
+            for ($i=0; $i <$max; $i++) {  
+
+            //echo '<pre>'.print_r($a['nombrealumno'][$i], true).'</pre>'; 
+            //echo '<pre>'.print_r($a['apellido_p_a'][$i], true).'</pre>'; 
+            //echo '<pre>'.print_r($a['apellido_m_a'][$i], true).'</pre>'; 
+            //echo '<pre>'.print_r($a['matricula'][$i], true).'</pre>'; 
+            $estudiante = new Estudiante;
+            $estudiante->nombre=$a['nombrealumno'][$i];
+            $estudiante->apellido_p=$a['apellido_p_a'][$i];
+            $estudiante->apellido_m=$a['apellido_m_a'][$i];
+            $estudiante->matricula=$a['matricula'][$i];
+            $estudiante->tutor_id=$tutor;
+            $estudiante->save();
+    
+            } 
+           //echo '<pre>'.print_r($a, true).'</pre>'; 
+        } 
         //$roles = $request->input('roles', []);
         $roles = $request->input('roles');
         $users->syncRoles($roles);

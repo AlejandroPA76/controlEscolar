@@ -30,10 +30,10 @@ class TutorRequest extends FormRequest
             'email'=>'required|email|unique:users',
             'password'=>'required',
             
-            'nombrealumno'=>'required|min:3|max:30',
-            'apellido_p_a'=>'required', 'min:3', 'max:20',
-            'apellido_m_a'=>'required', 'min:3', 'max:20',
-            'matricula'=>'required|unique:estudiantes',
+            //'nombrealumno'=>'required|min:3|max:30',
+            //'apellido_p_a'=>'required', 'min:3', 'max:20',
+            //'apellido_m_a'=>'required', 'min:3', 'max:20',
+            //'matricula'=>'required|unique:estudiantes',
 
 
         ];

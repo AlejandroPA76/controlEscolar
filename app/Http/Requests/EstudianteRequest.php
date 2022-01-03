@@ -24,10 +24,10 @@ class EstudianteRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombrealumno'=>'required|min:3|max:30',
-            'matricula'=>'required|unique:estudiantes',
-            'apellido_p_a'=>'required', 'min:3', 'max:20',
-            'apellido_m_a'=>'required', 'min:3', 'max:20',
+            //'nombrealumno'=>'required|min:3|max:30',
+            //'matricula'=>'required|unique:estudiantes',
+            //'apellido_p_a'=>'required', 'min:3', 'max:20',
+            //'apellido_m_a'=>'required', 'min:3', 'max:20',
         ];
     }
 

@@ -9,6 +9,29 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+ <script> 
+    ///script donde se agregaran campos para agregar mas de un alumno 
+var contador=1;   
+  $(document).ready(function() { 
+     $("#add_alu").click(function(){
+
+        contador = contador+1;
+         
+/////////CODIGO BIEEEEEEEEEEEEEEEEEEEEEEEEEEEEN
+
+       
+
+           $(this).before('<div><hr><h4>Datos del alumno '+contador+'</h4><label>Nombre del alumno:</label><input type="text" id="name_'+ contador+'" name="nombrealumno[]" placeholder="Ingrese el nombre" class="form-control"/><div class="form-row"><div class="form-group col-md-6"> <label >Primer apellido:</label><input type="text"id="apellido_p" name="apellido_p_a[]" placeholder="ingrese el apellido paterno" class="form-control" /></div><div class="form-group col-md-6"><label >Segundo apellido:</label><input type="text"id="apellido_m" name="apellido_m_a[]" placeholder="ingrese el apellido materno" class="form-control" /></div></div><div class="form-group ml-0"><label>Matricula del alumno</label><input type="text" class="form-control" name="matricula[]" id="matricula" placeholder="ingrese la matricula"></div> <button type="button" class="delete_alu btn btn-outline-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16"><path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/><path fill-rule="evenodd" d="M12.146 5.146a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/></svg></button><div</div>');
+
+
+    });
+    $(document).on('click', '.delete_alu', function(){ 
+      contador = contador-1; 
+      $(this).parent().remove(); 
+    }); 
+}); 
+     </script> 
+
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- no additional media querie or css is required -->
@@ -111,7 +134,7 @@
                         <h4>Datos del alumno</h4>
             <div class="form-group">
               <label for="nombrealumno">Nombre del alumno</label>
-                <input type="text" class="form-control" name="nombrealumno" placeholder="Ingrese el nombre" autofocus value="{{old('nombrealumno')}}">
+                <input type="text" class="form-control" name="nombrealumno[]" placeholder="Ingrese el nombre" autofocus value="{{old('nombrealumno')}}">
                 @if ($errors->has('nombre'))
                     <span class="error text-danger" for="input-nombre">{{ $errors->first('nombre') }}</span>
                   @endif
@@ -120,7 +143,7 @@
                       <div class="form-row">
                           <div class="form-group col-md-6">
                             <label for="apellido_p_a">Primer apellido</label>
-                            <input type="text" class="form-control" name="apellido_p_a" placeholder="ingrese el apellido materno" value="{{old('apellido_p_a')}}">
+                            <input type="text" class="form-control" name="apellido_p_a[]" placeholder="ingrese el apellido materno" value="{{old('apellido_p_a')}}">
                             @if ($errors->has('apellido_p'))
                             <span class="error text-danger" for="input-apellido_p">{{ $errors->first('apellido_p') }}</span>
                             @endif
@@ -128,7 +151,7 @@
                           
                           <div class="form-group col-md-6">
                             <label for="apellido_m_a">Segundo apellido</label>
-                            <input type="text" class="form-control" name="apellido_m_a" placeholder="ingrese el apellido paterno" value="{{old('apellido_m_a')}}"> 
+                            <input type="text" class="form-control" name="apellido_m_a[]" placeholder="ingrese el apellido paterno" value="{{old('apellido_m_a')}}"> 
                             @if ($errors->has('apellido_m'))
                             <span class="error text-danger" for="input-apellido_m">{{ $errors->first('apellido_m_a') }}</span>
                             @endif
@@ -137,15 +160,16 @@
 
                           <div class="form-group ml-0">
                             <label>Matricula del alumno</label>
-                            <input type="text" class="form-control" name="matricula" placeholder="ingrese el apellido paterno" value="{{old('matricula')}}">
+                            <input type="text" class="form-control" name="matricula[]" placeholder="ingrese el apellido paterno" value="{{old('matricula')}}">
                             @if ($errors->has('matricula'))
                             <span class="error text-danger" for="input-matricula">{{ $errors->first('matricula') }}</span>
                             @endif 
                           </div>
-                          <div class="button">
-                            <button type="button" id="add_alu">agrear alumno</button>
-                        </div>
 
+                          <div class="button">
+                            <button type="button" id="add_alu" class="btn btn-secondary">agregar alumno</button>
+                        </div>
+                        <br>
                       <div class="form-row">
                       
                         <button type="submit" class="btn btn-primary">Registrar</button>
@@ -160,19 +184,4 @@
       @endsection
 
 
-     <script type="text/javascript">
-   
-       $(document).ready(function() {
-    $("#add_alu").click(function(){
-        var contador = $("input[type='nombre_alumno']").length;
-
-        $(this).before('<div><label for="nombrealumno'+ contador +'">holaa:</label><input type="text" id="nombrealumno'+ contador +'" name="nombrealumno[]"/><button type="button" class="delete_email">Del</button></div>');
-    });
-
-    $(document).on('click', '.delete_email', function(){
-        $(this).parent().remove();
-    });
-});
-
-
-     </script>
+     
