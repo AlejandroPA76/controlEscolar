@@ -17,8 +17,8 @@ class NivelController extends Controller
      */
     public function index()
     {
-         $nivels = Nivel::Paginate(5);
-        return view('administrativo.niveles.index',compact('nivels'));
+        $nivels = Nivel::Paginate(5);
+        return view('administrativo.niveles.index', compact('nivels'));
     }
 
     /**
@@ -39,8 +39,10 @@ class NivelController extends Controller
      */
     public function store(Request $request)
     {
-        
-
+        $nivel = new Nivel;
+        $nivel->nivel = $request->input('nivelname');
+        $nivel->save();
+        return redirect()->route('niveles.index');
     }
 
     /**
@@ -62,8 +64,8 @@ class NivelController extends Controller
      */
     public function edit(Nivel $nivel, $id)
     {
-        $nvl=Nivel::findOrFail($id);
-        return view('administrativo.niveles.edit',compact('nvl'));
+        $nvl = Nivel::findOrFail($id);
+        return view('administrativo.niveles.edit', compact('nvl'));
     }
 
     /**
@@ -75,9 +77,9 @@ class NivelController extends Controller
      */
     public function update(UpdateNivelRequest $request, Nivel $nivel, $id)
     {
-       $nvl=Nivel::findOrFail($id);
-       $nvl->nivel=$request->input('nivelnameupdate');
-       $nvl->save();
+        $nvl = Nivel::findOrFail($id);
+        $nvl->nivel = $request->input('nivelnameupdate');
+        $nvl->save();
     }
 
     /**
@@ -86,9 +88,9 @@ class NivelController extends Controller
      * @param  \App\Models\Nivel  $nivel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Nivel $nivel,$id)
+    public function destroy(Nivel $nivel, $id)
     {
-        $delnvl=Nivel::find($id);
+        $delnvl = Nivel::find($id);
         $delnvl->delete();
     }
 }
