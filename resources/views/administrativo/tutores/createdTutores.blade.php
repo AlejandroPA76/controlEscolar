@@ -9,7 +9,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
- <script> 
+<script> src="js/formulario.js"</script>
+  
+ <script>
     ///script donde se agregaran campos para agregar mas de un alumno 
 var contador=1;   
   $(document).ready(function() { 
@@ -135,8 +137,8 @@ var contador=1;
             <div class="form-group">
               <label for="nombrealumno">Nombre del alumno</label>
                 <input type="text" class="form-control" name="nombrealumno[]" placeholder="Ingrese el nombre" autofocus value="{{old('nombrealumno')}}">
-                @if ($errors->has('nombre'))
-                    <span class="error text-danger" for="input-nombre">{{ $errors->first('nombre') }}</span>
+                @if ($errors->has('nombrealumno[]'))
+                    <span class="error text-danger" for="input-nombre">{{ $errors->first('nombrealumno[]') }}</span>
                   @endif
                   </div>
 
@@ -144,16 +146,16 @@ var contador=1;
                           <div class="form-group col-md-6">
                             <label for="apellido_p_a">Primer apellido</label>
                             <input type="text" class="form-control" name="apellido_p_a[]" placeholder="ingrese el apellido materno" value="{{old('apellido_p_a')}}">
-                            @if ($errors->has('apellido_p'))
-                            <span class="error text-danger" for="input-apellido_p">{{ $errors->first('apellido_p') }}</span>
+                            @if ($errors->has('apellido_p_a[]'))
+                            <span class="error text-danger" for="input-apellido_p">{{ $errors->first('apellido_p_a[]') }}</span>
                             @endif
                           </div>
                           
                           <div class="form-group col-md-6">
                             <label for="apellido_m_a">Segundo apellido</label>
                             <input type="text" class="form-control" name="apellido_m_a[]" placeholder="ingrese el apellido paterno" value="{{old('apellido_m_a')}}"> 
-                            @if ($errors->has('apellido_m'))
-                            <span class="error text-danger" for="input-apellido_m">{{ $errors->first('apellido_m_a') }}</span>
+                            @if ($errors->has('apellido_m_a[]'))
+                            <span class="error text-danger" for="input-apellido_m">{{ $errors->first('apellido_m_a[]') }}</span>
                             @endif
                           </div>
                       </div>
@@ -161,7 +163,7 @@ var contador=1;
                           <div class="form-group ml-0">
                             <label>Matricula del alumno</label>
                             <input type="text" class="form-control" name="matricula[]" placeholder="ingrese el apellido paterno" value="{{old('matricula')}}">
-                            @if ($errors->has('matricula'))
+                            @if ($errors->has('matricula[]'))
                             <span class="error text-danger" for="input-matricula">{{ $errors->first('matricula') }}</span>
                             @endif 
                           </div>

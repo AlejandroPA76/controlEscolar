@@ -22,8 +22,8 @@ class CreateTutorsTable extends Migration
             // $table->string('contraseña');
 
             $table->foreignId('user_id')
-            ->constrained('users');
-            // ->onDelete('cascade');
+            ->constrained('users')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

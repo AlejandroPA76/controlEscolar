@@ -6,7 +6,7 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-body">
-                  <h1>Iniciar sesion</h1>
+                  <h1>Iniciar sesión</h1>
                   
                   <form method="POST" action="{{ route('login') }}">
                     @csrf
