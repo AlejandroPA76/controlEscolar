@@ -38,14 +38,13 @@ class UserSeeder extends Seeder
         ]);
         $user->assignRole('Tutor');
         
-        $user = User ::create([
-            'name' => 'Docente',
-            'email' => 'docente@docente.com',
-            // 'username' => 'admin',
+
+         $user= User ::create([
+            'name' => 'docente',
+            'email' => 'docente@h.com',
             'password' => bcrypt('1234'),
         ]);
-        $user->assignRole('Docente');
-
+         $user->assignRole('Docente');
 
     }
 }
