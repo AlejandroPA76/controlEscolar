@@ -42,7 +42,7 @@ class NivelController extends Controller
         $nivel=new Nivel;
         $nivel->nivel=$request->input('nivelname');
         $nivel->save();
-
+        return redirect()->route('niveles.index');
     }
 
     /**
@@ -80,6 +80,7 @@ class NivelController extends Controller
        $nvl=Nivel::findOrFail($id);
        $nvl->nivel=$request->input('nivelnameupdate');
        $nvl->save();
+       return redirect()->route('niveles.index');      
     }
 
     /**
@@ -92,5 +93,6 @@ class NivelController extends Controller
     {
         $delnvl=Nivel::find($id);
         $delnvl->delete();
+        return redirect()->route('niveles.index');        
     }
 }
