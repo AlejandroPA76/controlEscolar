@@ -10,7 +10,7 @@ class Nivel extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nivel',
+        'nivel'
     ];
 
     public function Grupo(){

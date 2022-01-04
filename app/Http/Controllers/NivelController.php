@@ -37,9 +37,9 @@ class NivelController extends Controller
      * @param  \App\Http\Requests\StoreNivelRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNivelRequest $request)
+    public function store(Request $request)
     {
-        $nivel = Nivel::create($request->validated());
+        Nivel::create($request->only('nivelname'));
     }
 
     /**

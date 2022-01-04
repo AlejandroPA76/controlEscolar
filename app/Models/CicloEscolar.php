@@ -9,6 +9,11 @@ class CicloEscolar extends Model
 {
     use HasFactory;
 
+    protected $fillable=[
+        'ciclo'
+
+    ];
+
     public function listaGrupo(){
         return $this->belongsTo(ListaGrupo::class);
     }
