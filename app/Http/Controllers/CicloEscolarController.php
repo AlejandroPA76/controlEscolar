@@ -38,7 +38,7 @@ class CicloEscolarController extends Controller
     public function store(Request $request)
     {
         $ciclos =CicloEscolar::create($request->only('ciclo'));
-        return redirect()->route('ciclos.index');
+        return redirect()->route('ciclos.index')->withSuccess('¡Ciclo escolar agregado correctamente!');
     }
 
     /**
@@ -49,7 +49,7 @@ class CicloEscolarController extends Controller
      */
     public function show(CicloEscolar $cicloEscolar)
     {
-        //
+        
     }
 
     /**

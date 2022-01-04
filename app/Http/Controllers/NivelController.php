@@ -39,9 +39,12 @@ class NivelController extends Controller
      */
     public function store(Request $request)
     {
-        $nivel=new Nivel;
-        $nivel->nivel=$request->input('nivelname');
-        $nivel->save();
+        // $nivel=new Nivel;
+        // $nivel->nivel=$request->input('nivelname');
+        // $nivel->save();
+
+        $ciclos =CicloEscolar::create($request->only('ciclo'));
+        return redirect()->route('ciclos.index');
 
     }
 
