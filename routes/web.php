@@ -69,6 +69,7 @@ Route::delete('admin/docentes/destroy/{docentes}', 'DocenteController@destroy')-
 // ----------------------------------------------------------------------------------------------------------------
 
 Route::resource('grupos', GrupoController::class);
+Route::resource('niveles', NivelController::class);
 
 // ---------------------------------------------------------------------------------------------
 
