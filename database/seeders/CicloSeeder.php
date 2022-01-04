@@ -15,13 +15,13 @@ class CicloSeeder extends Seeder
     public function run()
     {
           $g= CicloEscolar::create([
-            'periodo_escolar' => '2017-2021',
+            'ciclo' => '2017-2021',
 
         ]);
 
 
            $g= CicloEscolar::create([
-            'periodo_escolar' => '2018-2022',
+            'ciclo' => '2018-2022',
 
         ]);
 

@@ -116,6 +116,10 @@
             {{-- @can('pagos_index') --}}
             <a href="{{route('niveles.index')}}" class="list-group-item list-group-item-action bg-light">Niveles educativos</a>
             {{-- @endcan --}}
+            
+            {{-- @can('pagos_index') --}}
+            <a href="{{route('ciclos.index')}}" class="list-group-item list-group-item-action bg-light">Ciclo escolar</a>
+            {{-- @endcan --}}
         </div>
         </div>
         <!-- /#sidebar-wrapper -->

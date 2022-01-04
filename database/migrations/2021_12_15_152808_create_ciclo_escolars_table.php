@@ -15,7 +15,7 @@ class CreateCicloEscolarsTable extends Migration
     {
         Schema::create('ciclo_escolars', function (Blueprint $table) {
             $table->id();
-            $table->string('periodo_escolar');
+            $table->string('ciclo');
             $table->timestamps();
         });
     }

@@ -37,11 +37,12 @@ class NivelController extends Controller
      * @param  \App\Http\Requests\StoreNivelRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNivelRequest $request)
+    public function store(Request $request)
     {
         $nivel=new Nivel;
         $nivel->nivel=$request->input('nivelname');
         $nivel->save();
+
     }
 
     /**

@@ -14,7 +14,9 @@ class CicloEscolarController extends Controller
      */
     public function index()
     {
-        //
+        $ciclos = CicloEscolar::Paginate(20);
+
+        return view('administrativo.ciclos.index', compact('ciclos'));
     }
 
     /**
@@ -24,7 +26,7 @@ class CicloEscolarController extends Controller
      */
     public function create()
     {
-        //
+        return view('administrativo.ciclos.create');
     }
 
     /**
@@ -35,7 +37,8 @@ class CicloEscolarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ciclos =CicloEscolar::create($request->only('ciclo'));
+        return redirect()->route('ciclos.index');
     }
 
     /**
@@ -55,9 +58,12 @@ class CicloEscolarController extends Controller
      * @param  \App\Models\CicloEscolar  $cicloEscolar
      * @return \Illuminate\Http\Response
      */
-    public function edit(CicloEscolar $cicloEscolar)
+    public function edit(CicloEscolar $ciclo)
     {
-        //
+        // $ciclo=CicloEscolar::all();
+        return view('administrativo.ciclos.edit')->with([
+            'ciclo'=> $ciclo,
+        ]);
     }
 
     /**
@@ -67,9 +73,14 @@ class CicloEscolarController extends Controller
      * @param  \App\Models\CicloEscolar  $cicloEscolar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CicloEscolar $cicloEscolar)
+    public function update(Request $request, CicloEscolar $ciclo)
     {
-        //
+        // $ciclo->update($request->all());
+
+        $data = $request->only('ciclo');
+        $ciclo->update($data);
+
+        return redirect()->route('ciclos.index');
     }
 
     /**
@@ -78,8 +89,11 @@ class CicloEscolarController extends Controller
      * @param  \App\Models\CicloEscolar  $cicloEscolar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CicloEscolar $cicloEscolar)
+    public function destroy(CicloEscolar $ciclo)
     {
-        //
+        $ciclo->delete();
+
+        return redirect(route('ciclos.index'));
+
     }
 }
