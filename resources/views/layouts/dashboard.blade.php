@@ -16,21 +16,7 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
             });
-
-            $('#myModal').on('shown.bs.modal', function () {
-                $('#myInput').trigger('focus')
-                });
         })
-
-        $(document).ready(function() {
-        $(window).load(function() {
-            $(".cargando").fadeOut(1000);
-        });
-//Ocultar mensaje
-    setTimeout(function () {
-        $("#msj").fadeOut(1000);
-    }, 7000);
-});
         </script>
         <style>
             body {
@@ -71,14 +57,13 @@
             margin-left: -15rem;
         }
         }
-        
         </style>
         
         <link rel="stylesheet" href="{{asset('css/all.css')}}">
         
         
     </head>
-    <body >
+    <body class="sb-nav-fixed">
 
         <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
@@ -88,11 +73,11 @@
             
             <a href="{{route('admin.indexEstudiantes')}}" class="list-group-item list-group-item-action bg-light">Estudiantes</a>
             
-            @can('tutores_index')
+            @can('tutor_index')
             <a href="{{route('admin.indexTutores')}}" class="list-group-item list-group-item-action bg-light">Tutores</a>
             @endcan
 
-            @can('docentes_index')
+            @can('docente_index')
             <a href="{{route('admin.indexDocentes')}}" class="list-group-item list-group-item-action bg-light">Docentes</a>
             @endcan
 
@@ -117,9 +102,9 @@
             <a href="{{route('users.index')}}" class="list-group-item list-group-item-action bg-light">Usuarios</a>
             @endcan
 
-            @can('pagos_index')
+            {{-- @can('tutor_index') --}}
             <a href="#" class="list-group-item list-group-item-action bg-light">Pagos</a>
-            @endcan
+            {{-- @endcan --}}
         </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -182,7 +167,4 @@
         <!-- /#page-content-wrapper -->
         <!-- /#wrapper -->
     </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
