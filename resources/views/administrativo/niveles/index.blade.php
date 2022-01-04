@@ -39,10 +39,16 @@
                 <tr>
                   <td>{{$nvl->id}}</td>
                   <td>{{$nvl->nivel}}</td>
-                 <td>  <a class="btn btn-info"><i class="material-icons center" href="#">Editar</a>
-                  <a class="btn btn-warning"><i class="material-icons center" href="#">Eliminar</a></td>
-
-                  
+                 <td>  
+                  <a class="btn btn-primary" href="/niveles/{{$nvl->id}}/edit"><i i class="material-icons center">editar</i></a>                
+                  </td>
+                   <td>
+         <form action="/niveles/{{$nvl->id}}" method="POST">
+             @csrf
+             @method('delete')
+             <input type="submit" class="btn btn-danger btn-sm" value="Eliminar" onclick="return confirm('deseas borrar?')">
+         </form>
+              </td>
                 </tr>
                 @endforeach
               </tbody>
