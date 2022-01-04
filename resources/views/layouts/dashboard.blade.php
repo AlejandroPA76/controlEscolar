@@ -114,7 +114,7 @@
             @endcan
 
             {{-- @can('pagos_index') --}}
-            <a href="/niveles" class="list-group-item list-group-item-action bg-light">Niveles educativos</a>
+            <a href="{{route('niveles.index')}}" class="list-group-item list-group-item-action bg-light">Niveles educativos</a>
             {{-- @endcan --}}
         </div>
         </div>

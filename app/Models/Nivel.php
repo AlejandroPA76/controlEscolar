@@ -9,6 +9,10 @@ class Nivel extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nivel',
+    ];
+
     public function Grupo(){
         return $this->belongsTo(Grupo::class);
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nivel;
+
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreNivelRequest;
 use App\Http\Requests\UpdateNivelRequest;
 
@@ -26,7 +28,7 @@ class NivelController extends Controller
      */
     public function create()
     {
-        //
+        return view('administrativo.niveles.create');
     }
 
     /**
@@ -37,7 +39,7 @@ class NivelController extends Controller
      */
     public function store(StoreNivelRequest $request)
     {
-        //
+        $nivel = Nivel::create($request->validated());
     }
 
     /**
