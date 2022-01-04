@@ -73,11 +73,11 @@
             
             <a href="{{route('admin.indexEstudiantes')}}" class="list-group-item list-group-item-action bg-light">Estudiantes</a>
             
-            @can('tutor_index')
+            @can('tutores_index')
             <a href="{{route('admin.indexTutores')}}" class="list-group-item list-group-item-action bg-light">Tutores</a>
             @endcan
 
-            @can('docente_index')
+            @can('docentes_index')
             <a href="{{route('admin.indexDocentes')}}" class="list-group-item list-group-item-action bg-light">Docentes</a>
             @endcan
 

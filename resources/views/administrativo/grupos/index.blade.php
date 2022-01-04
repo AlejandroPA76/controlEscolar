@@ -13,11 +13,7 @@
                       <a href="{{ route('grupos.create') }}" class="btn btn-success">Crear grupo</a>
                     </div>
                     <br>
-                    @if(!isset($grupo->isEmpty))
-                    <div class="alert alert-warning">
-                      <strong>No se han creado grupos</strong> 
-                    </div>
-                    @else
+                    
                         
                     <p class="card-category"> Listado de grupos</p>
                     
@@ -66,5 +62,5 @@
         </div>
       </div>
     </div>
-    @endempty
+    
 @endsection
