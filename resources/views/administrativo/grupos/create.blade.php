@@ -52,10 +52,10 @@
 
                   <div class="form-group">
                                 <label >Seleciona al docente:</label>
-                                <select class="form-control" name="docente">
+                                <select class="form-control" name="docente" required>
                                    <option value="" selected>Seleccionar</option>
                                   @foreach($docenteslist as $docente)
-                                  <option> {{$docente->id}}-{{$docente->nombre}}</option>
+                                  <option value="{{$docente->id}}">{{$docente->nombre}} {{$docente->apellido_p}} {{$docente->apellido_m}}</option>
                                   @endforeach
                                 </select>
                   </div>
