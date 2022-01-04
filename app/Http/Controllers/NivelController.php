@@ -15,7 +15,8 @@ class NivelController extends Controller
      */
     public function index()
     {
-        //
+         $nivels = Nivel::Paginate(5);
+        return view('administrativo.niveles.index',compact('nivels'));
     }
 
     /**
