@@ -9,7 +9,6 @@ use App\Http\Requests\UsuarioRequest;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterUsersRequest; // Validar informacion de los datos de registro de usuarios
-use App\Http\Requests\ValidatedAuthUserRequest; // Validación de información de los datos de registro de usuarios
 use App\Models\Tutor;
 
 class UserController extends Controller

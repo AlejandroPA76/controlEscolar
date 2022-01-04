@@ -10,14 +10,17 @@
                     @csrf
                     
                     <div class="form-group">
+
                       <label>Nivel academico</label>
                       <select class="form-control" name="nivel" value="" required>
                         <option value="" selected>Seleccionar</option>
-                        <option value="Preescolar">Preescolar</option>
-                        <option value="Escolar">Escolar</option>
+                        @foreach($nvls as $nvl)
+                         <option >{{$nvl->id}}-{{$nvl->nivel}}</option>
+                        @endforeach
+
                       </select>
                     </div>
-                    
+                      <div>
                     <div class="form-group">
                       <label>Grado</label>
                       <select class="form-control" name="grado" value="" required>
@@ -38,7 +41,7 @@
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
-                        <option value="D">C</option>
+                        <option value="D">D</option>
                       </select>
                     </div>
                     
@@ -48,18 +51,19 @@
                   </div>
 
                   <div class="form-group">
-                                <label for="exampleFormControlSelect1">Seleciona al docente:</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <label >Seleciona al docente:</label>
+                                <select class="form-control" name="docente">
+                                   <option value="" selected>Seleccionar</option>
                                   @foreach($docenteslist as $docente)
                                   <option> {{$docente->id}}-{{$docente->nombre}}</option>
                                   @endforeach
                                 </select>
-                              </div>
+                  </div>
+
 
                       <div>
 
-
-                      <a href="{{route('grupos.store')}}" type="button" id="sendlogin" class="btn btn-primary float-right">Crear Grupo</a>
+                        <button type="submit" id="sendlogin" class="btn btn-primary float-right">Crear grupo</button>
                   
                       </div>
       
