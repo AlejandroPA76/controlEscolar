@@ -26,14 +26,6 @@
                   @endif
                   </div>
 
-                  <div class="form-group">
-                    <label for="matricula">Matricula</label>
-                      <input type="text" class="form-control" name="matricula" placeholder="Ingrese la matricula" autofocus value="{{old('matricula')}}">
-                      @if ($errors->has('matricula'))
-                    <span class="error text-danger" for="input-matricula">{{ $errors->first('matricula') }}</span>
-                  @endif    
-                    </div>
-
                       <div class="form-row">
                           <div class="form-group col-md-6">
                             <label for="apellido_p">Primer apellido</label>
@@ -51,6 +43,14 @@
                             @endif
                           </div>
                         </div>
+                    
+                        <div class="form-group">
+                    <label for="matricula">Matricula</label>
+                      <input type="text" class="form-control" name="matricula" placeholder="Ingrese la matricula" autofocus value="{{old('matricula')}}">
+                      @if ($errors->has('matricula'))
+                    <span class="error text-danger" for="input-matricula">{{ $errors->first('matricula') }}</span>
+                  @endif    
+                    </div>
 
                          <div class="form-row">
                           <div class="form-group col-md-6">

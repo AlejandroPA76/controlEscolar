@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Grupo;
 use App\Models\Docente;
+use App\Models\Nivel;
 use Illuminate\Http\Request;
 
 class GrupoController extends Controller
@@ -31,9 +32,9 @@ class GrupoController extends Controller
         //trago todos los docente y los guardo el docenteslist y luego lo mando a la vista
         //crear grupo, eso con el fin de seleccional al docente con un combobox
         $docenteslist=Docente::all();
-
-        return view('administrativo.grupos.create',compact('docenteslist'));
-        return view('administrativo.grupos.create');
+        $nvls=Nivel::all();
+        return view('administrativo.grupos.create',compact('docenteslist','nvls'));
+        
     }
 
     /**
@@ -44,7 +45,7 @@ class GrupoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
