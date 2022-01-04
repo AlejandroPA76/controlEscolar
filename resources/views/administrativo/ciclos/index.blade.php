@@ -41,8 +41,11 @@
                   <td>{{$ciclo->ciclo}}</td>
                  <td>  
                   <a href="{{ route('ciclos.edit', $ciclo->id) }}" class="btn btn-warning"><i class="material-icons">Editar</i></a>
-                  <a class="btn btn-warning"><i class="material-icons center" href="#">Eliminar</a></td>
-
+                  <form method="POST" class="d-inLine" action="{{ route('ciclos.destroy', ['ciclo' =>$ciclo->id]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-link">Borrar</button>
+                </form>
                   
                 </tr>
                 @endforeach

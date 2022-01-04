@@ -73,12 +73,12 @@ class CicloEscolarController extends Controller
      * @param  \App\Models\CicloEscolar  $cicloEscolar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CicloEscolar $cicloEscolar)
+    public function update(Request $request, CicloEscolar $ciclo)
     {
-        // $cicloEscolar->update($request->all());
+        // $ciclo->update($request->all());
 
         $data = $request->only('ciclo');
-        $cicloEscolar->update($data);
+        $ciclo->update($data);
 
         return redirect()->route('ciclos.index');
     }
@@ -89,8 +89,11 @@ class CicloEscolarController extends Controller
      * @param  \App\Models\CicloEscolar  $cicloEscolar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CicloEscolar $cicloEscolar)
+    public function destroy(CicloEscolar $ciclo)
     {
-        //
+        $ciclo->delete();
+
+        return redirect(route('ciclos.index'));
+
     }
 }
