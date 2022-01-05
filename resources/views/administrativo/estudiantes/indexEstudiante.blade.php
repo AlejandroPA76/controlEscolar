@@ -23,6 +23,7 @@
                                 {{ session('success') }}
                             </div>
                         @endif
+                        
                         <div class="table-responsive mt-2">
                             <table class="table">
                                 {{-- encabezado --}}
