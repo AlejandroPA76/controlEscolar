@@ -40,8 +40,7 @@
                                                             <a class="btn btn-primary"
                                                                 href="/niveles/{{ $nvl->id }}/edit"><i i
                                                                     class="material-icons center">editar</i></a>
-                                                        </td>
-                                                        <td>
+                                                        
                                                             <form action="/niveles/{{ $nvl->id }}" method="POST">
                                                                 @csrf
                                                                 @method('delete')

@@ -70,10 +70,16 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function show(Grupo $grupo)
+    public function show($id)
     {
-              echo("holaaa");
-            
+              $grupoconsultada=DB::table('grupos')
+                ->select('grupos.id','grupos.grupo_nombre','grupos.grado','nivels.nivel','docentes.nombre','docentes.apellido_p','docentes.apellido_m')
+                ->join('nivels','nivels.id','=','grupos.nivel_id')
+                ->join('docentes','docentes.id','=','grupos.docente_id')
+                ->where('grupos.id','LIKE',$id)
+                ->get();
+            return view('administrativo.grupos.show',compact('grupoconsultada'));
+
     }
 
     /**
