@@ -54,9 +54,6 @@
                                         </div>
                                     </div>
                                     <!--end card user 2-->
-
-
-
                                 </div>
                             </div>
                         </div>

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
-// use DB;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
+
+
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -17,19 +20,25 @@ class EstudianteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {        
+    {      
     
-    $estudiantes = DB::table('users')
-    ->select('estudiantes.id','estudiantes.nombre','estudiantes.apellido_p','estudiantes.apellido_m','estudiantes.matricula','estudiantes.created_at')
-    ->join('tutors','user_id','=','users.id')
-    ->join('estudiantes','tutor_id','=','tutors.id')
-    ->where('users.id','LIKE',auth::user()->id)
-    ->paginate(3);
-     //echo '<pre>'.print_r($estudiantes, true).'</pre>'; 
-    //$estudiantes = json_decode(json_encode($estud), true);
-        // Estudiante::Paginate(10);
-    // return $estudiantes;
-     return view('administrativo.estudiantes.indexEstudiante',compact('estudiantes'));
+        if (auth()->user()->hasRole('Tutor')) {
+            $estudiantes = DB::table('users')
+            ->select('estudiantes.id','estudiantes.nombre','estudiantes.apellido_p','estudiantes.apellido_m','estudiantes.matricula','estudiantes.created_at')
+            ->join('tutors','user_id','=','users.id')
+            ->join('estudiantes','tutor_id','=','tutors.id')
+            ->where('users.id','LIKE',auth::user()->id)
+            ->paginate('3');
+
+            return view('administrativo.estudiantes.indexEstudiante', compact('estudiantes'));
+
+        }
+        else {             
+            $estudiantes=Estudiante::all();
+            $estudiantes = Estudiante::Paginate(10);
+
+            return view('administrativo.estudiantes.indexEstudiante', compact('estudiantes'));
+    }
        
     }
 
