@@ -25,33 +25,41 @@
                                         </div>
                                     @endif
 
-                                    <div class="table-responsive">
+                                    <div class="table-responsive mt-2">
                                         <table class="table">
-                                            <thead class="text-primary">
-                                                <th></th>
+                                            <thead class="text primary">
+                                                <th>Id</th>
+                                                <th>Grado</th>
+                                                <th>Grupo</th>
+                                                <th>Nivel</th>
+                                                <th>Docente</th>
+                                                <th>Accion</th>
+                                                
                                             </thead>
                                             <tbody>
-                                                {{-- @foreach
                                                 <tr>
-                                                    <td></td>
-                                                    <td class="td-actions text-right">
-
-                                                        <a href="{{ route('grupos.show', $user->id) }}"
-                                                            class="btn btn-info"><i class="material-icons">Ver</i></a>
-                                                        <a href="{{ route('grupos.edit', $user->id) }}"
-                                                            class="btn btn-warning"><i class="material-icons">Editar</i></a>
-                                                        <form action="{{ route('grupos.delete', $user->id) }}"
-                                                            method="POST" style="display: inline-block;"
-                                                            onsubmit="return confirm('Seguro?')">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger" type="submit" rel="tooltip">
-                                                                <i class="material-icons">Borrar</i>
-                                                            </button>
-                                                        </form>
-                                                    </td>
+                                                    
+                                                @foreach($grupos as $grup)
+                                                <td>{{ $grup->id }}</td>
+                                                <td>{{ $grup->grado}}</td>
+                                                <td>{{ $grup->grupo_nombre}}</td>
+                                                <td>{{$grup->nivel}}</td>
+                                                <td>{{$grup->nombre}} {{$grup->apellido_p}} {{$grup->apellido_m}}</td>
+                                                <td>
+                                                    <a href="{{route('grupos.show',$grup->id)}}" class="btn btn-info" >
+                                                         <i class="material-icons">Ver</i>
+                                                    </a>
+                                                    <a href="" class="btn btn-warning" >
+                                                         <i class="material-icons">Editar</i>
+                                                    </a>
+                                                    <a href="" class="btn btn-danger">
+                                                         <i class="material-icons">Eliminar</i>
+                                                    </a>
+                                                </td>
+                                              
                                                 </tr>
-                                                @endforeach --}}
+                                               
+                                               @endforeach
                                             </tbody>
                                         </table>
                                     </div>

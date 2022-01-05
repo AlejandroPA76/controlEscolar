@@ -48,7 +48,7 @@
                                                                 action="{{ route('ciclos.destroy', ['ciclo' => $ciclo->id]) }}">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-link">Borrar</button>
+                                                                <button type="submit" class="btn btn-danger">Borrar</button>
                                                             </form>
 
                                                     </tr>

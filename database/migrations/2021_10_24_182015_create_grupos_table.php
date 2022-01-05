@@ -16,7 +16,8 @@ class CreateGruposTable extends Migration
         Schema::create('grupos', function (Blueprint $table) {
             $table->id();
             $table->string('grupo_nombre');
-            $table->integer('grado')->unique();          
+            $table->integer('grado')->unsigned(); 
+            $table->integer('cupo_maximo')->unsigned();         
             $table->foreignId('nivel_id')->constrained('nivels');
             $table->foreignId('docente_id')->constrained('docentes');
 

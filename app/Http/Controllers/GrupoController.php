@@ -6,6 +6,8 @@ use App\Models\Grupo;
 use App\Models\Docente;
 use App\Models\Nivel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class GrupoController extends Controller
 {
@@ -17,8 +19,14 @@ class GrupoController extends Controller
     public function index()
     {
         //obtengo todos los grupos para desplegarlos en una tabla
-        $grupos=Grupo::all();
+        //$grupos=Grupo::all();
+        $grupos=Grupo::select('grupos.id','grupos.grupo_nombre','grupos.grado','nivels.nivel','docentes.nombre','apellido_p','apellido_m')
+        ->join('nivels','nivels.id','=','grupos.nivel_id')
+        ->join('docentes','docentes.id','=','grupos.docente_id')
+        ->get();
+
         return view('administrativo.grupos.index',compact('grupos'));
+        //echo '<pre>'.print_r($grupos, true).'</pre>';     
     }
 
     /**
@@ -45,7 +53,15 @@ class GrupoController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->input('docente');
+        $grups=new Grupo;
+        $grups->grupo_nombre=$request->input('grupo');
+        $grups->grado=$request->input('grado');
+        $grups->cupo_maximo=$request->input('cupo');
+        $grups->nivel_id=$request->input('nivel');
+        $grups->docente_id=$request->input('docente');
+        $grups->save();
+        return redirect()->route('grupos.index');
+        
     }
 
     /**
@@ -56,7 +72,7 @@ class GrupoController extends Controller
      */
     public function show(Grupo $grupo)
     {
-               
+              echo("holaaa");
             
     }
 
