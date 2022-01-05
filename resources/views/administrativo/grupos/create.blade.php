@@ -15,7 +15,7 @@
                                 <select class="form-control" name="nivel" value="" required>
                                     <option value="" selected>Seleccionar</option>
                                     @foreach ($nvls as $nvl)
-                                        <option>{{ $nvl->id }}-{{ $nvl->nivel }}</option>
+                                        <option value="{{ $nvl->id }}">{{ $nvl->nivel }}</option>
                                     @endforeach
 
                                 </select>
