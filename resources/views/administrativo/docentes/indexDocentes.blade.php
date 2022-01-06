@@ -51,12 +51,12 @@
                                             <td>{{ $docente->usuario }}</td>
                                             <td>{{ $docente->created_at }}</td>
                                             <td>
-                                                <a class="btn btn-info"><i class="material-icons"
-                                                        href="{{ route('admin.showDocentes', $docente->id) }}">Ver</a>
+                                                <a href="{{ route('admin.showDocentes', $docente->id) }}"
+                                                    class="btn btn-info"><i class="material-icons">Ver</i></a>
                                                 {{-- podemo usar el titulo del procto paara que se muestre en la url en lugar del id como se obe¿serva en la siguiente linea  se hace junto con el parametro de las rutas --}}
-                                                {{-- <a class="btn btn-link" href="{{ route('docentes.show', ['docente' => $docente->title]) }}">Ver</a> --}}
-                                                <a class="btn btn-warning"><i class="material-icons"
-                                                        href="{{ route('admin.editDocentes', $docente->id) }}">Editar</a>
+                                                {{-- <a class="btn btn-link" href="{{ route('tutors.show', ['tutor' => $tutor->title]) }}">Ver</a> --}}
+                                                <a href="{{ route('admin.editDocentes', ['docentes' => $docente->id]) }}"
+                                                    class="btn btn-warning"><i class="material-icons">Editar</a>
 
                                                 <button type="button" class="btn btn-danger" data-toggle="modal"
                                                     data-target="#model-delete-{{ $docente->id }}">
