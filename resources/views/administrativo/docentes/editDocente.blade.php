@@ -8,26 +8,28 @@
                 <div class="card">
                     <div class="card-body">
                         <h4>Editar docentes</h4>
+
                         <form method="POST" action="{{ route('admin.updateDocentes', ['docentes' => $docentes->id]) }}">
                             @csrf
                             @method('PUT')
 
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" value="{{ $docentes->nombre }}">
+                                <input type="text" class="form-control" name="nombre" value="{{ $docentes->nombre }}"
+                                    required>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="apellido_p">Primer apellido</label>
                                     <input type="text" class="form-control" name="apellido_p"
-                                        value="{{ $docentes->apellido_p }}">
+                                        value="{{ $docentes->apellido_p }}" required>
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="apellido_m">Segundo apellido</label>
                                     <input type="text" class="form-control" name="apellido_m"
-                                        value="{{ $docentes->apellido_m }}">
+                                        value="{{ $docentes->apellido_m }}" required>
                                 </div>
                             </div>
 
@@ -35,19 +37,21 @@
                                 <div class="form-group col-md-6">
                                     <label for="usuario"> Usuario</label>
                                     <input type="text" class="form-control" name="usuario"
-                                        value="{{ $docentes->usuario }}">
+                                        value="{{ $docentes->usuario }}" required>
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="contraseña"> Contraseña</label>
                                     <input type="password" class="form-control" name="contraseña"
-                                        value="{{ $docentes->contraseña }}">
+                                        value="{{ $docentes->contraseña }}" required required>
                                 </div>
                             </div>
                             <br>
                             <div class="form-row">
+                                <button type="submit" class="btn btn-primary mr-3">Actualizar</button>
+                                <a href="{{ route('admin.indexDocentes') }}" class="btn btn btn-success btn-right"> Cancelar
+                                    edicion </a>
 
-                                <button type="submit" class="btn btn-primary">Actualizar</button>
                             </div>
                             {{-- estudianate --}}
                         </form>

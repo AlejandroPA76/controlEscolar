@@ -87,7 +87,6 @@ class DocenteController extends Controller
     {
         return view('administrativo.docentes.editDocente')->with([
             'docentes'=>$docentes,
-
         ]);
 
     }
