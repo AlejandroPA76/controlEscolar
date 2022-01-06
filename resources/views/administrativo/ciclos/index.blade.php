@@ -31,7 +31,7 @@
                                             {{-- encabezado --}}
                                             <thead class="text primary">
                                                 <th>Id</th>
-                                                <th>Nombre nivel</th>
+                                                <th>Ciclo escolar</th>
                                                 <th class="text-center">Acciones</th>
                                             </thead>
                                             {{-- cuerpo --}}
