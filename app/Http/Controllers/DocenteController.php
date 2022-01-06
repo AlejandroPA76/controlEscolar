@@ -6,6 +6,8 @@ use App\Models\Docente;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\DocenteRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class DocenteController extends Controller
 {
@@ -69,12 +71,16 @@ class DocenteController extends Controller
      * @param  \App\Models\Docente  $docente
      * @return \Illuminate\Http\Response
      */
-    public function show(Docente $docentes)
+    public function show(Docente $docentes1)
     {
         // $tutor = Tutor::findOrFail($tutor);
         // return view('administrativo.showTutores')->with($tutor);
+        $docentes1=DB::table('users')
+            ->join('docentes', 'users.id', '=', 'docentes.user_id')
+            ->select('users.email', 'docentes.nombre', 'docentes.apellido_m', 'docentes.apellido_p', 'docentes.matricula')
+            ->get();
 
-        return view('administrativo.docentes.showDocente', compact('docentes'));
+        return view('administrativo.docentes.showDocente', compact('docentes1'));
     }
 
     /**
