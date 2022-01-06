@@ -16,7 +16,7 @@
                             </div>
                             <div>
                                 <br>
-                                <button class="btn btn-primary" type="submit" style="float: right;">Crear nivel!</button>
+                                <button class="btn btn-primary" type="submit" style="float: right;">Confirmar cambios</button>
                             </div>
 
                         </form>

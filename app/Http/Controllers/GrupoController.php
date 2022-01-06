@@ -89,9 +89,9 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grupo $grupo)
+    public function edit($id)
     {
-        //
+            return view('administrativo.grupos.edit');
     }
 
     /**

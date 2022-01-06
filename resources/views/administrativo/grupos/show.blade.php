@@ -2,35 +2,62 @@
 
 @section('content')
 
-
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
-
-    <!-- no additional media querie or css is required -->
-    <div class="container-fluid mt-3">
-        <div class="row" style="height:100vh">
+    <div class="container-fluid mt-2">
+        <div class="row justify-content-center align-items-center" style="">
             <div class="col">
                 <div class="card">
-                    <div class="card-header card-header-primary">
-                         <h2>Vista detallada del grupo {{ $grupocon->grado}}{{$grupocon->grupo_nombre}} de {{$grupocon->nivel}}:</h2>
-                    </div>
                     <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item list-group-item-action">Identificador: {{$grupocon->id}}</li>
-                            <li class="list-group-item list-group-item-action">Grado: {{$grupocon->grado}}</li>
-                            <li class="list-group-item list-group-item-action">Grupo: {{$grupocon->grupo_nombre}}</li>
-                            <li class="list-group-item list-group-item-action">Nivel: {{$grupocon->nivel}}</li>
-                            <li class="list-group-item list-group-item-action">Nombre del docente: {{$grupocon->nombre}}</li>
-                        </ul>
-                        <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
+                        <h4>Datos  del grupo</h4>
+
+                            <div class="form-group">
+                                <label >Nivel</label>
+                                <input type="text" class="form-control" name="nivel" value="{{ $grupocon->nivel }}"
+                                    readonly>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>grado</label>
+                                    <input type="text" class="form-control" name="grado"
+                                        value="{{$grupocon->grado}}" readonly>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label>grupo</label>
+                                    <input type="text" class="form-control" name="grupo"
+                                        value="{{$grupocon->grupo_nombre}}" readonly>
+                                </div>
+                            </div>
+                            <h5>Datos  del docente</h5>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label >nombre</label>
+                                    <input type="text" class="form-control" name="nombre"
+                                        value="{{$grupocon->nombre}}" readonly>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label >apellido paterno</label>
+                                    <input type="text" class="form-control" name="apellido_p"
+                                        value="{{$grupocon->apellido_p}}" readonly>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label >apellido materno</label>
+                                    <input type="text" class="form-control" name="apellido_p"
+                                        value="{{$grupocon->apellido_m}}" readonly>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-row">
+                                <a href="{{route('grupos.edit',$grupocon->id)}}" class="btn btn-primary mr-3">Actualizar</a>
+                                <a href="{{route('grupos.index')}}" class="btn btn btn-success btn-right"> Cancelar
+                                    edicion </a>
+
+                            </div>
+                            {{-- estudianate --}}
+                       
                     </div>
-
-
                 </div>
             </div>
         </div>
