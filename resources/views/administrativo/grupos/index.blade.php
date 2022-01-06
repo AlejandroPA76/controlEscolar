@@ -49,9 +49,10 @@
                                                     <a href="{{route('grupos.show',$grup->id)}}" class="btn btn-info" >
                                                          <i class="material-icons">Ver</i>
                                                     </a>
-                                                    <a href="" class="btn btn-warning" >
+                                                     <a href="{{route('grupos.edit',$grup->id)}}" class="btn btn-warning">
                                                          <i class="material-icons">Editar</i>
-                                                    </a>
+                                                     </a>
+
                                                     <a href="" class="btn btn-danger">
                                                          <i class="material-icons">Eliminar</i>
                                                     </a>

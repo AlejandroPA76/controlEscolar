@@ -91,7 +91,19 @@ class GrupoController extends Controller
      */
     public function edit($id)
     {
-            return view('administrativo.grupos.edit');
+        //consulta para poner en el select de edit un valor por defaul
+        $grupoedit=DB::table('grupos')
+                ->select('grupos.id','grupos.grupo_nombre','grupos.grado','grupos.cupo_maximo','nivels.id','nivels.nivel','docentes.id','docentes.nombre','docentes.apellido_p','docentes.apellido_m')
+                ->join('nivels','nivels.id','=','grupos.nivel_id')
+                ->join('docentes','docentes.id','=','grupos.docente_id')
+                ->where('grupos.id','LIKE',$id)
+                ->first();
+         //traigo todos los niveles,grupos y docentes para poder elegir en caso de cambiar algun dato
+        $niveles=Nivel::all();
+        $grupos=Grupo::all();
+        $docentes=Docente::all();
+          return view('administrativo.grupos.edit',compact('grupoedit','niveles','grupos','docentes'));
+       // print_r($grupoedit);
     }
 
     /**
@@ -101,9 +113,9 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grupo $grupo)
+    public function update(Request $request,$id)
     {
-        //
+      return $request;
     }
 
     /**
