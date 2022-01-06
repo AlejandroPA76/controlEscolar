@@ -20,12 +20,12 @@ class GrupoController extends Controller
     {
         //obtengo todos los grupos para desplegarlos en una tabla
         //$grupos=Grupo::all();
-        $grupos=Grupo::select('grupos.id','grupos.grupo_nombre','grupos.grado','nivels.nivel','docentes.nombre','apellido_p','apellido_m')
-        ->join('nivels','nivels.id','=','grupos.nivel_id')
-        ->join('docentes','docentes.id','=','grupos.docente_id')
-        ->get();
+        $grupos = Grupo::select('grupos.id', 'grupos.grupo_nombre', 'grupos.grado', 'nivels.nivel', 'docentes.nombre', 'apellido_p', 'apellido_m')
+            ->join('nivels', 'nivels.id', '=', 'grupos.nivel_id')
+            ->join('docentes', 'docentes.id', '=', 'grupos.docente_id')
+            ->get();
 
-        return view('administrativo.grupos.index',compact('grupos'));
+        return view('administrativo.grupos.index', compact('grupos'));
         //echo '<pre>'.print_r($grupos, true).'</pre>';     
     }
 
@@ -39,10 +39,9 @@ class GrupoController extends Controller
     {
         //trago todos los docente y los guardo el docenteslist y luego lo mando a la vista
         //crear grupo, eso con el fin de seleccional al docente con un combobox
-        $docenteslist=Docente::all();
-        $nvls=Nivel::all();
-        return view('administrativo.grupos.create',compact('docenteslist','nvls'));
-        
+        $docenteslist = Docente::all();
+        $nvls = Nivel::all();
+        return view('administrativo.grupos.create', compact('docenteslist', 'nvls'));
     }
 
     /**
@@ -53,15 +52,14 @@ class GrupoController extends Controller
      */
     public function store(Request $request)
     {
-        $grups=new Grupo;
-        $grups->grupo_nombre=$request->input('grupo');
-        $grups->grado=$request->input('grado');
-        $grups->cupo_maximo=$request->input('cupo');
-        $grups->nivel_id=$request->input('nivel');
-        $grups->docente_id=$request->input('docente');
+        $grups = new Grupo;
+        $grups->grupo_nombre = $request->input('grupo');
+        $grups->grado = $request->input('grado');
+        $grups->cupo_maximo = $request->input('cupo');
+        $grups->nivel_id = $request->input('nivel');
+        $grups->docente_id = $request->input('docente');
         $grups->save();
         return redirect()->route('grupos.index');
-        
     }
 
     /**
@@ -72,15 +70,14 @@ class GrupoController extends Controller
      */
     public function show($id)
     {
-              $grupocon=DB::table('grupos')
-                ->select('grupos.id','grupos.grupo_nombre','grupos.grado','nivels.nivel','docentes.nombre','docentes.apellido_p','docentes.apellido_m')
-                ->join('nivels','nivels.id','=','grupos.nivel_id')
-                ->join('docentes','docentes.id','=','grupos.docente_id')
-                ->where('grupos.id','LIKE',$id)
-                //->get();
-                ->first();
-            return view('administrativo.grupos.show',compact('grupocon'));
-
+        $grupocon = DB::table('grupos')
+            ->select('grupos.id', 'grupos.grupo_nombre', 'grupos.grado', 'nivels.nivel', 'docentes.nombre', 'docentes.apellido_p', 'docentes.apellido_m')
+            ->join('nivels', 'nivels.id', '=', 'grupos.nivel_id')
+            ->join('docentes', 'docentes.id', '=', 'grupos.docente_id')
+            ->where('grupos.id', 'LIKE', $id)
+            //->get();
+            ->first();
+        return view('administrativo.grupos.show', compact('grupocon'));
     }
 
     /**
@@ -91,7 +88,7 @@ class GrupoController extends Controller
      */
     public function edit($id)
     {
-            return view('administrativo.grupos.edit');
+        return view('administrativo.grupos.edit');
     }
 
     /**
@@ -116,6 +113,4 @@ class GrupoController extends Controller
     {
         //
     }
-
-
 }

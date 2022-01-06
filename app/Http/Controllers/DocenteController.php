@@ -30,7 +30,6 @@ class DocenteController extends Controller
     public function create()
     {
         return view('administrativo.docentes.createdDocente');
-
     }
 
     /**
@@ -43,26 +42,29 @@ class DocenteController extends Controller
     {
         $users = User::create($request->only(
             // 'name',
-            'email',) + [
-            'password' => bcrypt (request()->input('password'))
-            ]);
+            'email',
+        ) + [
+            'password' => bcrypt(request()->input('password'))
+        ]);
 
 
         // $ultimoregistro = Producto::latest()->first()->id;
-        $user=User::latest()->first()->id;
+        $user = User::latest()->first()->id;
         //echo($user);
 
         $docente = Docente::create($request->only(
             'nombre',
             'matricula',
             'apellido_p',
-            'apellido_m', ) +
-            ['user_id' => $user
-        ]);
+            'apellido_m',
+        ) +
+            [
+                'user_id' => $user
+            ]);
         $roles = $request->input('roles');
         $users->syncRoles($roles);
-        
-         return redirect()->route('admin.indexDocentes')->withSuccess('Docente creado correctamente');
+
+        return redirect()->route('admin.indexDocentes')->withSuccess('Docente creado correctamente');
     }
 
     /**
@@ -71,16 +73,15 @@ class DocenteController extends Controller
      * @param  \App\Models\Docente  $docente
      * @return \Illuminate\Http\Response
      */
-    public function show(Docente $docentes1)
+    public function show(Docente $docentes)
     {
-        // $tutor = Tutor::findOrFail($tutor);
-        // return view('administrativo.showTutores')->with($tutor);
-        $docentes1=DB::table('users')
-            ->join('docentes', 'users.id', '=', 'docentes.user_id')
-            ->select('users.email', 'docentes.nombre', 'docentes.apellido_m', 'docentes.apellido_p', 'docentes.matricula')
-            ->get();
-
-        return view('administrativo.docentes.showDocente', compact('docentes1'));
+        
+        // $docentes = DB::table('users')
+        //     ->join('docentes', 'docentes.user_id', '=', 'users.user_id')
+        //     ->select('users.email', 'docentes.nombre', 'docentes.apellido_m', 'docentes.apellido_p', 'docentes.matricula')
+        //     ->where('user.id', 'LIKE', $docentes)
+        //     ->first();
+        return view('administrativo.docentes.showDocente', compact('docentes'));
     }
 
     /**
@@ -92,9 +93,8 @@ class DocenteController extends Controller
     public function edit(Docente $docentes)
     {
         return view('administrativo.docentes.editDocente')->with([
-            'docentes'=>$docentes,
+            'docentes' => $docentes,
         ]);
-
     }
 
     /**
@@ -109,13 +109,11 @@ class DocenteController extends Controller
         $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'usuario');
         $contraseña = $request->input('contraseña');
         if ($contraseña)
-        $data['contraseña']=bcrypt($contraseña);
+            $data['contraseña'] = bcrypt($contraseña);
 
         $docentes->update($data);
         return redirect()->route('admin.indexDocentes')
-        ->withSuccess("Los datos del docente {$docentes->nombre} han sido actualizados.");
-
-        
+            ->withSuccess("Los datos del docente {$docentes->nombre} han sido actualizados.");
     }
 
     /**
@@ -129,6 +127,6 @@ class DocenteController extends Controller
         $docentes->delete();
 
         return redirect()->route('admin.indexDocentes')
-        ->withSuccess("El Docente {$docentes->nombre} ha sido borrado correctamente");
+            ->withSuccess("El Docente {$docentes->nombre} ha sido borrado correctamente");
     }
 }

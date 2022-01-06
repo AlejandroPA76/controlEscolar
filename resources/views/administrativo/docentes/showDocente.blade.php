@@ -10,25 +10,25 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <p class="card-category">Vista detallada del docente {{ $docentes1->nombre }}</p>
+                        <p class="card-category">Vista detallada del docente {{ $docentes->nombre }}</p>
                     </div>
                     <div class="card-body">
                         <div class="card-body">
-                            <h5 class="card-title"><strong> {{$docentes1->nombre}}</strong> </h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.</p>
+                            <h5 class="card-title"><strong> {{ $docentes->nombre }}</strong> </h5>
+                            {{-- <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p> --}}
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Nombre: {{$docentes1->nombre}}</li>
-                            <li class="list-group-item">Apellido paterno: {{$docentes1->apellido_p}}</li>
-                            <li class="list-group-item">Apellido materno: {{$docentes1->apellido_m}}</li>
-                            <li class="list-group-item">Matricula: {{$docentes1->matricula}}</li>
-                            <li class="list-group-item">Usuario: {{$docentes1Union->email}}</li>
+                            <li class="list-group-item">Nombre: {{ $docentes->nombre }}</li>
+                            <li class="list-group-item">Apellido paterno: {{ $docentes->apellido_p }}</li>
+                            <li class="list-group-item">Apellido materno: {{ $docentes->apellido_m }}</li>
+                            <li class="list-group-item">Matricula: {{ $docentes->matricula }}</li>
+                            <li class="list-group-item">Usuario: </li>
                         </ul>
                         <div class="card-body d-flex justify-content-between align-items-center">
-                            <a href="{{ route('admin.indexDocentes') }}" class="btn btn btn-success mr-3"> Volver </a>
                             <a href="{{ route('admin.editDocentes', ['docentes' => $docentes->id]) }}"
                                 class="btn btn btn-primary mr-3"> Editar </a>
+                            <a href="{{ route('admin.indexDocentes') }}" class="btn btn btn-success mr-3"> Volver </a>
                         </div>
                     </div>
                 </div>
