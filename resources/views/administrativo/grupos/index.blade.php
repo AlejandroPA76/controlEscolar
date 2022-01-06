@@ -53,9 +53,13 @@
                                                          <i class="material-icons">Editar</i>
                                                      </a>
 
-                                                    <a href="" class="btn btn-danger">
-                                                         <i class="material-icons">Eliminar</i>
-                                                    </a>
+                                                    <form action="{{route('grupos.destroy',$grup->id)}}" method="POST">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <input type="submit" class="btn btn-danger btn-sm"
+                                                                    value="Eliminar"
+                                                                    onclick="return confirm('deseas borrar?')">
+                                                            </form>
                                                 </td>
                                               
                                                 </tr>

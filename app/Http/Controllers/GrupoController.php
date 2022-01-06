@@ -124,9 +124,11 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Grupo $grupo)
+    public function destroy($id)
     {
-        //
+         $delgrupo = Grupo::find($id);
+         $delgrupo->delete();
+         return redirect()->route('grupos.index');
     }
 
 
