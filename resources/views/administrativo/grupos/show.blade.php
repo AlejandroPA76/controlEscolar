@@ -1,65 +1,38 @@
 @extends('layouts.dashboard')
+
 @section('content')
-    <div class="content mt-3">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header card-header-primary">
-                            <div class="card-title">Usuarios</div>
-            <p class="card-category">Vista detallada del grupo {{$grupoconsultada->id}}</p>
-                        </div>
-                        <!--body-->
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!-- no additional media querie or css is required -->
+    <div class="container-fluid mt-3">
+        <div class="row" style="height:100vh">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                         <h2>Vista detallada del grupo {{ $grupocon->grado}}{{$grupocon->grupo_nombre}} de {{$grupocon->nivel}}:</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-action">Identificador: {{$grupocon->id}}</li>
+                            <li class="list-group-item list-group-item-action">Grado: {{$grupocon->grado}}</li>
+                            <li class="list-group-item list-group-item-action">Grupo: {{$grupocon->grupo_nombre}}</li>
+                            <li class="list-group-item list-group-item-action">Nivel: {{$grupocon->nivel}}</li>
+                            <li class="list-group-item list-group-item-action">Nombre del docente: {{$grupocon->nombre}}</li>
+                        </ul>
                         <div class="card-body">
-
-                            @if (session('success'))
-                                <div class="alert alert-success" role="success">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
-
-                            <div class="row">
-                                <div class="col-md-4">
-
-                                </div>
-                                <!--end card user-->
-
-                                <div class="col-md-10">
-                                    <div class="card card-user">
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                            <div class="author">
-                                                <a href="#" class="d-flex">
-
-                                                    <h5 class="title mx-3">{{"#" }}</h5>
-                                                </a>
-                                                <p class="description">
-                                                    {{"#" }} <br>
-                                                   
-                                                </p>
-                                            </div>
-                                            </p>
-                                            <div class="card-description">
-
-                                            </div>
-                                            <div class="card-footer">
-                                                <div class="button-container">
-                                                    <a href="{{route('grupos.index')}}"
-                                                        class="btn btn-sm btn-success mr-3"> Volver </a>
-                                                    <button class="btn btn-sm btn-primary">Editar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--end card user 2-->
-
-
-
-                                </div>
-                            </div>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
