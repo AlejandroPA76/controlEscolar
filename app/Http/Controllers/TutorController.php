@@ -117,13 +117,12 @@ class TutorController extends Controller
     public function show(Tutor $tutor, User $user)
     {
 
-        // $tutor->load('roles');
+        $tutor->load('roles');
         $tutor = DB::table('users')
-            ->select('users.id', 'users.name', 'users.email', 'tutors.id', 'tutors.nombre', 'tutors.apellido_p')
-            ->join('tutors', 'tutors.id', '=', 'users.id')
-            ->where('tutors.id', 'LIKE', 7)
-            ->first();
-        
+        ->select('users.id','users.name','users.email','tutors.id','tutors.nombre','tutors.apellido_p', 'tutors.apellido_m')
+        ->join('tutors','user_id','=','users.id')
+        ->where('tutors.id','LIKE',$tutor->id)
+        ->first();
         // dump($tutor);
         return view('administrativo.tutores.showTutores', compact('tutor'));
     }
@@ -138,6 +137,11 @@ class TutorController extends Controller
     {
         $roles = Role::all()->pluck('name', 'id');
         $tutor->load('roles');
+        $tutor = DB::table('users')
+        ->select('users.name','users.email','tutors.id','tutors.nombre','tutors.apellido_p', 'tutors.apellido_m')
+        ->join('tutors','user_id','=','users.id')
+        ->where('tutors.id','LIKE',$tutor->id)
+        ->first();
 
         return view('administrativo.tutores.editTutores', compact('tutor', 'roles'));
     }
@@ -149,21 +153,26 @@ class TutorController extends Controller
      * @param  \App\Models\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tutor $tutor)
+    public function update(Request $request, Tutor $tutor, User $user) 
     {
-        $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'usuario');
-        $contraseña = $request->input('contraseña');
-        if ($contraseña)
-            $data['contraseña'] = bcrypt($contraseña);
+        $data = $request->only('nombre', 'apellido_p', 'apellido_m');
+        
+        $user1=$request->input('email');
+        $user->update($user1);
 
-        $tutor->update($data);
+        var_dump($user);
+        // $contraseña = $request->input('contraseña');
+        // if ($contraseña)
+        //     $data['contraseña'] = bcrypt($contraseña);
 
-        $tutor->update($data);
-        $roles = $request->input('roles', []);
-        $tutor->syncRoles($roles);
+        // $tutor->update($data);
 
-        return redirect()->route('admin.indexTutores')
-            ->withSuccess("¡Los datos del tutor {$tutor->nombre} han sido actualizados!");
+        // $tutor->update($data);
+        // $roles = $request->input('roles', []);
+        // $tutor->syncRoles($roles);
+
+        // return redirect()->route('admin.showTutores', $tutor->id)
+        //     ->withSuccess("¡Los datos del tutor {$tutor->nombre} han sido actualizados!");
     }
 
     /**

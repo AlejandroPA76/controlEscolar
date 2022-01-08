@@ -21,12 +21,12 @@
                             </div>
                         @endif
                         <div class="card-body">
-                            <h5 class="card-title "><strong> {{ $tutor->nombre }} {{ $tutor->apellido_p}}</strong> </h5>
+                            <h5 class="card-title "><strong> {{ $tutor->nombre }} {{ $tutor->apellido_p}} {{ $tutor->apellido_m }}</strong> </h5>
                         </div>
                         <ul class="list-group list-group-flush ">
                             <li class="list-group-item"><strong>Nombre: </strong> {{ $tutor->nombre }} </li>
                             <li class="list-group-item"><strong>Apellido paterno: </strong> {{ $tutor->apellido_p }}</li>
-                            <li class="list-group-item"><strong>Apellido materno: </strong> </li>
+                            <li class="list-group-item"><strong>Apellido materno: </strong> {{ $tutor->apellido_m }}</li>
                             <li class="list-group-item"><strong>Usuario: </strong> {{ $tutor->email }} </li>
                         </ul>
                         <div class="card-body d-flex justify-content-between align-items-center">

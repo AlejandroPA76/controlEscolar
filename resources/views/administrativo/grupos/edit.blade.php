@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4>Datos del grupo</h4>
-                        <form action="{{ route('grupos.update', ['grupo' => $grupo->id]) }}" method="POST" autocomplete="off">
+                        <form action="{{ route('grupos.update',  $grupoedit->id) }}" method="POST" autocomplete="off">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
@@ -33,7 +33,7 @@
                                 <div class="form-group col-md-4">
                                     <label>Cupo máximo</label>
                                     <input class="form-control" type="number" min="0" max="30" name="cupo"
-                                        value="{{ $grupo->cupo_maximo }}" required>
+                                        value="{{ $grupoedit->cupo_maximo }}" required>
                                 </div>
                             </div>
 
