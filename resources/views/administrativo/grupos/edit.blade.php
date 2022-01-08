@@ -11,55 +11,37 @@
                          <form action="{{route('grupos.update',$grupoedit->id)}}" method="POST" autocomplete="off">
                             @csrf
                             @method('PUT')
-                            
-                            <div class="form-group">
-                               <label>Nivel academico</label>
-                                <select class="form-control" name="nivel" value="" required>
-                            <option value="{{$grupoedit->nivel}}" selected="select">{{$grupoedit->nivel}}</option>
-                                      @foreach($niveles as $nvl)
-                                        <option value="{{$nvl->id}}">{{$nvl->nivel}}</option>
-                                        @endforeach
-                                          </select>
+                             <div class="form-group">
+                                <label >Nivel</label>
+                                <input type="text" class="form-control" name="nivel" value="{{$grupoedit->nivel}}"
+                                    readonly>
                             </div>
+
                             <div class="form-row">
-                                     <div class="form-group col-md-4">
-
-                                <label>Grado</label>
-                                <select class="form-control" name="nivel" value="" required>
-                                    <option value="{{$grupoedit->grado}}" selected="select">{{$grupoedit->grado}}</option>
-                                    @foreach($grupos as $grup)
-                                        <option value="{{$grup->id}}">{{$grup->grado}}</option>
-                                        @endforeach
-                                </select>
-                           
+                                <div class="form-group col-md-4">
+                                    <label>grado</label>
+                                    <input type="text" class="form-control" name="grado"
+                                        value="{{$grupoedit->grado}}" readonly>
                                 </div>
 
-                                  <div class="form-group col-md-4">
-
-                                <label>Grupo</label>
-                                <select class="form-control" name="nivel" value="" required>
-                                    <option value="" selected="select">{{$grupoedit->grupo_nombre}}</option>
-                                        @foreach($grupos as $grp)
-                                        <option value="{{$grp->id}}">{{$grp->grupo_nombre}}</option>
-                                        @endforeach
-
-                                </select>
-                           
+                                <div class="form-group col-md-4">
+                                    <label>grupo</label>
+                                    <input type="text" class="form-control" name="grupo"
+                                        value="{{$grupoedit->grupo_nombre}}" readonly>
                                 </div>
-                                    <div class="form-group col-md-4">
+
+                                <div class="form-group col-md-4">
                                     <label>Cupo máximo</label>
                                     <input class="form-control" type="number" min="0" max="30" name="cupo" value="{{$grupoedit->cupo_maximo}}"
                                         required>
                                 </div>
-
                             </div>
-                            
-                             
+                           
                             <h5>Datos  del docente</h5>
                             <div class="form-group">
 
                                 <label>Docente</label>
-                                <select class="form-control" name="nivel" value="" required>
+                                <select class="form-control" name="docente" value="">
                                     <option value="" selected="select">{{$grupoedit->nombre}} {{$grupoedit->apellido_p}} {{$grupoedit->apellido_m}}</option>
                                         @foreach($docentes as $dct)
                                         <option value="{{$dct->id}}">{{$dct->nombre}} {{$dct->apellido_p}} {{$dct->apellido_m}}</option>

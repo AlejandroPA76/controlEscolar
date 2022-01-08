@@ -23,7 +23,8 @@ class GrupoController extends Controller
         $grupos=Grupo::select('grupos.id','grupos.grupo_nombre','grupos.grado','nivels.nivel','docentes.nombre','apellido_p','apellido_m')
         ->join('nivels','nivels.id','=','grupos.nivel_id')
         ->join('docentes','docentes.id','=','grupos.docente_id')
-        ->get();
+        ->latest('grupos.updated_at')->get();
+        //usamos latest para especificar de donde se sacar el updated y especificamos la tabla.columna
 
         return view('administrativo.grupos.index',compact('grupos'));
         //echo '<pre>'.print_r($grupos, true).'</pre>';     
@@ -73,7 +74,7 @@ class GrupoController extends Controller
     public function show($id)
     {
               $grupocon=DB::table('grupos')
-                ->select('grupos.id','grupos.grupo_nombre','grupos.grado','nivels.nivel','docentes.nombre','docentes.apellido_p','docentes.apellido_m')
+                ->select('grupos.id','grupos.grupo_nombre','grupos.grado','grupos.cupo_maximo','nivels.nivel','docentes.nombre','docentes.apellido_p','docentes.apellido_m')
                 ->join('nivels','nivels.id','=','grupos.nivel_id')
                 ->join('docentes','docentes.id','=','grupos.docente_id')
                 ->where('grupos.id','LIKE',$id)
@@ -93,7 +94,7 @@ class GrupoController extends Controller
     {
         //consulta para poner en el select de edit un valor por defaul
         $grupoedit=DB::table('grupos')
-                ->select('grupos.id','grupos.grupo_nombre','grupos.grado','grupos.cupo_maximo','nivels.id','nivels.nivel','docentes.id','docentes.nombre','docentes.apellido_p','docentes.apellido_m')
+                ->select('grupos.id','grupos.grupo_nombre','grupos.grado','grupos.cupo_maximo','nivels.nivel','docentes.nombre','docentes.apellido_p','docentes.apellido_m')
                 ->join('nivels','nivels.id','=','grupos.nivel_id')
                 ->join('docentes','docentes.id','=','grupos.docente_id')
                 ->where('grupos.id','LIKE',$id)
@@ -102,8 +103,8 @@ class GrupoController extends Controller
         $niveles=Nivel::all();
         $grupos=Grupo::all();
         $docentes=Docente::all();
-          return view('administrativo.grupos.edit',compact('grupoedit','niveles','grupos','docentes'));
-       // print_r($grupoedit);
+        return view('administrativo.grupos.edit',compact('grupoedit','niveles','grupos','docentes'));
+      
     }
 
     /**
@@ -115,7 +116,25 @@ class GrupoController extends Controller
      */
     public function update(Request $request,$id)
     {
-      return $request;
+        //este if es para que si no se modifico el selec en docente simplemente se omite el docente y se guardan los demas datos, si en caso de modificar el docente este se guardara junto con los demas datos.
+        if($request->input('docente')==""){
+
+        $grupoupdate=Grupo::findOrFail($id);
+        $grupoupdate->cupo_maximo=$request->input('cupo');
+        $grupoupdate->save();
+        }
+        if($request->input('docente')!=""){
+
+        $grupoupdate=Grupo::findOrFail($id);
+        $grupoupdate->docente_id=$request->input('docente');
+        $grupoupdate->cupo_maximo=$request->input('cupo');
+        $grupoupdate->save();
+        }
+        
+      return redirect()->route('grupos.index');
+      //print_r("el grupo es: ".$id . "cupo es:". $e1 ." y el docente es: ".$e);
+      
+
     }
 
     /**

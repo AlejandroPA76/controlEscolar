@@ -16,16 +16,22 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label>grado</label>
                                     <input type="text" class="form-control" name="grado"
                                         value="{{$grupocon->grado}}" readonly>
                                 </div>
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label>grupo</label>
                                     <input type="text" class="form-control" name="grupo"
                                         value="{{$grupocon->grupo_nombre}}" readonly>
+                                </div>
+
+                                  <div class="form-group col-md-4">
+                                    <label>cupo maximo</label>
+                                    <input type="text" class="form-control" name="grupo"
+                                        value="{{$grupocon->cupo_maximo}}" readonly>
                                 </div>
                             </div>
                             <h5>Datos  del docente</h5>
