@@ -73,15 +73,21 @@ class DocenteController extends Controller
      * @param  \App\Models\Docente  $docente
      * @return \Illuminate\Http\Response
      */
-    public function show(Docente $docentes)
+    public function show(Docente $id)
     {
+        // $estudiantes = DB::table('users')
+        //     ->select('estudiantes.id','estudiantes.nombre','estudiantes.apellido_p','estudiantes.apellido_m','estudiantes.matricula','estudiantes.created_at')
+        //     ->join('tutors','user_id','=','users.id')
+        //     ->join('estudiantes','tutor_id','=','tutors.id')
+        //     ->where('users.id','LIKE',auth::user()->id)
+        //     ->paginate('3');
         
-        // $docentes = DB::table('users')
-        //     ->join('docentes', 'docentes.user_id', '=', 'users.user_id')
-        //     ->select('users.email', 'docentes.nombre', 'docentes.apellido_m', 'docentes.apellido_p', 'docentes.matricula')
-        //     ->where('user.id', 'LIKE', $docentes)
-        //     ->first();
-        return view('administrativo.docentes.showDocente', compact('docentes'));
+        $docentes1 = DB::table('users')
+            ->join('docentes', 'user_id', '=', 'users.id')
+            ->select('users.email', 'docentes.nombre', 'docentes.apellido_m', 'docentes.apellido_p', 'docentes.matricula')
+            ->where('users.id', 'LIKE', $id)
+            ->first();
+        return view('administrativo.docentes.showDocente', compact('docentes1'));
     }
 
     /**
@@ -112,7 +118,7 @@ class DocenteController extends Controller
             $data['contraseña'] = bcrypt($contraseña);
 
         $docentes->update($data);
-        return redirect()->route('admin.indexDocentes')
+        return redirect()->route('admin.showDocentes', $docentes->id)
             ->withSuccess("Los datos del docente {$docentes->nombre} han sido actualizados.");
     }
 

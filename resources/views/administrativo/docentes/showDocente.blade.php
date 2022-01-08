@@ -10,25 +10,30 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <p class="card-category">Vista detallada del docente {{ $docentes->nombre }}</p>
+                        <p class="card-category">Vista detallada del docente <strong>{{ $docentes1->nombre}} {{ $docentes1->apellido_p}} {{ $docentes1->apellido_m}}</strong></p>
                     </div>
                     <div class="card-body">
+                        @if (session('success'))
+                            <div class="alert alert-primary" role="success">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <div class="card-body">
-                            <h5 class="card-title"><strong> {{ $docentes->nombre }}</strong> </h5>
-                            {{-- <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.</p> --}}
+                            <h5 class="card-title "><strong> {{ $docentes1->nombre }}</strong> </h5>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Nombre: {{ $docentes->nombre }}</li>
-                            <li class="list-group-item">Apellido paterno: {{ $docentes->apellido_p }}</li>
-                            <li class="list-group-item">Apellido materno: {{ $docentes->apellido_m }}</li>
-                            <li class="list-group-item">Matricula: {{ $docentes->matricula }}</li>
-                            <li class="list-group-item">Usuario: </li>
+                        <ul class="list-group list-group-flush ">
+                            <li class="list-group-item"><strong>Nombre: </strong> {{ $docentes1->nombre }}</li>
+                            <li class="list-group-item"><strong>Apellido paterno: </strong> {{ $docentes1->apellido_p }}</li>
+                            <li class="list-group-item"><strong>Apellido materno: </strong> {{ $docentes1->apellido_m }}</li>
+                            <li class="list-group-item"><strong>Matricula: </strong> {{ $docentes1->matricula }}</li>
+                            <li class="list-group-item"><strong>Usuario: </strong> </li>
                         </ul>
                         <div class="card-body d-flex justify-content-between align-items-center">
+                            <a href="{{ route('admin.indexDocentes') }}" class="btn btn btn-success mr-3"> Volver al
+                                inicio </a>
                             <a href="{{ route('admin.editDocentes', ['docentes' => $docentes->id]) }}"
                                 class="btn btn btn-primary mr-3"> Editar </a>
-                            <a href="{{ route('admin.indexDocentes') }}" class="btn btn btn-success mr-3"> Volver </a>
                         </div>
                     </div>
                 </div>

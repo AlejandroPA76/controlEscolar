@@ -12,6 +12,7 @@ use Spatie\Permission\Models\Role;
 use App\Http\Requests\TutorRequest;
 
 
+
 class TutorController extends Controller
 {
     /**
@@ -119,6 +120,7 @@ class TutorController extends Controller
         // $tutor->load('roles');
         // $users = User::all();
         $tutor->load('roles');
+        
 
         return view('administrativo.tutores.showTutores', compact('tutor'));
     }

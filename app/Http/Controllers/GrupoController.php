@@ -86,9 +86,14 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Grupo $grupo, Nivel $niveles,  Docente $docentes)
     {
-        return view('administrativo.grupos.edit');
+        $niveles=Nivel::all();
+        return view('administrativo.grupos.edit', compact('niveles', 'grupo', 'docentes'));
+        // return view('administrativo.grupos.edit')->with([
+        //     'grupo' => $grupo,
+        // ]);
+        
     }
 
     /**
@@ -98,9 +103,10 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grupo $grupo)
+    public function update(Request $request, Grupo $grupos)
     {
-        //
+        $data = $request->only('nivel', 'grado', 'grupo', 'cupo', 'docente');
+        $grupos->update($data);
     }
 
     /**

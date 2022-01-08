@@ -36,7 +36,7 @@
                                     <th>Nombre</th>
                                     <th>Apellido paterno</th>
                                     <th>Apellido materno</th>
-                                    <th>Usuario</th>
+                                    {{-- <th>Usuario</th> --}}
                                     <th>Creado</th>
                                     <th class="text-right">Acciones</th>
                                 </thead>
@@ -48,7 +48,7 @@
                                             <td>{{ $docente->nombre }}</td>
                                             <td>{{ $docente->apellido_p }}</td>
                                             <td>{{ $docente->apellido_m }}</td>
-                                            <td>{{ $docente->usuario }}</td>
+                                            {{-- <td>{{ $docente->usuario }}</td> --}}
                                             <td>{{ $docente->created_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.showDocentes', $docente->id) }}"
