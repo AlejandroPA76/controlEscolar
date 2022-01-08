@@ -156,11 +156,13 @@ class TutorController extends Controller
     public function update(Request $request, Tutor $tutor, User $user) 
     {
         $data = $request->only('nombre', 'apellido_p', 'apellido_m');
-        
-        $user1=$request->input('email');
-        $user->update($user1);
-
-        var_dump($user);
+        $correo=$request->input('email');
+        $data1= DB::table('users')
+                ->where('tutors.id','LIKE',$tutor->id)
+                ->join('tutors','users.id','=','tutors.user_id')
+                ->update(['email'=>$correo]);
+                //$user1=$request->input('email');
+    
         // $contraseña = $request->input('contraseña');
         // if ($contraseña)
         //     $data['contraseña'] = bcrypt($contraseña);
