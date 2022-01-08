@@ -33,14 +33,14 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="usuario"> Usuario</label>
-                                    <input type="text" class="form-control" name="usuario"
-                                        value="{{ $tutor->usuario }}">
+                                    <input type="text" class="form-control" name="email"
+                                        value="{{ $tutor->email }}">
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="contraseña"> Contraseña</label>
                                     <input type="password" class="form-control" name="contraseña"
-                                        value="{{ $tutor->contraseña }}">
+                                        value="">
                                 </div>
                             </div>
                             <br>
@@ -74,7 +74,7 @@
 
                             <div class="card-body d-flex justify-content-between align-items-center">
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
-                                <a href="{{ route('admin.indexDocentes') }}" class="btn btn btn-success mr-3"> Volver al
+                                <a href="{{ route('admin.showTutores', $tutor->id) }}" class="btn btn btn-success mr-3"> Volver al
                                     inicio </a>
 
                             </div>
