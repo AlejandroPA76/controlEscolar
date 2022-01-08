@@ -119,13 +119,13 @@ class TutorController extends Controller
 
         // $tutor->load('roles');
         $tutor = DB::table('users')
-            ->select('users.id', 'users.name', 'users.email', 'tutors.id', 'tutors.nombre', 'tutors.apellido_p')
-            ->join('tutors', 'tutors.id', '=', 'users.id')
-            ->where('tutors.id', 'LIKE', 7)
-            ->first();
+        ->select('users.id','users.name','users.email','tutors.id','tutors.nombre','tutors.apellido_p')
+        ->join('tutors','user_id','=','users.id')
+        ->where('tutors.id','LIKE',$tutor->id)
+        ->first();
         
-        // dump($tutor);
-        return view('administrativo.tutores.showTutores', compact('tutor'));
+         dump($tutor);
+        //return view('administrativo.tutores.showTutores', compact('tutor'));
     }
 
     /**
