@@ -138,7 +138,7 @@ class TutorController extends Controller
         $roles = Role::all()->pluck('name', 'id');
         $tutor->load('roles');
         $tutor = DB::table('users')
-        ->select('users.name','users.email','tutors.id','tutors.nombre','tutors.apellido_p', 'tutors.apellido_m')
+        ->select('users.id','users.name','users.email','tutors.id','tutors.nombre','tutors.apellido_p', 'tutors.apellido_m')
         ->join('tutors','user_id','=','users.id')
         ->where('tutors.id','LIKE',$tutor->id)
         ->first();
