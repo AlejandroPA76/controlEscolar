@@ -6,8 +6,12 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-body">
-                  <h1>Iniciar sesión</h1>
-                  
+                  <div align="center">
+                    <img src="/img/logo.jpg" alt="" width="150" class="img-center">  
+                  </div>
+                   
+                  <div align="center"><h1>Iniciar sesión</h1>  </div>
+                                
                   <form method="POST" action="{{ route('login') }}">
                     @csrf
                         <div class="form-group">
