@@ -20,10 +20,12 @@ class GrupoController extends Controller
     {
         //obtengo todos los grupos para desplegarlos en una tabla
         //$grupos=Grupo::all();
+
         $grupos = Grupo::select('grupos.id', 'grupos.grupo_nombre', 'grupos.grado', 'nivels.nivel', 'docentes.nombre', 'apellido_p', 'apellido_m')
             ->join('nivels', 'nivels.id', '=', 'grupos.nivel_id')
             ->join('docentes', 'docentes.id', '=', 'grupos.docente_id')
-            ->get();
+            ->latest('grupos.updated_at')->get();
+        //usamos latest para especificar de donde se sacar el updated y especificamos la tabla.columna
 
         return view('administrativo.grupos.index', compact('grupos'));
         //echo '<pre>'.print_r($grupos, true).'</pre>';     
@@ -71,7 +73,7 @@ class GrupoController extends Controller
     public function show($id)
     {
         $grupocon = DB::table('grupos')
-            ->select('grupos.id', 'grupos.grupo_nombre', 'grupos.grado', 'nivels.nivel', 'docentes.nombre', 'docentes.apellido_p', 'docentes.apellido_m')
+            ->select('grupos.id', 'grupos.grupo_nombre', 'grupos.grado', 'grupos.cupo_maximo', 'nivels.nivel', 'docentes.nombre', 'docentes.apellido_p', 'docentes.apellido_m')
             ->join('nivels', 'nivels.id', '=', 'grupos.nivel_id')
             ->join('docentes', 'docentes.id', '=', 'grupos.docente_id')
             ->where('grupos.id', 'LIKE', $id)
@@ -86,14 +88,20 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grupo $grupo, Nivel $niveles,  Docente $docentes)
+    public function edit($id)
     {
-        $niveles=Nivel::all();
-        return view('administrativo.grupos.edit', compact('niveles', 'grupo', 'docentes'));
-        // return view('administrativo.grupos.edit')->with([
-        //     'grupo' => $grupo,
-        // ]);
-        
+        //consulta para poner en el select de edit un valor por defaul
+        $grupoedit = DB::table('grupos')
+            ->select('grupos.id', 'grupos.grupo_nombre', 'grupos.grado', 'grupos.cupo_maximo', 'nivels.nivel', 'docentes.nombre', 'docentes.apellido_p', 'docentes.apellido_m')
+            ->join('nivels', 'nivels.id', '=', 'grupos.nivel_id')
+            ->join('docentes', 'docentes.id', '=', 'grupos.docente_id')
+            ->where('grupos.id', 'LIKE', $id)
+            ->first();
+        //traigo todos los niveles,grupos y docentes para poder elegir en caso de cambiar algun dato
+        $niveles = Nivel::all();
+        $grupos = Grupo::all();
+        $docentes = Docente::all();
+        return view('administrativo.grupos.edit', compact('grupoedit', 'niveles', 'grupos', 'docentes'));
     }
 
     /**
@@ -103,10 +111,27 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grupo $grupos)
+    public function update(Request $request, $id)
     {
-        $data = $request->only('nivel', 'grado', 'grupo', 'cupo', 'docente');
-        $grupos->update($data);
+        //este if es para que si no se modifico el selec en docente simplemente se omite el docente y se guardan los demas datos, si en caso de modificar el docente este se guardara junto con los demas datos.
+        if ($request->input('docente') == "") {
+
+            $grupoupdate = Grupo::findOrFail($id);
+            $grupoupdate->cupo_maximo = $request->input('cupo');
+            $grupoupdate->save();
+        }
+        if ($request->input('docente') != "") {
+
+            $grupoupdate = Grupo::findOrFail($id);
+            $grupoupdate->docente_id = $request->input('docente');
+            $grupoupdate->cupo_maximo = $request->input('cupo');
+            $grupoupdate->save();
+        }
+
+        return redirect()->route('grupos.index');
+        //print_r("el grupo es: ".$id . "cupo es:". $e1 ." y el docente es: ".$e);
+
+
     }
 
     /**
@@ -115,8 +140,10 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Grupo $grupo)
+    public function destroy($id)
     {
-        //
+        $delgrupo = Grupo::find($id);
+        $delgrupo->delete();
+        return redirect()->route('grupos.index');
     }
 }

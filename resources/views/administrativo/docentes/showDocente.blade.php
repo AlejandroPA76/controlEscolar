@@ -10,7 +10,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <p class="card-category">Vista detallada del docente <strong>{{ $docentes1->nombre}} {{ $docentes1->apellido_p}} {{ $docentes1->apellido_m}}</strong></p>
+                        <p class="card-category">Vista detallada del docente <strong>{{ $docentes->nombre}} {{ $docentes->apellido_p}} {{ $docentes->apellido_m}}</strong></p>
                     </div>
                     <div class="card-body">
                         @if (session('success'))
@@ -20,13 +20,13 @@
                             </div>
                         @endif
                         <div class="card-body">
-                            <h5 class="card-title "><strong> {{ $docentes1->nombre }}</strong> </h5>
+                            <h5 class="card-title "><strong> {{ $docentes->nombre }}</strong> </h5>
                         </div>
                         <ul class="list-group list-group-flush ">
-                            <li class="list-group-item"><strong>Nombre: </strong> {{ $docentes1->nombre }}</li>
-                            <li class="list-group-item"><strong>Apellido paterno: </strong> {{ $docentes1->apellido_p }}</li>
-                            <li class="list-group-item"><strong>Apellido materno: </strong> {{ $docentes1->apellido_m }}</li>
-                            <li class="list-group-item"><strong>Matricula: </strong> {{ $docentes1->matricula }}</li>
+                            <li class="list-group-item"><strong>Nombre: </strong> {{ $docentes->nombre }}</li>
+                            <li class="list-group-item"><strong>Apellido paterno: </strong> {{ $docentes->apellido_p }}</li>
+                            <li class="list-group-item"><strong>Apellido materno: </strong> {{ $docentes->apellido_m }}</li>
+                            <li class="list-group-item"><strong>Matricula: </strong> {{ $docentes->matricula }}</li>
                             <li class="list-group-item"><strong>Usuario: </strong> </li>
                         </ul>
                         <div class="card-body d-flex justify-content-between align-items-center">

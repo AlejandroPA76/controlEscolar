@@ -30,12 +30,12 @@
                                 <div class="form-group col-md-6">
                                     <label for="usuario"> Usuario</label>
                                     <input type="text" class="form-control" name="usuario"
-                                        value="{{ $docentes->usuario }}" required>
+                                        value="{{ $docentes->email }}" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="contraseña"> Contraseña</label>
                                     <input type="password" class="form-control" name="contraseña"
-                                        value="{{ $docentes->contraseña }}" required required>
+                                        value="{{ $docentes->password }}" required required>
                                 </div>
                             </div>
                             <br>

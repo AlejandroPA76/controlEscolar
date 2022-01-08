@@ -16,16 +16,22 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label>grado</label>
                                     <input type="text" class="form-control" name="grado"
                                         value="{{$grupocon->grado}}" readonly>
                                 </div>
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label>grupo</label>
                                     <input type="text" class="form-control" name="grupo"
                                         value="{{$grupocon->grupo_nombre}}" readonly>
+                                </div>
+
+                                  <div class="form-group col-md-4">
+                                    <label>cupo maximo</label>
+                                    <input type="text" class="form-control" name="grupo"
+                                        value="{{$grupocon->cupo_maximo}}" readonly>
                                 </div>
                             </div>
                             <h5>Datos  del docente</h5>
@@ -50,9 +56,8 @@
                             </div>
                             <br>
                             <div class="form-row">
-                                <a href="{{route('grupos.edit',$grupocon->id)}}" class="btn btn-primary mr-3">Actualizar</a>
-                                <a href="{{route('grupos.index')}}" class="btn btn btn-success btn-right"> Cancelar
-                                    edicion </a>
+                                <a href="{{route('grupos.edit', $grupocon->id)}}" class="btn btn-primary mr-3">Actualizar</a>
+                                <a href="{{route('grupos.index')}}" class="btn btn btn-success btn-right">Volver</a>
 
                             </div>
                             {{-- estudianate --}}

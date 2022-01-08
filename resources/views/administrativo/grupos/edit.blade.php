@@ -7,78 +7,62 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h4>Datos  del grupo</h4>
-                         <form action="{{route('grupos.update', ['grupo'=>$grupo->id])}}" method="POST" autocomplete="off">
+                        <h4>Datos del grupo</h4>
+                        <form action="{{ route('grupos.update', ['grupo' => $grupo->id]) }}" method="POST" autocomplete="off">
                             @csrf
                             @method('PUT')
-                            
                             <div class="form-group">
-                               <label>Nivel academico</label>
-                                <select class="form-control" name="nivel" value="" required>
-                            {{-- <option value="{{$grupo->nivel}}" selected="select">{{$grupo->nivel}}</option> --}}
-                            @foreach($niveles as $nvl)
-                            <option {{($nvl->nivel == $grupo->nivel ? 'selected' : '') }} value={{$nvl->nivel}}>{{$grupo->nivel}}</option>
-                                        @endforeach
-                                          </select>
+                                <label>Nivel</label>
+                                <input type="text" class="form-control" name="nivel" value="{{ $grupoedit->nivel }}"
+                                    readonly>
                             </div>
+
                             <div class="form-row">
-                                     <div class="form-group col-md-4">
-
-                                <label>Grado</label>
-                                <select class="form-control" name="grado" value="" required>
-                                    <option value="{{$grupo->grado}}" selected="select">{{$grupo->grado}}</option>
-                                    {{-- @foreach($grupo as $grup) --}}
-                                        {{-- <option value="{{$grupo->id}}">{{$grup->grado}}</option> --}}
-                                        {{-- @endforeach --}}
-                                </select>
-                           
+                                <div class="form-group col-md-4">
+                                    <label>grado</label>
+                                    <input type="text" class="form-control" name="grado" value="{{ $grupoedit->grado }}"
+                                        readonly>
                                 </div>
 
-                                  <div class="form-group col-md-4">
-
-                                <label>Grupo</label>
-                                <select class="form-control" name="grupo" value="" required>
-                                    <option value="{{$grupo->grupo_nombre}}" selected="select"></option>
-                                        {{-- @foreach($grupo as $grp)
-                                        <option value="{{$grp->id}}">{{$grp->grupo_nombre}}</option>
-                                        @endforeach --}}
-
-                                </select>
-                           
+                                <div class="form-group col-md-4">
+                                    <label>grupo</label>
+                                    <input type="text" class="form-control" name="grupo"
+                                        value="{{ $grupoedit->grupo_nombre }}" readonly>
                                 </div>
-                                    <div class="form-group col-md-4">
+
+                                <div class="form-group col-md-4">
                                     <label>Cupo máximo</label>
-                                    <input class="form-control" type="number" min="0" max="30" name="cupo" value="{{$grupo->cupo_maximo}}"
-                                        required>
+                                    <input class="form-control" type="number" min="0" max="30" name="cupo"
+                                        value="{{ $grupo->cupo_maximo }}" required>
                                 </div>
-
                             </div>
-                            
-                             
-                            <h5>Datos  del docente</h5>
+
+                            <h5>Datos del docente</h5>
                             <div class="form-group">
 
                                 <label>Docente</label>
-                                <select class="form-control" name="docente" value="" required>
-                                    <option value="" selected="select">{{$grupo->nombre}} {{$grupo->apellido_p}} {{$grupo->apellido_m}}</option>
-                                        {{-- @foreach($docentes as $dct)
-                                        <option value="{{$dct->id}}">{{$dct->nombre}} {{$dct->apellido_p}} {{$dct->apellido_m}}</option>
-                                        @endforeach --}}
+                                <select class="form-control" name="docente" value="">
+                                    <option value="" selected="select">{{ $grupoedit->nombre }} {{ $grupoedit->apellido_p }}
+                                        {{ $grupoedit->apellido_m }}</option>
+                                    @foreach ($docentes as $dct)
+                                        <option value="{{ $dct->id }}">{{ $dct->nombre }} {{ $dct->apellido_p }}
+                                            {{ $dct->apellido_m }}</option>
+                                    @endforeach --}}
 
                                 </select>
-                           
-                                
+
+
                             </div>
                             <br>
                             <div class="form-row">
-                               <button type="submit" class="btn btn-primary mr-3">Actualizar</button> 
-                           
-                                <a href="{{route('grupos.index')}}" class="btn btn btn-success btn-right"> Cancelar
+                                <button type="submit" class="btn btn-primary mr-3">Actualizar</button>
+
+                                <a href="{{ route('grupos.index') }}" class="btn btn btn-success btn-right"> Cancelar
                                     edicion </a>
 
                             </div>
                             {{-- estudianate --}}
-                       </form>
+                        </form>
                     </div>
                 </div>
             </div>

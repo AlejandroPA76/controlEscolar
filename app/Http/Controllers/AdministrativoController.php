@@ -51,7 +51,7 @@ class AdministrativoController extends Controller
      */
     public function show(Administrativo $administrativo)
     {
-        //
+        
     }
 
     /**

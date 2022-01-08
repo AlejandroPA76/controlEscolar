@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Contracts\Role as ContractsRole;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\TutorRequest;
+use Illuminate\Support\Facades\DB;
+
 
 
 
@@ -22,7 +24,7 @@ class TutorController extends Controller
      */
     public function index()
     {
-        $users=User::all();
+        $users = User::all();
         $tutores = Tutor::Paginate(10);
         return view('administrativo.tutores.indexTutores', compact('tutores', 'users'));
     }
@@ -36,7 +38,6 @@ class TutorController extends Controller
     {
         $roles = Role::all()->pluck('name', 'id');
         return view('administrativo.tutores.createdTutores', compact('roles'));
-
     }
 
     /**
@@ -47,63 +48,64 @@ class TutorController extends Controller
      */
     public function store(TutorRequest $request)
     {
-          $users = User::create($request->only(
+        $users = User::create($request->only(
             // 'name',
-            'email',) + [
-            'password' => bcrypt (request()->input('password'))
-            ]);
+            'email',
+        ) + [
+            'password' => bcrypt(request()->input('password'))
+        ]);
 
 
         // $ultimoregistro = Producto::latest()->first()->id;
 
-        $user=User::latest()->first()->id;
+        $user = User::latest()->first()->id;
         //echo($user);
 
         $tutores = Tutor::create($request->only(
             'nombre',
             'apellido_p',
-            'apellido_m', ) +
-            ['user_id' => $user
-        ]);
+            'apellido_m',
+        ) +
+            [
+                'user_id' => $user
+            ]);
 
-        
-        $tutor=Tutor::latest()->first()->id;
 
-        $pruebas=array([$request->only('nombrealumno', 'apellido_p_a', 'apellido_m_a', 'matricula')]); 
+        $tutor = Tutor::latest()->first()->id;
+
+        $pruebas = array([$request->only('nombrealumno', 'apellido_p_a', 'apellido_m_a', 'matricula')]);
 
         //foreach donde recorro todos los inputs y el resultado se muestra en una lista de nombrealumno,apellidos y matricula 
 
-        foreach ($pruebas as list($a)) { 
+        foreach ($pruebas as list($a)) {
 
-             //variable con la que obtengo el numero de nombres que hay en el input y esa son las iteraciones del for 
+            //variable con la que obtengo el numero de nombres que hay en el input y esa son las iteraciones del for 
 
-            $max = count($a['nombrealumno']); 
+            $max = count($a['nombrealumno']);
 
             //recorro cada una de las listas de datos es decir  
 
-            for ($i=0; $i <$max; $i++) {  
+            for ($i = 0; $i < $max; $i++) {
 
-            //echo '<pre>'.print_r($a['nombrealumno'][$i], true).'</pre>'; 
-            //echo '<pre>'.print_r($a['apellido_p_a'][$i], true).'</pre>'; 
-            //echo '<pre>'.print_r($a['apellido_m_a'][$i], true).'</pre>'; 
-            //echo '<pre>'.print_r($a['matricula'][$i], true).'</pre>'; 
-            $estudiante = new Estudiante;
-            $estudiante->nombre=$a['nombrealumno'][$i];
-            $estudiante->apellido_p=$a['apellido_p_a'][$i];
-            $estudiante->apellido_m=$a['apellido_m_a'][$i];
-            $estudiante->matricula=$a['matricula'][$i];
-            $estudiante->tutor_id=$tutor;
-            $estudiante->save();
-    
-            } 
-           //echo '<pre>'.print_r($a, true).'</pre>'; 
-        } 
+                //echo '<pre>'.print_r($a['nombrealumno'][$i], true).'</pre>'; 
+                //echo '<pre>'.print_r($a['apellido_p_a'][$i], true).'</pre>'; 
+                //echo '<pre>'.print_r($a['apellido_m_a'][$i], true).'</pre>'; 
+                //echo '<pre>'.print_r($a['matricula'][$i], true).'</pre>'; 
+                $estudiante = new Estudiante;
+                $estudiante->nombre = $a['nombrealumno'][$i];
+                $estudiante->apellido_p = $a['apellido_p_a'][$i];
+                $estudiante->apellido_m = $a['apellido_m_a'][$i];
+                $estudiante->matricula = $a['matricula'][$i];
+                $estudiante->tutor_id = $tutor;
+                $estudiante->save();
+            }
+            //echo '<pre>'.print_r($a, true).'</pre>'; 
+        }
         //$roles = $request->input('roles', []);
         $roles = $request->input('roles');
         $users->syncRoles($roles);
 
         return redirect()->route('admin.indexTutores')->withSuccess('¡Los datos del tutor fueron agregados correctamente!');
-
     }
 
     /**
@@ -114,14 +116,15 @@ class TutorController extends Controller
      */
     public function show(Tutor $tutor, User $user)
     {
-        // $tutor = Tutor::findOrFail($tutor);
-        // return view('administrativo.showTutores')->with($tutor);
 
         // $tutor->load('roles');
-        // $users = User::all();
-        $tutor->load('roles');
+        $tutor = DB::table('users')
+            ->select('users.id', 'users.name', 'users.email', 'tutors.id', 'tutors.nombre', 'tutors.apellido_p')
+            ->join('tutors', 'tutors.id', '=', 'users.id')
+            ->where('tutors.id', 'LIKE', 7)
+            ->first();
         
-
+        // dump($tutor);
         return view('administrativo.tutores.showTutores', compact('tutor'));
     }
 
@@ -137,8 +140,6 @@ class TutorController extends Controller
         $tutor->load('roles');
 
         return view('administrativo.tutores.editTutores', compact('tutor', 'roles'));
-
-
     }
 
     /**
@@ -153,7 +154,7 @@ class TutorController extends Controller
         $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'usuario');
         $contraseña = $request->input('contraseña');
         if ($contraseña)
-        $data['contraseña']=bcrypt($contraseña);
+            $data['contraseña'] = bcrypt($contraseña);
 
         $tutor->update($data);
 
@@ -162,9 +163,7 @@ class TutorController extends Controller
         $tutor->syncRoles($roles);
 
         return redirect()->route('admin.indexTutores')
-        ->withSuccess("¡Los datos del tutor {$tutor->nombre} han sido actualizados!");
-
-        
+            ->withSuccess("¡Los datos del tutor {$tutor->nombre} han sido actualizados!");
     }
 
     /**
@@ -178,6 +177,6 @@ class TutorController extends Controller
         $tutor->delete();
 
         return redirect()->route('admin.indexTutores')
-        ->withSuccess("¡El tutor {$tutor->nombre} ha sido eliminado!");
+            ->withSuccess("¡El tutor {$tutor->nombre} ha sido eliminado!");
     }
 }

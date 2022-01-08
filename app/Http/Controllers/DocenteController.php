@@ -73,7 +73,7 @@ class DocenteController extends Controller
      * @param  \App\Models\Docente  $docente
      * @return \Illuminate\Http\Response
      */
-    public function show(Docente $id)
+    public function show(Docente $docentes)
     {
         // $estudiantes = DB::table('users')
         //     ->select('estudiantes.id','estudiantes.nombre','estudiantes.apellido_p','estudiantes.apellido_m','estudiantes.matricula','estudiantes.created_at')
@@ -82,12 +82,14 @@ class DocenteController extends Controller
         //     ->where('users.id','LIKE',auth::user()->id)
         //     ->paginate('3');
         
-        $docentes1 = DB::table('users')
-            ->join('docentes', 'user_id', '=', 'users.id')
-            ->select('users.email', 'docentes.nombre', 'docentes.apellido_m', 'docentes.apellido_p', 'docentes.matricula')
-            ->where('users.id', 'LIKE', $id)
-            ->first();
-        return view('administrativo.docentes.showDocente', compact('docentes1'));
+        // $docentes1 = DB::table('users')
+        //     ->join('docentes', 'user_id', '=', 'users.id')
+        //     ->select('users.email', 'docentes.nombre', 'docentes.apellido_m', 'docentes.apellido_p', 'docentes.matricula')
+        //     ->where('users.id', 'LIKE', $id)
+        //     ->first();
+
+        
+        return view('administrativo.docentes.showDocente', compact('docentes'));
     }
 
     /**
