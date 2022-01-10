@@ -9,8 +9,8 @@
 
 //        require_once 'vendor/autoload.php'; // You have to require the library from your Composer vendor folder
 
-   // Agrega credenciales
-MercadoPago\SDK::setAccessToken('TEST-6101785241451295-010920-1cbfb100865c2051ffadb1885e00b8ab-212365906');
+   // Agrega credenciales-quitar EL TOKEN ANTES DE SUBIR A GIT
+MercadoPago\SDK::setAccessToken('PROD_ACCESS_TOKEN');
 
          // Crea un objeto de preferencia
          $preference = new MercadoPago\Preference();
@@ -25,8 +25,8 @@ MercadoPago\SDK::setAccessToken('TEST-6101785241451295-010920-1cbfb100865c2051ff
 ?>
 
 <script>
-// Agrega credenciales de SDK
-  const mp = new MercadoPago('TEST-21999f0b-a6c3-44fd-8729-31485aad3460', {
+// Agrega credenciales de SDK QUITAR EL TOKEN PARA SUBIR
+  const mp = new MercadoPago('PUBLIC_KEY', {
         locale: 'es-MX'
   });
 
