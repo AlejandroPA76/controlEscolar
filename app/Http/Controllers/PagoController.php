@@ -14,10 +14,9 @@ class PagoController extends Controller
      */
     public function index()
     {
-        
+        //$precio=12;
+         return view('mercadopago.pagosmenu');
       
-
-
     }
 
     /**
@@ -84,5 +83,11 @@ class PagoController extends Controller
     public function destroy(Pago $pago)
     {
         //
+    }
+
+    public function payment(Request $request){
+        $total=$request->input('precio');
+        //echo($hola);
+        return view('mercadopago.pagosconfirmar',compact('total'));
     }
 }
