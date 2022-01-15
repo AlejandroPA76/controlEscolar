@@ -34,37 +34,45 @@
                                                 <th>Nivel</th>
                                                 <th>Docente</th>
                                                 <th>Accion</th>
-                                                
+
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    
-                                                @foreach($grupos as $grup)
-                                                <td>{{ $grup->id }}</td>
-                                                <td>{{ $grup->grado}}</td>
-                                                <td>{{ $grup->grupo_nombre}}</td>
-                                                <td>{{$grup->nivel}}</td>
-                                                <td>{{$grup->nombre}} {{$grup->apellido_p}} {{$grup->apellido_m}}</td>
-                                                <td>
-                                                    <a href="{{route('grupos.show',$grup->id)}}" class="btn btn-info" >
-                                                         <i class="material-icons">Ver</i>
-                                                    </a>
-                                                     <a href="{{route('grupos.edit',$grup->id)}}" class="btn btn-warning">
-                                                         <i class="material-icons">Editar</i>
-                                                     </a>
 
-                                                    <form action="{{route('grupos.destroy',$grup->id)}}" method="POST">
+                                                    @foreach ($grupos as $grup)
+                                                        <td>{{ $grup->id }}</td>
+                                                        <td>{{ $grup->grado }}</td>
+                                                        <td>{{ $grup->grupo_nombre }}</td>
+                                                        <td>{{ $grup->nivel }}</td>
+                                                        <td>{{ $grup->nombre }} {{ $grup->apellido_p }}
+                                                            {{ $grup->apellido_m }}</td>
+                                                        <td>
+                                                            <a href="{{ route('grupos.show', $grup->id) }}"
+                                                                class="btn btn-info">
+                                                                <i class="material-icons">Ver</i>
+                                                            </a>
+                                                            <a href="{{ route('grupos.edit', $grup->id) }}"
+                                                                class="btn btn-warning">
+                                                                <i class="material-icons">Editar</i>
+                                                            </a>
+
+                                                            <form action="{{ route('grupos.destroy', $grup->id) }}"
+                                                                method="POST">
                                                                 @csrf
                                                                 @method('delete')
                                                                 <input type="submit" class="btn btn-danger btn-sm"
                                                                     value="Eliminar"
                                                                     onclick="return confirm('deseas borrar?')">
                                                             </form>
-                                                </td>
-                                              
+
+                                                            <a href="{{route('grupos.edit',$grup->id)}}" class="btn btn-warning">
+                                                                <i class="material-icons">Asignar alumnos</i>
+                                                            </a>
+                                                        </td>
+
                                                 </tr>
-                                               
-                                               @endforeach
+
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ListaGrupo;
+use App\Models\Grupo;
+use App\Models\Estudiante;
 use Illuminate\Http\Request;
 
 class ListaGrupoController extends Controller
@@ -24,7 +26,7 @@ class ListaGrupoController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +37,7 @@ class ListaGrupoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

@@ -29,5 +29,8 @@ class Docente extends Model
     public function Grupo(){
         return $this->belongsTo(Grupo::class);
     }
-
+    
+    public function lista(){
+        return $this->belongsTo(ListaGrupo::class);
+    }
 }

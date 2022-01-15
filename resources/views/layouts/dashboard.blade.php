@@ -127,7 +127,7 @@
                 @endcan
 
                 @can('pagos_index')
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Pagos</a>
+                    <a href="{{route('pagos.index')}}" class="list-group-item list-group-item-action bg-light">Pagos</a>
                 @endcan
 
                 {{-- @can('pagos_index') --}}

@@ -18,11 +18,13 @@ class CreateListaGruposTable extends Migration
             $table->bigInteger('estudiante_id')->unsigned();
             $table->bigInteger('ciclo_id')->unsigned();
             $table->bigInteger('grupo_id')->unsigned();
+            $table->bigInteger('docente_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('estudiante_id')->references('id')->on('estudiantes');
             $table->foreign('ciclo_id')->references('id')->on('ciclo_escolars');
             $table->foreign('grupo_id')->references('id')->on('grupos');
+            $table->foreign('docente_id')->references('id')->on('docentes');
         });
     }
 

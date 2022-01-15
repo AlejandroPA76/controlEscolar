@@ -71,12 +71,20 @@ Route::delete('admin/docentes/destroy/{docentes}', 'DocenteController@destroy')-
 Route::resource('grupos', GrupoController::class);
 Route::resource('niveles', NivelController::class);
 Route::resource('ciclos', CicloEscolarController::class);
+Route::resource('pagos', PlataformaPagoController::class);
+Route::resource('listas', ListaGrupoController::class);
+Route::post('/colegiatura/pago', 'ColegiaturaController@pago')->name('pagos');
+
+// ---------------------------------------------------------------------------------
+// Route::post('/pagos/pagar', 'PagoController@pagar')->name('pagar');
+// Route::post('/pagos/aprobacion', 'PagoController@aprobacion')->name('aprobacion');
+// Route::post('/pagos/cancelacion', 'PagoController@cancelacion')->name('cancelacion');
 
 // ---------------------------------------------------------------------------------------------
 
-Route::get('menu/tutor/observaciones', function () {
-    return view('tutor.observaciones');
-})->name('menuTutorObservaciones');
+// Route::get('administrativo/pagos', function () {
+//     return view('administrativo.pagos.pago');
+// })->name('pagos');
 
 Route::get('menu/contador', function () {
     return view('contador.menuContador');
