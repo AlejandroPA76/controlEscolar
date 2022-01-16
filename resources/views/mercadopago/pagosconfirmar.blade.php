@@ -45,10 +45,23 @@ MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
 
          // Crea un ítem en la preferencia
          $item = new MercadoPago\Item();
-         $item->title = 'Mi producto';
+         $item->title = "Mi producto";
+         $item->description= "holaaaa";
          $item->quantity = 1;
          $item->unit_price = $total;
          $preference->items = array($item);
+         $preference->payment_methods = array(
+          "excluded_payment_types" => array(
+            array("id" => "digital_wallet"),array("id" => "ticket"),array("id" => "atm")),
+
+          "installments" => 1
+
+         );
+
+         $preference->binary_mode = true;
+         $preference->back_urls = array(
+          "success" => route('pagar.ok')
+         );
          $preference->save();
 @endphp   
 

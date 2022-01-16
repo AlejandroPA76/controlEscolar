@@ -108,3 +108,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/pagos/menu',[App\Http\Controllers\PagoController::class, 'index'])->name('pagos.index');
 
 Route::post('pagar/confirmar',[App\Http\Controllers\PagoController::class, 'payment'])->name('pagar.a');
+
+Route::get('pagar/aprovado',[App\Http\Controllers\PagoController::class, 'success'])->name('pagar.ok');

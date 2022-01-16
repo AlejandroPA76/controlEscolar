@@ -90,4 +90,9 @@ class PagoController extends Controller
         //echo($hola);
         return view('mercadopago.pagosconfirmar',compact('total'));
     }
+
+    public function success(Request $request){
+
+        return $request->all();
+    }
 }
