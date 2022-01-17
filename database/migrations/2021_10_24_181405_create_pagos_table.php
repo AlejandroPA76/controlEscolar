@@ -15,12 +15,15 @@ class CreatePagosTable extends Migration
     {
         Schema::create('pagos', function (Blueprint $table) {
             $table->id();
-            $table->integer('nombre_estudiante');
-            $table->string('apellido_estudiante');
             $table->string('nombre_tutor');
-            $table->string('status')->default('no disponible');
-            $table->date('fecha');
-            $table->string('ciclo_escolar');
+            $table->string('apellido_p_tutor');
+            $table->string('apellido_m_tutor');
+            $table->string('email');
+             $table->integer('id_tutor');
+            $table->string('num_operacion');
+             $table->string('motivo')->nullable();
+            $table->string('status');
+             $table->integer('cantidad_pagada');
             $table->timestamps();
         });
     }

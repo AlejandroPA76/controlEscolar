@@ -4,20 +4,16 @@
 <h3>confirmar datos</h3>
 
 <div class="container">
-  <div class="form-group">
-    <label>el monto a pagar es:</label>
-    <input type="number" value="{{$total}}" readonly>
-  </div>
 
-  <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">$</span>
-  </div>
-  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="{{$total}}">
-  <div class="input-group-append">
-    <span class="input-group-text">.00</span>
-  </div>
-</div>
+ <div class="form-group">
+    <label>Monton a pagar:</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$total}}"  name="precio" disabled="false" required>
+   </div>
+   <div class="form-group">
+    <label>Ingrese el motivo del pago:</label>
+      <textarea class="form-control" rows="3" placeholder="Escribe el motivo del pago y nombre de los alumnos y el grado al que van a ingresar" name="motivo" disabled="false" required>{{$motivo}}</textarea>
+
+   </div>
 
    <div class="form-group">
         <div class="checkout-btn" type="submit"></div>
@@ -60,7 +56,7 @@ MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
 
          $preference->binary_mode = true;
          $preference->back_urls = array(
-          "success" => route('pagar.ok')
+          "success" => route('pagar.b')
          );
          $preference->save();
 @endphp   
