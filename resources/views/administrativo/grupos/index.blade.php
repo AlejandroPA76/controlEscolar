@@ -65,7 +65,7 @@
                                                                     onclick="return confirm('deseas borrar?')">
                                                             </form>
 
-                                                            <a href="{{route('grupos.edit',$grup->id)}}" class="btn btn-warning">
+                                                            <a href="{{route('grupos.asignar',$grup->id)}}" class="btn btn-warning">
                                                                 <i class="material-icons">Asignar alumnos</i>
                                                             </a>
                                                         </td>

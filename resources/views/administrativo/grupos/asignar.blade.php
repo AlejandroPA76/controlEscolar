@@ -7,7 +7,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h4>Datos del grupo</h4>
+                        <h4>Datos del grupo donde serán asignados los alumnos</h4>
                         <form action="{{ route('grupos.update', $grupoedit->id) }}" method="POST" autocomplete="off">
                             @csrf
                             @method('PUT')
@@ -37,7 +37,8 @@
                                 </div>
                             </div>
 
-                            <h5>Datos del docente</h5>
+                            <br>
+                            <h5>Docente que impartirá en este grupo</h5>
                             <div class="form-group">
 
                                 <label>Docente</label>
@@ -54,17 +55,43 @@
 
 
                             </div>
-                            @foreach ($estudiantes as $estudiante)
-                                <td>{{ $estudiante->id }}</td>
-                                <td>{{ $estudiante->nombre }}</td>
-                                <td>{{ $estudiante->apellido_p_a }}</td>
-                                <td>{{ $estudiante->apellido_m_a }}</td>
-                                <td>
-                                    <a href="{{ route('grupos.show', $grup->id) }}" class="btn btn-info">
-                                        <i class="material-icons">Ver</i>
-                                    </a>
-                                    <br>
-                            @endforeach
+                            <div class="">
+                                <h4>Elige en la lista los estudiantes a asignar al grupo actual</h4>
+                            </div>
+                            <br>
+
+                            <div class="table-responsive mt-2">
+                                <table class="table">
+                                    <thead class="text primary">
+                                        <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido paterno</th>
+                                        <th>Apellido materno</th>
+                                        <th>Matricula</th>
+                                        <th>Acciones</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($estudiantes as $estudiante)
+                                            <tr>
+                                                <td>{{ $estudiante->id }}</td>
+                                                <td>{{ $estudiante->nombre }}</td>
+                                                <td>{{ $estudiante->apellido_p_a }}</td>
+                                                <td>{{ $estudiante->apellido_m_a }}</td>
+                                                <td>{{ $estudiante->matricula }}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-info">
+                                                        <i class="material-icons">Asignar</i>
+                                                    </a>
+                                                    {{-- <a href="{{ route('asignar.', $estudiante->id) }}" class="btn btn-info">
+                                        <i class="material-icons">Asignar</i>
+                                    </a> --}}
+                                                    <br>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </form>
                     </div>
                 </div>

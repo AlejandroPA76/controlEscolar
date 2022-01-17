@@ -72,19 +72,10 @@ Route::resource('grupos', GrupoController::class);
 Route::resource('niveles', NivelController::class);
 Route::resource('ciclos', CicloEscolarController::class);
 Route::resource('pagos', PlataformaPagoController::class);
-Route::resource('listas', ListaGrupoController::class);
-Route::post('/colegiatura/pago', 'ColegiaturaController@pago')->name('pagos');
 
-// ---------------------------------------------------------------------------------
-// Route::post('/pagos/pagar', 'PagoController@pagar')->name('pagar');
-// Route::post('/pagos/aprobacion', 'PagoController@aprobacion')->name('aprobacion');
-// Route::post('/pagos/cancelacion', 'PagoController@cancelacion')->name('cancelacion');
+Route::get('grupos/asignar/{grupo}', 'GrupoController@asignar')->name('grupos.asignar');
 
-// ---------------------------------------------------------------------------------------------
-
-// Route::get('administrativo/pagos', function () {
-//     return view('administrativo.pagos.pago');
-// })->name('pagos');
+// ---------------------------------------------------------------------------
 
 Route::get('menu/contador', function () {
     return view('contador.menuContador');
@@ -112,3 +103,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/pagos/menu',[App\Http\Controllers\PagoController::class, 'index'])->name('pagos.index');
+
+Route::post('pagar/confirmar',[App\Http\Controllers\PagoController::class, 'payment'])->name('pagar.a');

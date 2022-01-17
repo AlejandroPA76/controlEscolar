@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Grupo;
 use App\Models\Docente;
 use App\Models\Nivel;
+use App\Models\Estudiante;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -80,6 +81,22 @@ class GrupoController extends Controller
             //->get();
             ->first();
         return view('administrativo.grupos.show', compact('grupocon'));
+    }
+
+    public function asignar($id)
+    {
+        $grupoedit = DB::table('grupos')
+            ->select('grupos.id', 'grupos.grupo_nombre', 'grupos.grado', 'grupos.cupo_maximo', 'nivels.nivel', 'docentes.nombre', 'docentes.apellido_p', 'docentes.apellido_m')
+            ->join('nivels', 'nivels.id', '=', 'grupos.nivel_id')
+            ->join('docentes', 'docentes.id', '=', 'grupos.docente_id')
+            ->where('grupos.id', 'LIKE', $id)
+            ->first();
+        //traigo todos los niveles,grupos y docentes para poder elegir en caso de cambiar algun dato
+        $niveles = Nivel::all();
+        $grupos = Grupo::all();
+        $docentes = Docente::all();
+        $estudiantes=Estudiante::all();
+        return view('administrativo.grupos.asignar', compact('grupoedit', 'niveles', 'grupos', 'docentes', 'estudiantes'));
     }
 
     /**
