@@ -102,6 +102,11 @@ class PagoController extends Controller
 
     public function success(Request $request){
 
+        session_start();
+        if(!empty($_SESSION['m'])){
+        $motivo=$_SESSION['m'];
+
+
         //obtenemos el id del tutor logueado
         $us=auth::user()->id;
         //consultamos los datos del tutor en la tabla user y tabla tutor
@@ -137,14 +142,15 @@ class PagoController extends Controller
         $pago->status="pagado";
         $pago->cantidad_pagada=$total_pagado;
         //
-        session_start();
-        $motivo=$_SESSION['m'];
-        unset($_SESSION['m']);
-        $pago->motivo=$motivo;
-        $pago->save();
         
+        $pago->motivo=$motivo;
+        unset($_SESSION['m']);
+        $pago->save();
          return view('layouts.dashboard');
         }
     
     }
+    else{
+         return view('layouts.dashboard');
+    }}
 }
