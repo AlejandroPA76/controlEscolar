@@ -4,14 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Pago;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-use App\Resolvers\PaymentPlatformResolver;
-
-=======
 use DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
->>>>>>> af0291e25effd9f5936593316a7165b400b80b27
 
 class PagoController extends Controller
 {
@@ -98,10 +93,15 @@ class PagoController extends Controller
         $total=$request->input('precio');
         $motivo=$request->input('motivo');
         //echo($hola);
+        //guardo el motivo en una variable de sesion para poder traer el valor a la 
+        //funcion sucess
+        session_start ();
+        $_SESSION['m'] = $motivo;
         return view('mercadopago.pagosconfirmar',compact('total','motivo'));
     }
 
     public function success(Request $request){
+
         //obtenemos el id del tutor logueado
         $us=auth::user()->id;
         //consultamos los datos del tutor en la tabla user y tabla tutor
@@ -121,7 +121,7 @@ class PagoController extends Controller
         $status= $response->status;
         //obtengo el monton que pague
         $total_pagado= $response->transaction_amount;
-        $motivo=$request->input('motivo');
+       
         //dump($datous,$motivo,$pago_id,$status,$total_pagado);
         //return $datous->nombre;
         if ($status=="approved") {
@@ -136,11 +136,15 @@ class PagoController extends Controller
         //$pago->motivo=$datous->nombre;
         $pago->status="pagado";
         $pago->cantidad_pagada=$total_pagado;
+        //
+        session_start();
+        $motivo=$_SESSION['m'];
+        unset($_SESSION['m']);
+        $pago->motivo=$motivo;
         $pago->save();
-         return view('mercadopago.pagosmenu');
-        }
         
-      
-
+         return view('layouts.dashboard');
+        }
+    
     }
 }

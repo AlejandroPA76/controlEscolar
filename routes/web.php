@@ -71,7 +71,7 @@ Route::delete('admin/docentes/destroy/{docentes}', 'DocenteController@destroy')-
 Route::resource('grupos', GrupoController::class);
 Route::resource('niveles', NivelController::class);
 Route::resource('ciclos', CicloEscolarController::class);
-Route::resource('pagos', PlataformaPagoController::class);
+//Route::resource('pagos', PlataformaPagoController::class);
 
 Route::get('grupos/asignar/{grupo}', 'GrupoController@asignar')->name('grupos.asignar');
 
