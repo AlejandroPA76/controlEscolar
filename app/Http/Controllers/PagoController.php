@@ -101,8 +101,9 @@ class PagoController extends Controller
     }
 
     public function success(Request $request){
-
+        //inicializo la variable de sesion
         session_start();
+        //
         if(!empty($_SESSION['m'])){
         $motivo=$_SESSION['m'];
 
@@ -146,11 +147,15 @@ class PagoController extends Controller
         $pago->motivo=$motivo;
         unset($_SESSION['m']);
         $pago->save();
-         return view('layouts.dashboard');
+         return redirect()->route('home');
         }
     
     }
     else{
-         return view('layouts.dashboard');
+          return redirect()->route('home');
     }}
+
+    public function fail(){
+         return redirect()->route('home');
+    }
 }

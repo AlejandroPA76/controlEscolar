@@ -63,7 +63,8 @@ MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
 
          $preference->binary_mode = true;
          $preference->back_urls = array(
-          "success" => route('pagar.b')
+          "success" => route('pagar.b'),
+          "failure" => route('rechazado.a')
          );
          $preference->save();
 @endphp   
