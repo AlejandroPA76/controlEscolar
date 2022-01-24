@@ -4,14 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Pago;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-use App\Resolvers\PaymentPlatformResolver;
+use Illuminate\Support\Facades\DB;
 
-=======
-use DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
->>>>>>> af0291e25effd9f5936593316a7165b400b80b27
 
 class PagoController extends Controller
 {
