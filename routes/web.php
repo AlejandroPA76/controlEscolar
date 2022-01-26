@@ -71,7 +71,7 @@ Route::delete('admin/docentes/destroy/{docentes}', 'DocenteController@destroy')-
 Route::resource('grupos', GrupoController::class);
 Route::resource('niveles', NivelController::class);
 Route::resource('ciclos', CicloEscolarController::class);
-// Route::resource('pagos', PagoController::class);
+//Route::resource('pagos', PlataformaPagoController::class);
 
 Route::get('grupos/asignar/{grupo}', 'GrupoController@asignar')->name('grupos.asignar');
 
@@ -109,3 +109,5 @@ Route::get('/pagos/menu',[App\Http\Controllers\PagoController::class, 'index'])-
 Route::post('pagar/confirmar',[App\Http\Controllers\PagoController::class, 'payment'])->name('pagar.a');
 
 Route::get('pagar/aprovado',[App\Http\Controllers\PagoController::class, 'success'])->name('pagar.b');
+
+Route::get('pagar/rechazado',[App\Http\Controllers\PagoController::class, 'fail'])->name('rechazado.a');

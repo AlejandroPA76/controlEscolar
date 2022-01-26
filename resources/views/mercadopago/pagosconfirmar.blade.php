@@ -32,6 +32,14 @@
 @php 
 
  require_once("../vendor/autoload.php");
+
+ $dt=DB::table('tutors')
+->select('tutors.id','tutors.nombre','tutors.apellido_p','tutors.apellido_m','users.email')
+->join('users','users.id','=','user_id')
+->where('user_id','LIKE',auth()->user()->id)
+->first();
+
+
 //require_once 'vendor/autoload.php'; // You have to require the library from your Composer vendor folder
 // Agrega credenciales-quitar EL TOKEN ANTES DE SUBIR A git
 MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
@@ -41,8 +49,7 @@ MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
 
          // Crea un ítem en la preferencia
          $item = new MercadoPago\Item();
-         $item->title = "Mi producto";
-         $item->description= "holaaaa";
+         $item->title ="#".$dt->id ." ". $dt->nombre . " ". $dt->apellido_p ." ".$dt->apellido_m." ".$dt->email;
          $item->quantity = 1;
          $item->unit_price = $total;
          $preference->items = array($item);
@@ -56,7 +63,8 @@ MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
 
          $preference->binary_mode = true;
          $preference->back_urls = array(
-          "success" => route('pagar.b')
+          "success" => route('pagar.b'),
+          "failure" => route('rechazado.a')
          );
          $preference->save();
 @endphp   

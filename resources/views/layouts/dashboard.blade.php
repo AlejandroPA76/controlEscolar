@@ -139,6 +139,8 @@
                 <a href="{{ route('ciclos.index') }}" class="list-group-item list-group-item-action bg-light">Ciclo
                     escolar</a>
                 {{-- @endcan --}}
+
+                 <a href="{{route('menuContador')}}" class="list-group-item list-group-item-action bg-light">Historial de pagos</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->

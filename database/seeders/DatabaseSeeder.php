@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
             GrupoSeeder::class,
             CicloSeeder::class,
             DocenteSeeder::class,
-            PlataformaPagoTableSeeder::class,
         ]);
 
     }
