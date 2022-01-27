@@ -113,3 +113,5 @@ Route::get('pagar/aprovado',[App\Http\Controllers\PagoController::class, 'succes
 Route::get('pagar/rechazado',[App\Http\Controllers\PagoController::class, 'fail'])->name('rechazado.a');
 
 Route::get('admin/historial/pagos',[App\Http\Controllers\ContadorController::class, 'historialPagos'])->name('historialPagos');
+
+Route::get('admin/historial/pagos/ver/{id}',[App\Http\Controllers\ContadorController::class, 'show'])->name('verPago');

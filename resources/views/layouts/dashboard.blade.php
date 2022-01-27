@@ -140,7 +140,7 @@
                     escolar</a>
                 {{-- @endcan --}}
 
-                 <a href="{{route('menuContador')}}" class="list-group-item list-group-item-action bg-light">Historial de pagos</a>
+                 <a href="{{route('historialPagos')}}" class="list-group-item list-group-item-action bg-light">Historial de pagos</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->

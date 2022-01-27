@@ -10,7 +10,9 @@ class Pago extends Model
     use HasFactory;
 
 
-    public function scopebuscarPagoMes(){
+    public function scopebuscarPagoMes($query, $fecha){
+        return $query->where('created_at','like','%' . $fecha . '%');
+
 
     }
 
