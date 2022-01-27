@@ -84,8 +84,10 @@ class ContadorController extends Controller
         //
     }
 
-    public function historialPagos(){
-        $historialPagos=Pago::orderBy('id','DESC')->get();
+    public function historialPagos(Request $request){
+
+
+        $historialPagos=Pago::buscarPagoMes($request->fecha)->orderBy('id','DESC')->get();
         return view('contador.historialDePagos',compact('historialPagos'));
         //return $historialPagos;
     }

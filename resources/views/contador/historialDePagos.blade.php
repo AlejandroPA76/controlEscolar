@@ -7,24 +7,26 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- no additional media querie or css is required -->
-<div class="container">
+<div class="container-fluid mt-3">
         <div class="row justify-content-center align-items-center" style="height:100vh">
-            <div class="col-8">
+            <div class="col">
                 <div class="card">
                     <div class="card-body">
                       <h1>Historial de Pagos</h1>
                        
-                        
+                        <form action="{{route('historialPagos')}}" method="get" autocomplete="off">      
+                          
                          <div class="container">
                                   <div class="row align-items-center">
                                     <div class="col">
-                                       <label >Buscar por fecha</label>
+                                       <label >Buscar por mes</label>
                                       <input type="month" name="fecha" min="2021-01" >
                                       <button type="submit" class="btn btn-dark">Buscar</button>
                                     </div>
                                      
                                     </div>
-                       
+                                       </div>
+                          </form>
                         
                          
                        
