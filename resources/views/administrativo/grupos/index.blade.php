@@ -47,10 +47,12 @@
                                                         <td>{{ $grup->nombre }} {{ $grup->apellido_p }}
                                                             {{ $grup->apellido_m }}</td>
                                                         <td>
+
                                                             <a href="{{ route('grupos.show', $grup->id) }}"
                                                                 class="btn btn-info">
                                                                 <i class="material-icons">Ver</i>
                                                             </a>
+
                                                             <a href="{{ route('grupos.edit', $grup->id) }}"
                                                                 class="btn btn-warning">
                                                                 <i class="material-icons">Editar</i>
@@ -60,7 +62,7 @@
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <input type="submit" class="btn btn-danger btn-sm"
+                                                                <input type="submit" class="btn btn-danger"
                                                                     value="Eliminar"
                                                                     onclick="return confirm('deseas borrar?')">
                                                             </form>

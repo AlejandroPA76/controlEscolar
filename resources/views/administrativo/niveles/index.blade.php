@@ -28,7 +28,7 @@
                                             <thead class="text primary">
                                                 <th>Id</th>
                                                 <th>Nombre nivel</th>
-                                                <th class="text-center">Acciones</th>
+                                                <th>Acciones</th>
                                             </thead>
                                             {{-- cuerpo --}}
                                             <tbody>

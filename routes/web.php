@@ -111,3 +111,5 @@ Route::post('pagar/confirmar',[App\Http\Controllers\PagoController::class, 'paym
 Route::get('pagar/aprovado',[App\Http\Controllers\PagoController::class, 'success'])->name('pagar.b');
 
 Route::get('pagar/rechazado',[App\Http\Controllers\PagoController::class, 'fail'])->name('rechazado.a');
+
+Route::get('admin/historial/pagos',[App\Http\Controllers\ContadorController::class, 'historialPagos'])->name('historialPagos');

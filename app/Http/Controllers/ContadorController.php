@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contador;
+use App\Models\Pago;
 use Illuminate\Http\Request;
 
 class ContadorController extends Controller
@@ -81,5 +82,11 @@ class ContadorController extends Controller
     public function destroy(Contador $contador)
     {
         //
+    }
+
+    public function historialPagos(){
+        $historialPagos=Pago::orderBy('id','DESC')->get();
+        return view('contador.historialDePagos',compact('historialPagos'));
+        //return $historialPagos;
     }
 }
