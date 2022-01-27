@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Pago extends Model
 {
     use HasFactory;
+
+
+    public function scopebuscarPagoMes(){
+
+    }
+
+    
+      
 }

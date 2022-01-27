@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <h1>Menu</h1>
                       <div class="list-group">
-                      <a href="{{route('menuContadorHistorialDePagos')}}" class="list-group-item list-group-item-action">Historial Pagos</a>
+                      <a href="{{route('historialPagos')}}" class="list-group-item list-group-item-action">Historial Pagos</a>
                       <a href="{{route('menuContadorHistorialDePagosReciente')}}" class="list-group-item list-group-item-action">Pagos recientes</a>
                      
                         </div>

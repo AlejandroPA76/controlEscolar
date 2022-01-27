@@ -32,25 +32,27 @@
                                             <thead class="text primary">
                                                 <th>Id</th>
                                                 <th>Ciclo escolar</th>
-                                                <th class="text-center">Acciones</th>
+                                                <th >Acciones</th>
                                             </thead>
                                             {{-- cuerpo --}}
                                             <tbody>
                                                 @foreach ($ciclos as $ciclo)
                                                     <tr>
+                                                        
                                                         <td>{{ $ciclo->id }}</td>
                                                         <td>{{ $ciclo->ciclo }}</td>
                                                         <td>
-                                                            <a href="{{ route('ciclos.edit', $ciclo->id) }}"
+                                                        <a href="{{ route('ciclos.edit', $ciclo->id) }}"
                                                                 class="btn btn-warning"><i
                                                                     class="material-icons">Editar</i></a>
+
                                                             <form method="POST" class="d-inLine"
                                                                 action="{{ route('ciclos.destroy', ['ciclo' => $ciclo->id]) }}">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit" class="btn btn-danger">Borrar</button>
                                                             </form>
-
+                                                            
                                                     </tr>
                                                 @endforeach
                                             </tbody>
