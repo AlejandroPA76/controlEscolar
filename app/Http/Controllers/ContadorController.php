@@ -45,9 +45,10 @@ class ContadorController extends Controller
      * @param  \App\Models\Contador  $contador
      * @return \Illuminate\Http\Response
      */
-    public function show(Contador $contador)
+    public function show(Contador $contador,$id)
     {
-        //
+     $pag=Pago::findOrFail($id);
+     return view('contador.detallePago',compact('pag'));
     }
 
     /**

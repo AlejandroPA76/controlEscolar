@@ -7,6 +7,18 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- no additional media querie or css is required -->
+<style type="text/css">
+  
+  label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+</style>
 <div class="container-fluid mt-3">
         <div class="row justify-content-center align-items-center" style="height:100vh">
             <div class="col">
@@ -19,6 +31,7 @@
                          <div class="container">
                                   <div class="row align-items-center">
                                     <div class="col">
+
                                        <label >Buscar por mes</label>
                                       <input type="month" name="fecha" min="2021-01" >
                                       <button type="submit" class="btn btn-dark">Buscar</button>
@@ -53,7 +66,7 @@
      <td>{{$hpagos->status}}</td>
      <td>{{$hpagos->cantidad_pagada}}</td>
      <td>{{$hpagos->created_at}}</td>
-     <td><a href="">Detalle del pago</a></td>
+     <td><a href="{{route('verPago',$hpagos->id)}}">Detalle del pago</a></td>
      
    </tr>
    @endforeach
