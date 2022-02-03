@@ -32,8 +32,21 @@ class EstudianteController extends Controller
 
             return view('administrativo.estudiantes.indexEstudiante', compact('estudiantes'));
 
+        }if(auth()->user()->hasRole('Docente')){
+            $estudiantes = DB::table('users')
+            ->select('estudiantes.*')
+            ->join('docentes', 'docentes.user_id', '=', 'users.id' )
+            ->join('grupos', 'grupos.docente_id', '=', 'docentes.id' )
+            ->join('lista_grupos', 'lista_grupos.grupo_id', '=', 'grupos.id' )
+            ->join('estudiantes', 'estudiantes.id', '=', 'lista_grupos.estudiante_id' )
+            ->where('users.id', '=', auth::user()->id)
+            // ->get();
+            ->paginate('30');
+
+            return view('administrativo.estudiantes.indexEstudiante', compact('estudiantes'));
+
         }
-        else {             
+        if (auth()->user()->hasRole('SuperAdmin')) {             
             $estudiantes=Estudiante::all();
             $estudiantes = Estudiante::Paginate(10);
 

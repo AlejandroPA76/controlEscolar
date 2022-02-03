@@ -7,10 +7,8 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
+                        
                         <h4>Datos del grupo donde serán asignados los alumnos</h4>
-                        <form action="{{ route('grupos.update', $grupoedit->id) }}" method="POST" autocomplete="off">
-                            @csrf
-                            @method('PUT')
                             <div class="form-group">
                                 <label>Nivel</label>
                                 <input type="text" class="form-control" name="nivel" value="{{ $grupoedit->nivel }}"
@@ -38,23 +36,20 @@
                             </div>
 
                             <br>
-                            <h5>Docente que impartirá en este grupo</h5>
                             <div class="form-group">
-
-                                <label>Docente</label>
-                                <select class="form-control" name="docente" value="">
-                                    <option value="" selected="select">{{ $grupoedit->nombre }}
-                                        {{ $grupoedit->apellido_p }}
-                                        {{ $grupoedit->apellido_m }}</option>
-                                    @foreach ($docentes as $dct)
-                                        <option value="{{ $dct->id }}">{{ $dct->nombre }} {{ $dct->apellido_p }}
-                                            {{ $dct->apellido_m }}</option>
-                                    @endforeach --}}
-
-                                </select>
-
-
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>Docente que impartirá en este grupo</h5>
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" min="0" max="30" name="cupo"
+                                                value="{{ $grupoedit->nombre }} {{ $grupoedit->apellido_p }} {{ $grupoedit->apellido_m }}" readonly>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>   
                             </div>
+
                             <div class="">
                                 <h4>Elige en la lista los estudiantes a asignar al grupo actual</h4>
                             </div>
@@ -75,16 +70,31 @@
                                             <tr>
                                                 <td>{{ $estudiante->id }}</td>
                                                 <td>{{ $estudiante->nombre }}</td>
-                                                <td>{{ $estudiante->apellido_p_a }}</td>
-                                                <td>{{ $estudiante->apellido_m_a }}</td>
+                                                <td>{{ $estudiante->apellido_p }}</td>
+                                                <td>{{ $estudiante->apellido_m }}</td>
                                                 <td>{{ $estudiante->matricula }}</td>
+
                                                 <td>
-                                                    <a href="#" class="btn btn-info">
-                                                        <i class="material-icons">Asignar</i>
-                                                    </a>
-                                                    {{-- <a href="{{ route('asignar.', $estudiante->id) }}" class="btn btn-info">
-                                        <i class="material-icons">Asignar</i>
-                                    </a> --}}
+                                                    <form action="{{route('grupos.asignaralumno')}}" method="POST" id="asgralmn">
+                                                        @csrf
+                                                        <h5>Seleccione Ciclo Escolar</h5>
+                                                            <div class="form-group">
+                                        
+                                                             <label>Ciclo</label>
+                                                                <select class="form-control" value="" name="clic_id">
+                                                                    @foreach ($ciclo as $c)
+                                                                        <option value="{{$c->id}}" selected="select">
+                                                                        {{$c->ciclo}}
+                                                                        </option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+
+                                                        
+                                                        <input type="hidden" name="estd_id" id="estd_id" value="{{$estudiante->id}}">
+                                                        <input type="hidden" name="grup_id" id="grup_id" value="{{$grupoedit->id}}">
+                                                        <button type="submit" id="sendAssing" class="btn btn-primary">Asignar</button>
+                                                    </form> 
                                                     <br>
                                                 </td>
                                             </tr>
@@ -92,10 +102,12 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </form>
+                         
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+

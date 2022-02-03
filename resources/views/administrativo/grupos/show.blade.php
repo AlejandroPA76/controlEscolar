@@ -55,6 +55,35 @@
                                 </div>
                             </div>
                             <br>
+
+                            <div class="table-responsive mt-2">
+                                <table class="table">
+                                    {{-- encabezado --}}
+                                    <thead class="text primary">
+                                        <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido paterno</th>
+                                        <th>Apellido materno</th>
+                                        <th>Matricula</th>
+                                        <th>Creado</th>
+                                        <th class="text-right">Acciones</th>
+                                    </thead>
+                                    {{-- cuerpo --}}
+                                    <tbody>
+                                        @foreach ($estudiantes as $estudiante)
+                                            <tr>
+                                                <td>{{ $estudiante->id }}</td>
+                                                <td>{{ $estudiante->nombre }}</td>
+                                                <td>{{ $estudiante->apellido_p }}</td>
+                                                <td>{{ $estudiante->apellido_m }}</td>
+                                                <td>{{ $estudiante->matricula }}</td>
+                                                <td>{{ $estudiante->created_at }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+
                             <div class="form-row">
                                 <a href="{{route('grupos.edit', $grupocon->id)}}" class="btn btn-primary mr-3">Actualizar</a>
                                 <a href="{{route('grupos.index')}}" class="btn btn btn-success btn-right">Volver</a>

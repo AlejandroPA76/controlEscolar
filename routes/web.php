@@ -74,6 +74,7 @@ Route::resource('ciclos', CicloEscolarController::class);
 //Route::resource('pagos', PlataformaPagoController::class);
 
 Route::get('grupos/asignar/{grupo}', 'GrupoController@asignar')->name('grupos.asignar');
+Route::post('grupos/asignar/alumno', 'GrupoController@asignaralumno')->name('grupos.asignaralumno');
 
 // ---------------------------------------------------------------------------
 
@@ -115,3 +116,12 @@ Route::get('pagar/rechazado',[App\Http\Controllers\PagoController::class, 'fail'
 Route::get('admin/historial/pagos',[App\Http\Controllers\ContadorController::class, 'historialPagos'])->name('historialPagos');
 
 Route::get('admin/historial/pagos/ver/{id}',[App\Http\Controllers\ContadorController::class, 'show'])->name('verPago');
+
+
+//////////////////docente observaciones/////////////////////////////
+
+Route::get('grupo/asignado',[App\Http\Controllers\ObservacionController::class, 'index'])->name('docente.grupo_asignados');
+Route::get('grupo/asignado/lista/{id}',[App\Http\Controllers\ObservacionController::class, 'showList'])->name('docente.grupo_asignados_estudiantes');
+Route::get('grupo/asignado/lista/enviar/{id}',[App\Http\Controllers\ObservacionController::class, 'showFormObservacion'])->name('docente.grupo_asignados_estudiantes_enviar');
+Route::post('grupo/asignado/lista/send',[App\Http\Controllers\ObservacionController::class, 'sendMensaje'])->name('docente.grupo_asignados_estudiantes_send');
+Route::get('grupo/asignado/lista/estudiante/observacion/{id}',[App\Http\Controllers\ObservacionController::class, 'showObservacionEstudiante'])->name('docente.grupo_asignados_observacion_estudiante');

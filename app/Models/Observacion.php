@@ -9,8 +9,21 @@ class Observacion extends Model
 {
     use HasFactory;
 
+    
+    protected $fillable = [
+        'observacion',
+        'estado',
+        'docente_id',
+        'estudiante_id',
+    ];
+
     // relacion polimirfica
-    public function observable(){
-        return $this->morphTo();
+
+    public function docentes(){
+        return $this->hasMany(Docente::class);
+    }
+
+    public function estudiantes(){
+        return $this->hasMany(Estudiante::class);
     }
 }

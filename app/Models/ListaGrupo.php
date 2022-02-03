@@ -9,9 +9,14 @@ class ListaGrupo extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
-        
+    protected $fillable = [
+        'estudiante_id',
+        'ciclo_id',
+        'grupo_id',
     ];
+
+    
+    
 
     
     public function estudiantes(){
@@ -27,9 +32,7 @@ class ListaGrupo extends Model
         return $this->hasMany(Grupo::class);
     }
     
-    public function docente(){
-        return $this->hasMany(Grupo::class);
-    }
+    
     
 
 }

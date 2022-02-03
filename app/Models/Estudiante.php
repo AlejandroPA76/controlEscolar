@@ -22,9 +22,9 @@ class Estudiante extends Model
         return $this->belongsTo(Tutor::class);
     }
 
-    // relacion polimrfica de uno a muchos
+    
     public function observaciones(){
-        return $this->morphMany(Observacion::class, 'observable');
+        return $this->belongsTo(Observacion::class, );
     }
 
     public function listaGrupo(){

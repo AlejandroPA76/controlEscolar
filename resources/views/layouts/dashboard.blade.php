@@ -89,8 +89,22 @@
             </div>
             <div class="list-group list-group-flush">
 
+                @can('estudiantes_index')
                 <a href="{{ route('admin.indexEstudiantes') }}"
                     class="list-group-item list-group-item-action bg-light">Estudiantes</a>
+                @endcan
+
+                {{-- Esta ruta es para docentes --}}
+                @can('mis_estudiantes_index')
+                <a href="{{ route('admin.indexEstudiantes') }}"
+                    class="list-group-item list-group-item-action bg-light">Lista de todos mis estudiantes</a>
+                @endcan
+
+                @can('mis_observaciones_index')
+                    <a href="{{ route('docente.grupo_asignados') }}" class="list-group-item list-group-item-action bg-light">Mis grupos</a>
+                @endcan
+
+                {{-- fin de la ruta docentes --}}
 
                 @can('tutores_index')
                     <a href="{{ route('admin.indexTutores') }}"
@@ -108,7 +122,7 @@
                 @endcan
 
                 @can('observaciones_index')
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Observaciones</a>
+                    <a href="{{ route('docente.grupo_asignados') }}" class="list-group-item list-group-item-action bg-light">Observaciones</a>
                 @endcan
 
                 @can('permission_index')
@@ -130,17 +144,20 @@
                     <a href="{{route('pagos.index')}}" class="list-group-item list-group-item-action bg-light">Pagos</a>
                 @endcan
 
-                {{-- @can('pagos_index') --}}
+                @can('niveles_index')
                 <a href="{{ route('niveles.index') }}" class="list-group-item list-group-item-action bg-light">Niveles
                     educativos</a>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('pagos_index') --}}
+                @can('ciclos_index')
                 <a href="{{ route('ciclos.index') }}" class="list-group-item list-group-item-action bg-light">Ciclo
                     escolar</a>
-                {{-- @endcan --}}
+                @endcan
 
-                 <a href="{{route('historialPagos')}}" class="list-group-item list-group-item-action bg-light">Historial de pagos</a>
+                @can('historial_index')
+                <a href="{{route('historialPagos')}}" class="list-group-item list-group-item-action bg-light">Historial de pagos</a>
+                @endcan
+
             </div>
         </div>
         <!-- /#sidebar-wrapper -->

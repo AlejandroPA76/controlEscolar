@@ -69,6 +69,27 @@ class PermissionSeeder extends Seeder
             'pagos_show',
             'pagos_edit',
             'pagos_destroy',
+            
+            'ciclos_index',
+            'ciclos_create',
+            'ciclos_show',
+            'ciclos_edit',
+            'ciclos_destroy',
+            
+            'niveles_index',
+            'niveles_create',
+            'niveles_show',
+            'niveles_edit',
+            'niveles_destroy',
+            
+            'historial_index',
+            'historial_create',
+            'historial_show',
+            'historial_edit',
+            'historial_destroy',
+
+            'mis_estudiantes_index',
+            'mis_observaciones_index',
 
             'observaciones_index',
             'observaciones_create',
