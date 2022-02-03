@@ -48,10 +48,10 @@ class TutorController extends Controller
      */
     public function store(TutorRequest $request)
     {
-        $users = User::create($request->only(
-            // 'name',
-            'email',
-        ) + [
+        $users = User::create([
+        'name' => request('nombre'),
+        'email' => request('email')
+        ] + [
             'password' => bcrypt(request()->input('password'))
         ]);
 
