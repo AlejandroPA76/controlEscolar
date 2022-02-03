@@ -121,7 +121,11 @@ Route::get('admin/historial/pagos/ver/{id}',[App\Http\Controllers\ContadorContro
 //////////////////docente observaciones/////////////////////////////
 
 Route::get('grupo/asignado',[App\Http\Controllers\ObservacionController::class, 'index'])->name('docente.grupo_asignados');
+
 Route::get('grupo/asignado/lista/{id}',[App\Http\Controllers\ObservacionController::class, 'showList'])->name('docente.grupo_asignados_estudiantes');
+
 Route::get('grupo/asignado/lista/enviar/{id}',[App\Http\Controllers\ObservacionController::class, 'showFormObservacion'])->name('docente.grupo_asignados_estudiantes_enviar');
+
 Route::post('grupo/asignado/lista/send',[App\Http\Controllers\ObservacionController::class, 'sendMensaje'])->name('docente.grupo_asignados_estudiantes_send');
+
 Route::get('grupo/asignado/lista/estudiante/observacion/{id}',[App\Http\Controllers\ObservacionController::class, 'showObservacionEstudiante'])->name('docente.grupo_asignados_observacion_estudiante');

@@ -28,6 +28,7 @@
                                                 <th>Id</th>
                                                 <th>Grado</th>
                                                 <th>Grupo</th>
+                                                <th>Nivel Academico</th>
                                                 <th>Accion</th>
 
                                             </thead>
@@ -38,6 +39,7 @@
                                                         <td>{{ $grup->id }}</td>
                                                         <td>{{ $grup->grado }}</td>
                                                         <td>{{ $grup->grupo_nombre }}</td>
+                                                        <td>{{ $grup->nivel}}</td>
                                                         <td>
 
                                                             <a href="{{ route('docente.grupo_asignados_estudiantes', $grup->id) }}"

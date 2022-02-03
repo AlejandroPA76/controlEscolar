@@ -36,12 +36,16 @@ class ObservacionController extends Controller
 
         }if(auth()->user()->hasRole('Docente')){
             $grupos = DB::table('grupos')
-                ->select('grupos.*')
+                ->select('grupos.id','grupos.grupo_nombre','grupos.grado','nivels.nivel')
                 ->join('docentes','docentes.id','=','grupos.docente_id')
                 ->join('users','users.id','=','docentes.user_id')
+                ->join('nivels','nivels.id','=','grupos.nivel_id')
                 ->where('users.id','=',auth::user()->id)
                 ->get();
-        }  
+
+           
+        } 
+        //return $grupos; 
         return view('docente.observaciones.index',compact('grupos'));
     }
 

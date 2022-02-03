@@ -46,7 +46,7 @@ class EstudianteController extends Controller
             return view('administrativo.estudiantes.indexEstudiante', compact('estudiantes'));
 
         }
-        if (auth()->user()->hasRole('SuperAdmin')) {             
+        else {             
             $estudiantes=Estudiante::all();
             $estudiantes = Estudiante::Paginate(10);
 
