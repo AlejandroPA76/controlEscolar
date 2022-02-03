@@ -129,3 +129,5 @@ Route::get('grupo/asignado/lista/enviar/{id}',[App\Http\Controllers\ObservacionC
 Route::post('grupo/asignado/lista/send',[App\Http\Controllers\ObservacionController::class, 'sendMensaje'])->name('docente.grupo_asignados_estudiantes_send');
 
 Route::get('grupo/asignado/lista/estudiante/observacion/{id}',[App\Http\Controllers\ObservacionController::class, 'showObservacionEstudiante'])->name('docente.grupo_asignados_observacion_estudiante');
+
+Route::delete('grupo/asignado/lista/estudiante/dar/baja/{id}',[App\Http\Controllers\ListaGrupoController::class, 'destroy'])->name('baja.estudiante');

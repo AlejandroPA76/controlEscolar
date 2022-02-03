@@ -80,8 +80,10 @@ class ListaGrupoController extends Controller
      * @param  \App\Models\ListaGrupo  $listaGrupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ListaGrupo $listaGrupo)
+    public function destroy(ListaGrupo $listaGrupo,$id)
     {
-        //
+        return $id;
     }
+
+
 }
