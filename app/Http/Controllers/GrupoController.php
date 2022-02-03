@@ -64,7 +64,7 @@ class GrupoController extends Controller
         $grups->nivel_id = $request->input('nivel');
         $grups->docente_id = $request->input('docente');
         $grups->save();
-        return redirect()->route('grupos.index');
+        return redirect()->route('grupos.index')->withSuccess('¡El grupo fue creado correctamente!');
     }
 
     /**

@@ -37,17 +37,24 @@
                                                         <td>{{ $nvl->id }}</td>
                                                         <td>{{ $nvl->nivel }}</td>
                                                         <td>
-                                                            <a class="btn btn-primary"
-                                                                href="/niveles/{{ $nvl->id }}/edit"><i i
-                                                                    class="material-icons center">editar</i></a>
-                                                        
-                                                            <form action="/niveles/{{ $nvl->id }}" method="POST">
-                                                                @csrf
-                                                                @method('delete')
-                                                                <input type="submit" class="btn btn-danger btn-sm"
-                                                                    value="Eliminar"
-                                                                    onclick="return confirm('deseas borrar?')">
-                                                            </form>
+                                                            <div class="row">
+                                                                <div class="form-row">
+
+                                                                </div>
+                                                                <a class="btn btn-primary btn-sm"
+                                                                    href="/niveles/{{ $nvl->id }}/edit"><i i
+                                                                        class="material-icons center">Editar</i></a>
+                                                            
+                                                                <form action="/niveles/{{ $nvl->id }}" method="POST">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <input type="submit" class="btn ml-2 btn-danger btn-sm"
+                                                                        value="Eliminar"
+                                                                        onclick="return confirm('deseas borrar?')">
+                                                                </form>
+
+                                                            </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach

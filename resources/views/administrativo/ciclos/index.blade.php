@@ -21,7 +21,9 @@
                                 </div>
                                 <div class="card-body">
                                     @if (session('success'))
-                                        <div class="alert alert-success" role="success">
+                                        <div class="alert alert-primary" role="success">
+                                            <button type="button" class="close"
+                                                data-dismiss="alert">&times;</button>
                                             {{ session('success') }}
                                         </div>
                                     @endif
@@ -42,16 +44,22 @@
                                                         <td>{{ $ciclo->id }}</td>
                                                         <td>{{ $ciclo->ciclo }}</td>
                                                         <td>
-                                                        <a href="{{ route('ciclos.edit', $ciclo->id) }}"
-                                                                class="btn btn-warning"><i
-                                                                    class="material-icons">Editar</i></a>
+                                                            <div class="row">
+                                                                <div class="form-row">
 
-                                                            <form method="POST" class="d-inLine"
-                                                                action="{{ route('ciclos.destroy', ['ciclo' => $ciclo->id]) }}">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">Borrar</button>
-                                                            </form>
+                                                                
+                                                                <a href="{{ route('ciclos.edit', $ciclo->id) }}"
+                                                                        class="btn btn-warning"><i
+                                                                            class="material-icons">Editar</i></a>
+        
+                                                                    <form method="POST" class="d-inLine"
+                                                                        action="{{ route('ciclos.destroy', ['ciclo' => $ciclo->id]) }}">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit" class="btn btn-danger ml-2">Borrar</button>
+                                                                    </form>
+                                                            </div>
+                                                        </div>
                                                             
                                                     </tr>
                                                 @endforeach

@@ -20,7 +20,9 @@
                                 </div>
                                 <div class="card-body">
                                     @if (session('success'))
-                                        <div class="alert alert-success" role="success">
+                                        <div class="alert alert-primary" role="success">
+                                            <button type="button" class="close"
+                                                data-dismiss="alert">&times;</button>
                                             {{ session('success') }}
                                         </div>
                                     @endif
@@ -34,6 +36,7 @@
                                                 <th>Nivel</th>
                                                 <th>Docente</th>
                                                 <th>Accion</th>
+                                                <th>Agregar alumnos</th>
 
                                             </thead>
                                             <tbody>
@@ -47,29 +50,31 @@
                                                         <td>{{ $grup->nombre }} {{ $grup->apellido_p }}
                                                             {{ $grup->apellido_m }}</td>
                                                         <td>
+                                                            <div class="row">
+                                                            <div class="form-row">
 
                                                             <a href="{{ route('grupos.show', $grup->id) }}"
-                                                                class="btn btn-info">
-                                                                <i class="material-icons">Ver</i>
+                                                                class="btn btn-info btn-sm">Ver</i>
                                                             </a>
 
                                                             <a href="{{ route('grupos.edit', $grup->id) }}"
-                                                                class="btn btn-warning">
-                                                                <i class="material-icons">Editar</i>
+                                                                class="btn btn-warning btn-sm  ml-2">Editar</i>
                                                             </a>
 
                                                             <form action="{{ route('grupos.destroy', $grup->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <input type="submit" class="btn btn-danger"
-                                                                    value="Eliminar"
+                                                                <input type="submit" class="btn btn-danger  ml-2 btn-sm text-center" value="Eliminar"
                                                                     onclick="return confirm('deseas borrar?')">
                                                             </form>
-
-                                                            <a href="{{route('grupos.asignar',$grup->id)}}" class="btn btn-warning">
-                                                                <i class="material-icons">Asignar alumnos</i>
+                                                        </td>
+                                                        <td>
+                                                            <a href="{{ route('grupos.asignar', $grup->id) }}"
+                                                                class="btn btn-warning btn-sm">Asignar alumnos</i>
                                                             </a>
+                                                        </div>
+                                                        </div>
                                                         </td>
 
                                                 </tr>

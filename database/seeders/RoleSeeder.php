@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
+
 
 class RoleSeeder extends Seeder
 {
@@ -15,13 +17,15 @@ class RoleSeeder extends Seeder
     public function run()
     {
         // declaroamos unnvaribale rol
-        $roles=[
-            'SuperAdmin',
-            'Admin',
-            'Docente',
-            'Tutor',
-            'Contador',
-        ];
+            $roles=[
+            
+                'SuperAdmin',
+                'Admin',
+                'Docente',
+                'Tutor',
+                'Contador',
+            ];
+        
 
         foreach($roles as $role){
             Role::create([

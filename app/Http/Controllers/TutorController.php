@@ -183,6 +183,8 @@ class TutorController extends Controller
      */
     public function destroy(Tutor $tutor)
     {
+        
+
         $tutor->delete();
 
         return redirect()->route('admin.indexTutores')
