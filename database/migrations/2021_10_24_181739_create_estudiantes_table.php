@@ -22,7 +22,7 @@ class CreateEstudiantesTable extends Migration
             
             $table->foreignId('tutor_id')
             ->constrained('tutors')
-            ->onDelete('cascade');
+            ->onDelete('restrict');
 
             $table->timestamps();
         });
