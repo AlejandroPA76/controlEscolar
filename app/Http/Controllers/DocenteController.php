@@ -132,9 +132,26 @@ class DocenteController extends Controller
      */
     public function destroy(Docente $docentes)
     {
+     
+        $verificar=DB::table('grupos')
+            ->select('grupos.docente_id')
+            ->where('docente_id','=',$docentes->id)
+            ->first();
+
+        if ($verificar==null) {
+            //echo('se puede eliminar');
         $docentes->delete();
 
         return redirect()->route('admin.indexDocentes')
-            ->withSuccess("El Docente {$docentes->nombre} ha sido borrado correctamente");
+        ->withErrors("El Docente {$docentes->nombre} ha sido borrado correctamente");
+        
+    }
+        elseif ($verificar !=null) {
+            //echo('no se puede eliminar');
+            return redirect()->route('admin.indexDocentes')
+        ->withSuccess("El Docente {$docentes->nombre} no se puede eliminar porque esta asignado a un grupo, elimine primero al grupo");
+        }
+
+        
     }
 }
