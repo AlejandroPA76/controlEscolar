@@ -96,6 +96,10 @@ class PermissionSeeder extends Seeder
             'observaciones_show',
             'observaciones_edit',
             'observaciones_destroy',
+
+            'roles_superadmin',
+            'roles_tutor',
+            'roles_docente',
             
 
 

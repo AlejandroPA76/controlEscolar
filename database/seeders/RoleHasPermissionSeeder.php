@@ -21,9 +21,13 @@ class RoleHasPermissionSeeder extends Seeder
 
         // Admin
         $user_permissions = $admin_permissions->filter(function($permission) {
-            return substr($permission->name, 0, 5) != 'user_' &&
+            return 
+                // substr($permission->name, 0, 5) != 'user_' &&
                 substr($permission->name, 0, 5) != 'role_' &&
                 substr($permission->name, 0, 14) != 'observaciones_' &&
+                substr($permission->name, 0, 16) != 'mis_estudiantes_' &&
+                substr($permission->name, 0, 18) != 'mis_observaciones_' &&
+                substr($permission->name, 0, 6) != 'pagos_' &&
                 substr($permission->name, 0, 11) != 'permission_';
         });
         Role::findOrFail(2)->permissions()->sync($user_permissions);
