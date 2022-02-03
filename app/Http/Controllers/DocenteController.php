@@ -40,10 +40,10 @@ class DocenteController extends Controller
      */
     public function store(DocenteRequest $request, Docente $docentes)
     {
-        $users = User::create($request->only(
-            // 'name',
-            'email',
-        ) + [
+        $users = User::create([
+        'name' => request('nombre'),
+        'email' => request('email')
+        ] + [
             'password' => bcrypt(request()->input('password'))
         ]);
 
