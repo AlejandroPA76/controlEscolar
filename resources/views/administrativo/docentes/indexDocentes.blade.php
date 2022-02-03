@@ -27,6 +27,12 @@
                                 {{ session('success') }}
                             </div>
                         @endif
+                        @if (session('errors'))
+                            <div class="alert alert-danger" role="errors">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ session('errors') }}
+                            </div>
+                        @endif
 
                         <div class="table-responsive mt-3">
                             <table class="table">
