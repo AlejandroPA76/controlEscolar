@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CicloEscolar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CicloEscolarController extends Controller
 {
@@ -91,9 +92,19 @@ class CicloEscolarController extends Controller
      */
     public function destroy(CicloEscolar $ciclo)
     {
+        $buscarCiclo=DB::table('ciclo_escolars')
+                    ->select('ciclo_escolars.id','ciclo_escolars.ciclo','lista_grupos.id')
+                    ->join('lista_grupos','ciclo_escolars.id','=','lista_grupos.ciclo_id')
+                    ->where('ciclo_escolars.id','=',$ciclo->id)
+                    ->first();
+        if ($buscarCiclo!=null) {
+        return redirect()->route('ciclos.index')->withErrors("No se puede eliminar el ciclo escolar, debido a que esta en uso por uno o varios grupos");           
+                           }
+        else{
         $ciclo->delete();
-
-        return redirect(route('ciclos.index'));
+        return redirect()->route('ciclos.index')->withSuccess("¡El ciclo escolar se elimino correctamente!");
+        }                   
+       
 
     }
 }
