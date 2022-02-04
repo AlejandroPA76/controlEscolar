@@ -35,6 +35,12 @@
                                 {{ session('success') }}
                             </div>
                         @endif
+                         @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong> {{ $errors->first() }} </strong>
+                        </div>
+                        @endif
 
                         <div class="table-responsive">
                             <table class="table">
