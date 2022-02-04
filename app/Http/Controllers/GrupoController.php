@@ -84,12 +84,12 @@ class GrupoController extends Controller
             ->first();
         
             $estudiantes = DB::table('grupos')
-            ->select('estudiantes.*')
+            ->select('lista_grupos.id','estudiantes.nombre','estudiantes.apellido_p','estudiantes.apellido_m','estudiantes.matricula','estudiantes.tutor_id','estudiantes.created_at','estudiantes.updated_at')
             ->join('lista_grupos', 'lista_grupos.grupo_id', '=', 'grupos.id')
             ->join('estudiantes', 'estudiantes.id', '=', 'lista_grupos.estudiante_id')
             ->where('grupos.id', '=', $id)
             ->get();
-
+           
         return view('administrativo.grupos.show', compact('grupocon', 'estudiantes'));
     }
 
