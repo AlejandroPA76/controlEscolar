@@ -82,15 +82,11 @@ class ListaGrupoController extends Controller
      * @param  \App\Models\ListaGrupo  $listaGrupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ListaGrupo $listaGrupo, Estudiante $estudiante)
+    public function destroy(ListaGrupo $listaGrupo, Estudiante $estudiante, $id)
     {
-<<<<<<< HEAD
-        
-=======
         $bajaAlumno=listaGrupo::findOrFail($id);
         $bajaAlumno->delete();
         return redirect()->back();
->>>>>>> 631026b67ecc48c2445716da4f51ab77ada930b1
     }
 
 

@@ -54,8 +54,11 @@
                         <div class="">
                             <h4>Elige en la lista los estudiantes a asignar al grupo</h4>
                             <div class="d-flex justify-content-between align-items-rigth">
-                                <a href="{{ route('grupos.index') }}" class="btn btn btn-warning float-right">
+                                <a href="{{ route('grupos.index') }}" class="btn btn btn-success float-right">
                                     Terminar</a>
+
+                                <a href="{{ route('grupos.index') }}" class="btn btn btn-primary float-right">
+                                    Cancelar</a>
                             </div>
                         </div>
                         {{-- <br> --}}

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\UsuarioRequest;
+use Illuminate\Support\Facades\DB;
+
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterUsersRequest; // Validar informacion de los datos de registro de usuarios
@@ -21,7 +23,7 @@ class UserController extends Controller
 
     public function create()
     {
-        
+
         $roles = Role::all()->pluck('name', 'id');
         return view('users.create', compact('roles'));
     }
@@ -45,12 +47,12 @@ class UserController extends Controller
         // session()->flash('success', "el usuario ha sido creado exitosamente");
 
         return redirect()->route('users.index', $user->id)
-        ->withSuccess('Usuario creado correctamente');
+            ->withSuccess('Usuario creado correctamente');
     }
 
     public function show(User $user)
     {
-               // $user = User::findOrFail($id);
+        // $user = User::findOrFail($id);
         // dd($user);
         $user->load('roles');
         return view('users.show', compact('user'));
@@ -65,11 +67,11 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        
+
         // $user=User::findOrFail($id);
         $data = $request->only('name', 'username', 'email');
-        $password=$request->input('password');
-        if($password)
+        $password = $request->input('password');
+        if ($password)
             $data['password'] = bcrypt($password);
         // if(trim($request->password)=='')
         // {
@@ -82,20 +84,32 @@ class UserController extends Controller
 
         $user->update($data);
 
-        $roles = $request->input('roles', []);
-        $user->syncRoles($roles);
+        // $roles = $request->input('roles', []);
+        // $user->syncRoles($roles);
         return redirect()->route('users.show', $user->id)->with('success', 'Usuario actualizado correctamente');
     }
 
     public function destroy(User $user)
     {
+        $verificar = DB::table('tutors')
+            ->select('tutors.user_id')
+            ->where('user_id', '=', $user->id)
+            ->first();
 
-        
-        if (auth()->user()->id == $user->id) {
-            return redirect()->route('users.index');
+    //    return  $verificar;
+        if ($verificar != null) {
+            // echo ('esta en uso');
+            return redirect()->route('users.index')->withErrors("Para poder eliminar a este usuario debes de dirigirte al menú de docente o tutor al que le pertenezca el usuario") ;
+
+        }else{
+            // echo ('no está en uso');
+            if (auth()->user()->id == $user->id) {
+                return redirect()->route('users.index');
+            }
+    
+            $user->delete();
+            return back()->withSuccess('Usuario eliminado correctamente');
         }
 
-        $user->delete();
-        return back()->withSuccess('Usuario eliminado correctamente');
     }
 }

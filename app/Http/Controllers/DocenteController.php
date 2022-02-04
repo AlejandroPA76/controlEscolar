@@ -41,8 +41,8 @@ class DocenteController extends Controller
     public function store(DocenteRequest $request, Docente $docentes)
     {
         $users = User::create([
-        'name' => request('nombre'),
-        'email' => request('email')
+            'name' => request('nombre'),
+            'email' => request('email')
         ] + [
             'password' => bcrypt(request()->input('password'))
         ]);
@@ -81,14 +81,14 @@ class DocenteController extends Controller
         //     ->join('estudiantes','tutor_id','=','tutors.id')
         //     ->where('users.id','LIKE',auth::user()->id)
         //     ->paginate('3');
-        
+
         // $docentes1 = DB::table('users')
         //     ->join('docentes', 'user_id', '=', 'users.id')
         //     ->select('users.email', 'docentes.nombre', 'docentes.apellido_m', 'docentes.apellido_p', 'docentes.matricula')
         //     ->where('users.id', 'LIKE', $id)
         //     ->first();
 
-        
+
         return view('administrativo.docentes.showDocente', compact('docentes'));
     }
 
@@ -132,27 +132,24 @@ class DocenteController extends Controller
      */
     public function destroy(Docente $docentes)
     {
-     
-        $verificar=DB::table('grupos')
+
+        $verificar = DB::table('grupos')
             ->select('grupos.docente_id')
-            ->where('docente_id','=',$docentes->id)
+            ->where('docente_id', '=', $docentes->id)
             ->first();
 
-        if ($verificar==null) {
+        if ($verificar == null) {
             //echo('se puede eliminar');
-        $docentes->delete();
+            $docentes->delete();
 
-        return redirect()->route('admin.indexDocentes')
-        ->withSuccess("El Docente {$docentes->nombre} ha sido borrado correctamente");
-        
-    }
-        elseif ($verificar !=null) {
+            return redirect()->route('admin.indexDocentes')
+                ->withSuccess("El Docente {$docentes->nombre} ha sido borrado correctamente");
+                
+        } elseif ($verificar != null) {
             //echo('no se puede eliminar');
             return redirect()->route('admin.indexDocentes')
-        ->withErrors("¡El Docente {$docentes->nombre} no se puede eliminar porque esta asignado a un grupo, elimine primero al grupo en donde está asignado el docente o edite la información del grupo!");
-        // ->withErrors(['msg' => 'El Docente {$docentes->nombre} no se puede eliminar porque esta asignado a un grupo, elimine primero al grupo']);
+                ->withErrors("¡El Docente {$docentes->nombre} no se puede eliminar porque esta asignado a un grupo, elimine primero al grupo en donde está asignado el docente o edite la información del grupo!");
+            // ->withErrors(['msg' => 'El Docente {$docentes->nombre} no se puede eliminar porque esta asignado a un grupo, elimine primero al grupo']);
         }
-
-        
     }
 }
