@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(5);
+        $users = User::paginate(25);
         return view('users.index', compact('users'));
     }
 
@@ -65,6 +65,7 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
+        
         // $user=User::findOrFail($id);
         $data = $request->only('name', 'username', 'email');
         $password=$request->input('password');

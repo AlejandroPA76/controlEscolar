@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="content">
+    <div class="content mt-2">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -52,7 +52,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="row">
+                                {{-- <div class="row">
                                     <label for="name" class="col-sm-2 col-form-label">Roles</label>
                                     <div class="col-sm-7">
                                         <div class="form-group">
@@ -60,7 +60,10 @@
                                                 <div class="tab-pane active" id="profile">
                                                     <table class="table">
                                                         <tbody>
+                                                            
                                                             @foreach ($roles as $id => $role)
+                                                            
+                                                            @if($role != 'SuperAdmin' && $role != 'Docente' && $role != 'Tutor')
                                                                 <tr>
                                                                     <td>
                                                                         <div class="form-check">
@@ -80,6 +83,7 @@
                                                                         {{ $role }}
                                                                     </td>
                                                                 </tr>
+                                                                @endif
                                                             @endforeach
                                                         </tbody>
                                                     </table>
@@ -87,10 +91,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <!--Footer-->
-                            <div class="card-footer ml-auto mr-auto">
+                            <div class="ml-auto mr-auto">
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                             </div>
                             <!--End footer-->

@@ -13,7 +13,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ¿Estas seguro que deseas eliminar al tutor
+                    ¿Estas seguro que deseas eliminar al tutor?
                     {{ $tutor->nombre . ' ' . $tutor->apellido_p . ' ' . $tutor->apellido_m }}?
                 </div>
                 <div class="modal-footer">

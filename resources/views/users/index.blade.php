@@ -31,7 +31,7 @@
                                                 <th>ID</th>
                                                 {{-- <th>Nombre</th> --}}
                                                 <th>Usuario</th>
-                                                <th>Roles</th>
+                                                <th>Rol del usuario</th>
                                                 <th class="text-right">Acciones</th>
                                             </thead>
                                             <tbody>

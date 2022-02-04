@@ -76,6 +76,8 @@
                                                     <table class="table">
                                                         <tbody>
                                                             @foreach ($roles as $id => $role)
+                                                            @if($role != 'SuperAdmin' && $role != 'Docente' && $role != 'Tutor')
+                                                            
                                                                 <tr>
                                                                     <td>
                                                                         <div class="form-check">
@@ -93,6 +95,7 @@
                                                                         {{ $role }}
                                                                     </td>
                                                                 </tr>
+                                                                @endif
                                                             @endforeach
                                                         </tbody>
                                                     </table>
@@ -103,7 +106,7 @@
                                 </div>
                             </div>
                             <!--Footer-->
-                            <div class="card-footer ml-auto mr-auto">
+                            <div class="ml-auto mr-auto">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                             <!--End footer-->

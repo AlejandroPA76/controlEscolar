@@ -143,13 +143,14 @@ class DocenteController extends Controller
         $docentes->delete();
 
         return redirect()->route('admin.indexDocentes')
-        ->withErrors("El Docente {$docentes->nombre} ha sido borrado correctamente");
+        ->withSuccess("El Docente {$docentes->nombre} ha sido borrado correctamente");
         
     }
         elseif ($verificar !=null) {
             //echo('no se puede eliminar');
             return redirect()->route('admin.indexDocentes')
-        ->withSuccess("El Docente {$docentes->nombre} no se puede eliminar porque esta asignado a un grupo, elimine primero al grupo");
+        ->withErrors("¡El Docente {$docentes->nombre} no se puede eliminar porque esta asignado a un grupo, elimine primero al grupo en donde está asignado el docente o edite la información del grupo!");
+        // ->withErrors(['msg' => 'El Docente {$docentes->nombre} no se puede eliminar porque esta asignado a un grupo, elimine primero al grupo']);
         }
 
         

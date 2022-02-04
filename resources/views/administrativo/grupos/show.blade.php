@@ -66,7 +66,7 @@
                                         <th>Apellido materno</th>
                                         <th>Matricula</th>
                                         <th>Creado</th>
-                                        <th class="text-right">Acciones</th>
+                                        <th>Acciones</th>
                                     </thead>
                                     {{-- cuerpo --}}
                                     <tbody>
@@ -78,6 +78,15 @@
                                                 <td>{{ $estudiante->apellido_m }}</td>
                                                 <td>{{ $estudiante->matricula }}</td>
                                                 <td>{{ $estudiante->created_at }}</td>
+                                                <td> <form action="{{route('baja.estudiante',$estudiante->id)}}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <input type="submit" class="btn btn-danger  ml-2 btn-sm text-center" value="Dar de baja"
+                                                                    onclick="return confirm('deseas dar de baja al alumno?')">
+                                                            </form>
+                                                </td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>

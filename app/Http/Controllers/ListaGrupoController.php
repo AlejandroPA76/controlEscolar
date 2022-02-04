@@ -6,6 +6,8 @@ use App\Models\ListaGrupo;
 use App\Models\Grupo;
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ListaGrupoController extends Controller
 {
@@ -80,8 +82,10 @@ class ListaGrupoController extends Controller
      * @param  \App\Models\ListaGrupo  $listaGrupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ListaGrupo $listaGrupo)
+    public function destroy(ListaGrupo $listaGrupo, Estudiante $estudiante)
     {
-        //
+        
     }
+
+
 }

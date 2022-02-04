@@ -181,7 +181,7 @@ class TutorController extends Controller
      * @param  \App\Models\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tutor $tutor)
+    public function destroy(Tutor $tutor, Estudiante $estudiante)
     {
         
 

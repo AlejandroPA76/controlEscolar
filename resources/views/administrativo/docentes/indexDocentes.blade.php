@@ -21,25 +21,23 @@
                         </div>
                     </div>
                     <div class="card-body">
+                        {{-- para mostrar mensajes de exito --}}
                         @if (session('success'))
                             <div class="alert alert-primary" role="success">
                                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                                 {{ session('success') }}
                             </div>
                         @endif
-                        
-                        @if (isset($errors) && $errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    <!--el for each recorre todos los errors, la variable error solciita los errors con el metodo all -->
-                                    <!-- y nos retorna el array de error y lo llamamos simplemente error en el foreach-->
-                                    <!-- y para mostrar la lista de errores usamos llaves con la variable $error-->
-                                    @foreach ($errors->all() as $error)
-                                        <li> {{ $error }} </li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                        {{-- fin --}}
+    
+                        {{-- para mostrar mensaje de error --}}
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong> {{ $errors->first() }} </strong>
+                        </div>
                         @endif
+                        {{-- fin --}}
 
                         <div class="table-responsive mt-3">
                             <table class="table">

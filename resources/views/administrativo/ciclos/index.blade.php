@@ -20,6 +20,7 @@
 
                                 </div>
                                 <div class="card-body">
+
                                     @if (session('success'))
                                         <div class="alert alert-primary" role="success">
                                             <button type="button" class="close"
@@ -28,39 +29,49 @@
                                         </div>
                                     @endif
 
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <button type="button" class="close"
+                                                data-dismiss="alert">&times;</button>
+                                            <strong> {{ $errors->first() }} </strong>
+                                        </div>
+                                    @endif
+                                    {{-- fin --}}
+
                                     <div class="table-responsive mt-3">
                                         <table class="table">
                                             {{-- encabezado --}}
                                             <thead class="text primary">
                                                 <th>Id</th>
                                                 <th>Ciclo escolar</th>
-                                                <th >Acciones</th>
+                                                <th>Acciones</th>
                                             </thead>
                                             {{-- cuerpo --}}
                                             <tbody>
                                                 @foreach ($ciclos as $ciclo)
                                                     <tr>
-                                                        
+
                                                         <td>{{ $ciclo->id }}</td>
                                                         <td>{{ $ciclo->ciclo }}</td>
                                                         <td>
                                                             <div class="row">
                                                                 <div class="form-row">
 
-                                                                
-                                                                <a href="{{ route('ciclos.edit', $ciclo->id) }}"
+
+                                                                    <a href="{{ route('ciclos.edit', $ciclo->id) }}"
                                                                         class="btn btn-warning"><i
                                                                             class="material-icons">Editar</i></a>
-        
+
                                                                     <form method="POST" class="d-inLine"
                                                                         action="{{ route('ciclos.destroy', ['ciclo' => $ciclo->id]) }}">
                                                                         @csrf
                                                                         @method('DELETE')
-                                                                        <button type="submit" class="btn btn-danger ml-2">Borrar</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-danger ml-2">Borrar</button>
                                                                     </form>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                            
+
                                                     </tr>
                                                 @endforeach
                                             </tbody>

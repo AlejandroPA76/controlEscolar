@@ -22,6 +22,15 @@
                                         </div>
                                     @endif
 
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <button type="button" class="close"
+                                                data-dismiss="alert">&times;</button>
+                                            <strong> {{ $errors->first() }} </strong>
+                                        </div>
+                                    @endif
+                                    {{-- fin --}}
+
                                     <div class="table-responsive mt-3">
                                         <table class="table">
                                             {{-- encabezado --}}
@@ -44,7 +53,7 @@
                                                                 <a class="btn btn-primary btn-sm"
                                                                     href="/niveles/{{ $nvl->id }}/edit"><i i
                                                                         class="material-icons center">Editar</i></a>
-                                                            
+
                                                                 <form action="/niveles/{{ $nvl->id }}" method="POST">
                                                                     @csrf
                                                                     @method('delete')
@@ -54,23 +63,23 @@
                                                                 </form>
 
                                                             </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
                                     </div>
+                                    </td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                    </table>
                                 </div>
-                                <div class="card-body mr-auto">
-                                    {{-- {{ $users->links() }} --}}
-                                </div>
+                            </div>
+                            <div class="card-body mr-auto">
+                                {{-- {{ $users->links() }} --}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 @endsection
