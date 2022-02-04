@@ -7,6 +7,7 @@ use App\Models\Nivel;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreNivelRequest;
 use App\Http\Requests\UpdateNivelRequest;
+use Illuminate\Support\Facades\DB;
 
 class NivelController extends Controller
 {
@@ -91,8 +92,18 @@ class NivelController extends Controller
      */
     public function destroy(Nivel $nivel, $id)
     {
-        $delnvl = Nivel::find($id);
+        $buscarNivel=DB::table('nivels')
+                    ->select('nivels.nivel','grupos.id')
+                    ->join('grupos','grupos.nivel_id','=','nivels.id')
+                    ->where('nivels.id','=',$id)
+                    ->first();
+       if($buscarNivel!=null){
+       return redirect()->route('niveles.index')->withErrors("¡No se puede eliminar el nivel educativo debido a que esta siendo utilizado por uno o varios grupos, elimine los grupos relacionados al nivel educativo!");
+       }else{
+         $delnvl = Nivel::find($id);
         $delnvl->delete();
-         return redirect()->route('niveles.index');
+        return redirect()->route('niveles.index')->withSuccess("¡El nivel educativo se elimino correctamente!");
+       }           
+       
     }
 }
