@@ -49,8 +49,8 @@ class TutorController extends Controller
     public function store(TutorRequest $request)
     {
         $users = User::create([
-        'name' => request('nombre'),
-        'email' => request('email')
+            'name' => request('nombre'),
+            'email' => request('email')
         ] + [
             'password' => bcrypt(request()->input('password'))
         ]);
@@ -183,22 +183,20 @@ class TutorController extends Controller
      */
     public function destroy(Tutor $tutor, Estudiante $estudiante)
     {
-        $delTutor=DB::table('tutors')
-->select('tutors.id','tutors.nombre','tutors.apellido_p','tutors.apellido_m','estudiantes.nombre','estudiantes.apellido_p','estudiantes.apellido_m','lista_grupos.estudiante_id')
-->join('estudiantes','estudiantes.tutor_id','=','tutors.id')
-->join('lista_grupos','estudiantes.id','=','lista_grupos.estudiante_id')
-->where('tutors.id','=',$tutor->id)
-->first();
+        $delTutor = DB::table('tutors')
+            ->select('tutors.id', 'tutors.nombre', 'tutors.apellido_p', 'tutors.apellido_m', 'estudiantes.nombre', 'estudiantes.apellido_p', 'estudiantes.apellido_m', 'lista_grupos.estudiante_id')
+            ->join('estudiantes', 'estudiantes.tutor_id', '=', 'tutors.id')
+            ->join('lista_grupos', 'estudiantes.id', '=', 'lista_grupos.estudiante_id')
+            ->where('tutors.id', '=', $tutor->id)
+            ->first();
         //return $delTutor;
         if ($delTutor != null) {
-                        return redirect()->route('admin.indexTutores')
-                    ->withErrors("¡El tutor {$tutor->nombre} no se puede eliminar debido a que tiene alumnos asignados en un grupo, para poder eliminar al tutor debera de dar de baja al alumno de dicho grupo o eliminar el grupo en el que esta asignado!");  
-                    }
-                    else{
-                    $tutor->delete();
-                    return redirect()->route('admin.indexTutores')
-                    ->withSuccess("¡El tutor {$tutor->nombre} ha sido eliminado!");  
-                    }            
-        
+            return redirect()->route('admin.indexTutores')
+                ->withErrors("¡El tutor {$tutor->nombre} no se puede eliminar debido a que tiene alumnos asignados en un grupo, para poder eliminar al tutor debera de dar de baja al alumno de dicho grupo o eliminar el grupo en el que esta asignado!");
+        } else {
+            $tutor->delete();
+            return redirect()->route('admin.indexTutores')
+                ->withSuccess("¡El tutor {$tutor->nombre} ha sido eliminado!");
+        }
     }
 }
