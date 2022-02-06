@@ -11,6 +11,7 @@ use Spatie\Permission\Contracts\Role as ContractsRole;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\TutorRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -198,5 +199,13 @@ class TutorController extends Controller
             return redirect()->route('admin.indexTutores')
                 ->withSuccess("¡El tutor {$tutor->nombre} ha sido eliminado!");
         }
+    }
+
+    public function misPagos(){
+
+        $historial=DB::table('pagos')
+        ->where('id_tutor','=',Auth::id())
+        ->get();
+        return view('tutor.misPagos',compact('historial'));
     }
 }
