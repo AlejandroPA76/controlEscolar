@@ -140,7 +140,11 @@ class DocenteController extends Controller
 
         if ($verificar == null) {
             //echo('se puede eliminar');
-            $docentes->delete();
+            $deldocentes=DB::table('users')
+                ->where('id','=',$docentes->user_id)
+                ->delete();
+            
+            //user_id
 
             return redirect()->route('admin.indexDocentes')
                 ->withSuccess("El Docente {$docentes->nombre} ha sido borrado correctamente");

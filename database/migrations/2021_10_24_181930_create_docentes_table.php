@@ -19,7 +19,7 @@ class CreateDocentesTable extends Migration
             $table->string('apellido_p');
             $table->string('apellido_m');
             $table->string('matricula')->unique();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
 
             $table->timestamps();
         });

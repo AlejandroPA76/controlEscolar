@@ -195,9 +195,11 @@ class TutorController extends Controller
             return redirect()->route('admin.indexTutores')
                 ->withErrors("¡El tutor {$tutor->nombre} no se puede eliminar debido a que tiene alumnos asignados en un grupo, para poder eliminar al tutor debera de dar de baja al alumno de dicho grupo o eliminar el grupo en el que esta asignado!");
         } else {
-            $tutor->delete();
-            return redirect()->route('admin.indexTutores')
-                ->withSuccess("¡El tutor {$tutor->nombre} ha sido eliminado!");
+
+        $deleuser=DB::table('users')
+        ->where('id','=',$tutor->user_id)
+        ->delete();
+        return redirect()->route('admin.indexTutores')->withSuccess("¡El tutor {$tutor->nombre} ha sido eliminado!");
         }
     }
 
