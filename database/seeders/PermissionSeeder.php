@@ -100,6 +100,8 @@ class PermissionSeeder extends Seeder
             'roles_superadmin',
             'roles_tutor',
             'roles_docente',
+
+            'mispagos_index'
             
 
 

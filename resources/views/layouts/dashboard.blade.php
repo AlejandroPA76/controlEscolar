@@ -158,7 +158,9 @@
                 <a href="{{route('historialPagos')}}" class="list-group-item list-group-item-action bg-light">Historial de pagos</a>
                 @endcan
 
+                @can('mispagos_index')
                 <a href="{{route('tutor.mispagos')}}" class="list-group-item list-group-item-action bg-light">Mis pagos</a>
+                @endcan
 
             </div>
         </div>

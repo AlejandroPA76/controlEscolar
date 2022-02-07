@@ -28,6 +28,7 @@ class RoleHasPermissionSeeder extends Seeder
                 substr($permission->name, 0, 16) != 'mis_estudiantes_' &&
                 substr($permission->name, 0, 18) != 'mis_observaciones_' &&
                 substr($permission->name, 0, 6) != 'pagos_' &&
+                substr($permission->name, 0, 9) != 'mispagos_'&&
                 substr($permission->name, 0, 11) != 'permission_';
             });
             Role::findOrFail(2)->permissions()->sync($user_permissions);
@@ -46,6 +47,7 @@ class RoleHasPermissionSeeder extends Seeder
                 substr($permission->name, 0, 14) != 'observaciones_' &&
                 substr($permission->name, 0, 10) != 'historial_' &&
                 substr($permission->name, 0, 8) != 'niveles_' &&
+                substr($permission->name, 0, 9) != 'mispagos_' &&
                 substr($permission->name, 0, 7) != 'ciclos_' ;
                 // substr($permission->name, 0, 14) != 'observaciones_';
             });
@@ -63,10 +65,7 @@ class RoleHasPermissionSeeder extends Seeder
                 substr($permission->name, 0, 7) != 'ciclos_' &&
                 substr($permission->name, 0, 16) != 'mis_estudiantes_' &&
                 substr($permission->name, 0, 18) != 'mis_observaciones_' &&
-                // substr($permission->name, 0, 12) != 'estudiantes_'
                 substr($permission->name, 0, 9) != 'docentes_';
-
-                // return str_contains($permission->name, 0, 5) != 'user_';
         });
         Role::findOrFail(4)->permissions()->sync($user_permissions);
         
@@ -85,6 +84,7 @@ class RoleHasPermissionSeeder extends Seeder
                 substr($permission->name, 0, 12) != 'estudiantes_' &&
                 substr($permission->name, 0, 14) != 'observaciones_' &&
                 substr($permission->name, 0, 6) != 'pagos_' &&
+                substr($permission->name, 0, 9) != 'mispagos_' &&
                 substr($permission->name, 0, 9) != 'docentes_';
 
         });
