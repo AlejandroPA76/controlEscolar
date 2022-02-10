@@ -38,12 +38,12 @@
                                                         <td>{{ $h->num_operacion }}</td>
                                                         <td>
                                                             <button type="button" class="btn btn-primary"
-                                                                data-toggle="modal" data-target="#exampleModal">
+                                                                data-toggle="modal" data-target="#exampleModal{{$h->id}}">
                                                                 Ver motivo
                                                             </button>
 
                                                             <!-- Modal -->
-                                                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                            <div class="modal fade" id="exampleModal{{$h->id}}" tabindex="-1"
                                                                 role="dialog" aria-labelledby="exampleModalLabel"
                                                                 aria-hidden="true">
                                                                 <div class="modal-dialog" role="document">

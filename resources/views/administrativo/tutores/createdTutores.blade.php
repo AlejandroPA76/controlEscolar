@@ -58,7 +58,8 @@
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
                                 <input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre"
-                                    autofocus value="{{ old('nombre') }}">
+                                    autofocus value="{{ old('nombre') }}" required>
+
                                 @if ($errors->has('nombre'))
                                     <span class="error text-danger"
                                         for="input-nombre">{{ $errors->first('nombre') }}</span>
@@ -69,17 +70,18 @@
                                 <div class="form-group col-md-6">
                                     <label for="apellido_p">Primer apellido</label>
                                     <input type="text" class="form-control" name="apellido_p"
-                                        placeholder="ingrese el apellido materno" value="{{ old('apellido_p') }}">
+                                        placeholder="ingrese el apellido materno" value="{{ old('apellido_p') }}" required>
+
                                     @if ($errors->has('apellido_p'))
                                         <span class="error text-danger"
-                                            for="input-apellido_p">{{ $errors->first('apellido_p') }}</span>
+                                            for="input-apellido_p">{{ $errors->first('apellido_p')}}</span>
                                     @endif
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="apellido_m">Segundo apellido</label>
                                     <input type="text" class="form-control" name="apellido_m"
-                                        placeholder="ingrese el apellido paterno" value="{{ old('apellido_m') }}">
+                                        placeholder="ingrese el apellido paterno" value="{{ old('apellido_m') }}" required>
                                     @if ($errors->has('apellido_m'))
                                         <span class="error text-danger"
                                             for="input-apellido_m">{{ $errors->first('apellido_m') }}</span>
@@ -91,7 +93,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="email"> Usuario</label>
                                     <input type="text" class="form-control" name="email"
-                                        placeholder="por ej: nombre@apellido" value="{{ old('email') }}">
+                                        placeholder="por ej: nombre@apellido" value="{{ old('email') }}" required>
                                     @if ($errors->has('email'))
                                         <span class="error text-danger"
                                             for="input-email">{{ $errors->first('email') }}</span>
@@ -101,7 +103,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="password"> Contraseña</label>
                                     <input type="password" class="form-control" name="password"
-                                        placeholder="Crea una contraseña" value="{{ old('password') }}">
+                                        placeholder="Crea una contraseña" value="{{ old('password') }}" required>
                                     @if ($errors->has('password'))
                                         <span class="error text-danger"
                                             for="input-password">{{ $errors->first('password') }}</span>
@@ -110,40 +112,7 @@
                             </div>
                             <input type="hidden" name="roles" value="4">
 
-                            {{-- <div class="row">
-                          <label for="roles" class="col-sm-2 col-form-label">Roles</label>
-                          <div class="col-sm-7">
-                              <div class="form-group">
-                                  <div class="tab-content">
-                                      <div class="tab-pane active">
-                                          <table class="table">
-                                              <tbody>
-                                                  @foreach ($roles as $id => $role)
-                                                  <tr>
-                                                      <td>
-                                                          <div class="form-check">
-                                                              <label class="form-check-label">
-                                                                  <input class="form-check-input" type="checkbox" name="roles[]"
-                                                                      value="{{ $id }}"
-                                                                  >
-                                                                  <span class="form-check-sign">
-                                                                      <span class="check"></span>
-                                                                  </span>
-                                                              </label>
-                                                          </div>
-                                                      </td>
-                                                      <td>
-                                                          {{ $role }}
-                                                      </td>
-                                                  </tr>
-                                                  @endforeach
-                                              </tbody>
-                                          </table>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div> --}}
+                           
 
                             <br>
                             {{-- estudianate --}}
@@ -151,7 +120,7 @@
                             <div class="form-group">
                                 <label for="nombrealumno">Nombre del alumno</label>
                                 <input type="text" class="form-control" name="nombrealumno[]"
-                                    placeholder="Ingrese el nombre" autofocus value="{{ old('nombrealumno') }}">
+                                    placeholder="Ingrese el nombre" autofocus value="{{ old('nombrealumno') }}" required>
                                 @if ($errors->has('nombrealumno[]'))
                                     <span class="error text-danger"
                                         for="input-nombre">{{ $errors->first('nombrealumno[]') }}</span>
@@ -162,7 +131,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="apellido_p_a">Primer apellido</label>
                                     <input type="text" class="form-control" name="apellido_p_a[]"
-                                        placeholder="ingrese el apellido materno" value="{{ old('apellido_p_a') }}">
+                                        placeholder="ingrese el apellido materno" value="{{ old('apellido_p_a') }}" required>
                                     @if ($errors->has('apellido_p_a[]'))
                                         <span class="error text-danger"
                                             for="input-apellido_p">{{ $errors->first('apellido_p_a[]') }}</span>
@@ -172,7 +141,8 @@
                                 <div class="form-group col-md-6">
                                     <label for="apellido_m_a">Segundo apellido</label>
                                     <input type="text" class="form-control" name="apellido_m_a[]"
-                                        placeholder="ingrese el apellido paterno" value="{{ old('apellido_m_a') }}">
+                                        placeholder="ingrese el apellido paterno" value="{{ old('apellido_m_a') }}" required>
+
                                     @if ($errors->has('apellido_m_a[]'))
                                         <span class="error text-danger"
                                             for="input-apellido_m">{{ $errors->first('apellido_m_a[]') }}</span>
@@ -183,7 +153,8 @@
                             <div class="form-group ml-0">
                                 <label>Matricula del alumno</label>
                                 <input type="text" class="form-control" name="matricula[]"
-                                    placeholder="ingrese el apellido paterno" value="{{ old('matricula') }}">
+                                    placeholder="ingrese el apellido paterno" value="{{ old('matricula') }}" required>
+
                                 @if ($errors->has('matricula[]'))
                                     <span class="error text-danger"
                                         for="input-matricula">{{ $errors->first('matricula') }}</span>
@@ -191,7 +162,7 @@
                             </div>
 
                             <div class="button">
-                                <button type="button" id="add_alu" class="btn btn-secondary">agregar alumno</button>
+                                <button type="button" id="add_alu" class="btn btn-secondary">Agregar alumno</button>
                             </div>
                             <br>
                             <div class="form-row">
