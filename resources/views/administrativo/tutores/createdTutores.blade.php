@@ -153,7 +153,7 @@
                             <div class="form-group ml-0">
                                 <label>Matricula del alumno</label>
                                 <input type="text" class="form-control" name="matricula[]"
-                                    placeholder="ingrese el apellido paterno" value="{{ old('matricula') }}" required>
+                                    placeholder="INGRESE LA MATRICULA DEL ALUMNO" value="{{ old('matricula') }}" required>
 
                                 @if ($errors->has('matricula[]'))
                                     <span class="error text-danger"
