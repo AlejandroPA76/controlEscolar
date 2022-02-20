@@ -10,7 +10,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <p class="card-category">Vista detallada del docente <strong>{{ $docentes->nombre}} {{ $docentes->apellido_p}} {{ $docentes->apellido_m}}</strong></p>
+                        <p class="card-category">Datos  del docente <strong>{{ $docentes->nombre}} {{ $docentes->apellido_p}} {{ $docentes->apellido_m}}</strong></p>
                     </div>
                     <div class="card-body">
                         @if (session('success'))
@@ -27,7 +27,7 @@
                             <li class="list-group-item"><strong>Apellido paterno: </strong> {{ $docentes->apellido_p }}</li>
                             <li class="list-group-item"><strong>Apellido materno: </strong> {{ $docentes->apellido_m }}</li>
                             <li class="list-group-item"><strong>Matricula: </strong> {{ $docentes->matricula }}</li>
-                            <li class="list-group-item"><strong>Usuario: </strong> </li>
+                            {{-- <li class="list-group-item"><strong>Usuario: </strong> </li> --}}
                         </ul>
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <a href="{{ route('admin.indexDocentes') }}" class="btn btn btn-success mr-3"> Volver al

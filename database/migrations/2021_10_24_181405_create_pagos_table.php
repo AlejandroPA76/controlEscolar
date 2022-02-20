@@ -18,9 +18,9 @@ class CreatePagosTable extends Migration
             $table->string('nombre_tutor');
             $table->string('apellido_p_tutor');
             $table->string('apellido_m_tutor');
-            $table->string('email');
-             $table->integer('id_tutor');
-            $table->string('num_operacion');
+            $table->string('email')->nullable();
+             $table->integer('id_tutor')->nullable();
+            $table->string('num_operacion')->nullable();
              $table->string('motivo')->nullable();
             $table->string('status');
              $table->integer('cantidad_pagada');

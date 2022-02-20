@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estudiante;
+use App\Models\Imagen;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
-
-
+use illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Support\Facades\Auth;
 
 class EstudianteController extends Controller
@@ -46,7 +45,7 @@ class EstudianteController extends Controller
             return view('administrativo.estudiantes.indexEstudiante', compact('estudiantes'));
 
         }
-        else {             
+        else { 
             $estudiantes=Estudiante::all();
             $estudiantes = Estudiante::Paginate(10);
 
@@ -111,7 +110,12 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, Estudiante $estudiante)
     {
-        $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'matricula');
+        $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'matricula', 'foto');
+        // $foto = request()->except('_token');
+        // echo($foto);
+        if($request->hasFile('foto')){
+            $data['foto'] = $request->file('foto')->store('uploads', 'public');
+        }
 
         $estudiante->update($data);
         return redirect()->route('admin.indexEstudiantes')

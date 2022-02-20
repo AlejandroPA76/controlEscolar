@@ -121,9 +121,9 @@
                                 <label for="nombrealumno">Nombre del alumno</label>
                                 <input type="text" class="form-control" name="nombrealumno[]"
                                     placeholder="Ingrese el nombre" autofocus value="{{ old('nombrealumno') }}" required>
-                                @if ($errors->has('nombrealumno[]'))
+                                @if ($errors->has('nombrealumno'))
                                     <span class="error text-danger"
-                                        for="input-nombre">{{ $errors->first('nombrealumno[]') }}</span>
+                                        for="input-nombre">{{ $errors->first('nombrealumno') }}</span>
                                 @endif
                             </div>
 
@@ -132,9 +132,9 @@
                                     <label for="apellido_p_a">Primer apellido</label>
                                     <input type="text" class="form-control" name="apellido_p_a[]"
                                         placeholder="ingrese el apellido materno" value="{{ old('apellido_p_a') }}" required>
-                                    @if ($errors->has('apellido_p_a[]'))
+                                    @if ($errors->has('apellido_p_a'))
                                         <span class="error text-danger"
-                                            for="input-apellido_p">{{ $errors->first('apellido_p_a[]') }}</span>
+                                            for="input-apellido_p">{{ $errors->first('apellido_p_a') }}</span>
                                     @endif
                                 </div>
 
@@ -143,9 +143,9 @@
                                     <input type="text" class="form-control" name="apellido_m_a[]"
                                         placeholder="ingrese el apellido paterno" value="{{ old('apellido_m_a') }}" required>
 
-                                    @if ($errors->has('apellido_m_a[]'))
+                                    @if ($errors->has('apellido_m_a'))
                                         <span class="error text-danger"
-                                            for="input-apellido_m">{{ $errors->first('apellido_m_a[]') }}</span>
+                                            for="input-apellido_m">{{ $errors->first('apellido_m_a') }}</span>
                                     @endif
                                 </div>
                             </div>
@@ -155,7 +155,7 @@
                                 <input type="text" class="form-control" name="matricula[]"
                                     placeholder="INGRESE LA MATRICULA DEL ALUMNO" value="{{ old('matricula') }}" required>
 
-                                @if ($errors->has('matricula[]'))
+                                @if ($errors->has('matricula'))
                                     <span class="error text-danger"
                                         for="input-matricula">{{ $errors->first('matricula') }}</span>
                                 @endif

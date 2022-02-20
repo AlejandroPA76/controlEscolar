@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PagoController;
 use App\Http\Controllers\TutorControlller;
 use App\Models\Administrativo;
 use Illuminate\Support\Facades\Route;
@@ -40,9 +41,11 @@ Route::delete('admin/tutores/destroy/{tutor}', 'TutorController@destroy')->name(
 
 Route::get('admin/index/estudiantes', 'EstudianteController@index')->name('admin.indexEstudiantes');
 
+Route::post('admin/index/estudiantes/{estudiante}', 'EstudianteController@store')->name('subir.foto');
+
 Route::get('admin/created/estudiantes', 'EstudianteController@create')->name('admin.createdEstudiantes');
 
-Route::post('admin/store/estudiantes', 'EstudianteController@store')->name('admin.storeEstudiantes');
+// Route::post('admin/store/estudiantes', 'EstudianteController@store')->name('admin.storeEstudiantes');
 
 Route::get('admin/show-estudiantes/{estudiante}', 'EstudianteController@show')->name('admin.showEstudiantes');
 
@@ -72,6 +75,9 @@ Route::resource('grupos', GrupoController::class);
 Route::resource('niveles', NivelController::class);
 Route::resource('ciclos', CicloEscolarController::class);
 //Route::resource('pagos', PlataformaPagoController::class);
+// Route::resource('imagenes', ImagenController::class);
+
+Route::post('admin/estudiantes/{estudiante}', 'ImagenController@store')->name('imagenes.store');
 
 Route::get('grupos/asignar/{grupo}', 'GrupoController@asignar')->name('grupos.asignar');
 Route::post('grupos/asignar/alumno', 'GrupoController@asignaralumno')->name('grupos.asignaralumno');
@@ -106,6 +112,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/pagos/menu',[App\Http\Controllers\PagoController::class, 'index'])->name('pagos.index');
+
+Route::post('/pagos/registrar',[App\Http\Controllers\PagoController::class, 'store'])->name('pagos.store');
 
 Route::post('pagar/confirmar',[App\Http\Controllers\PagoController::class, 'payment'])->name('pagar.a');
 

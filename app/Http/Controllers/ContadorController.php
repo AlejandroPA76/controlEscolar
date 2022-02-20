@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contador;
 use App\Models\Pago;
+use App\Models\Tutor;
 use Illuminate\Http\Request;
 
 class ContadorController extends Controller
@@ -87,9 +88,10 @@ class ContadorController extends Controller
 
     public function historialPagos(Request $request){
 
+        $tutores=Tutor::all();
 
         $historialPagos=Pago::buscarPagoMes($request->fecha)->orderBy('id','DESC')->get();
-        return view('contador.historialDePagos',compact('historialPagos'));
+        return view('contador.historialDePagos',compact('historialPagos', 'tutores'));
         //return $historialPagos;
     }
 }
