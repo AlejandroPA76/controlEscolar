@@ -26,7 +26,7 @@ class DocenteRequest extends FormRequest
     {
         return [
             'nombre'=>'required|min:3|max:30',
-            'matricula'=>'required|unique:docentes',
+            'matricula'=>'unique:docentes',
             'apellido_p'=>'required', 'min:3', 'max:20',
             'apellido_m'=>'required', 'min:3', 'max:20',
             'email'=>'required|email|unique:users',

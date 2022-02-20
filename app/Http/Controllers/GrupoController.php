@@ -188,6 +188,9 @@ class GrupoController extends Controller
      */
     public function destroy($id)
     {
+        //con esta variable consulto la lista de grupo que tengan la misma id de un grupo y se dan de baja a todos los alumnos para luego ejecutar la eliminacion del grupo
+        $dellista_grupos=DB::table('lista_grupos')->where('grupo_id','=',$id)->delete();
+        //busco el grupo y lo elimino
         $delgrupo = Grupo::find($id);
         $delgrupo->delete();
         return redirect()->route('grupos.index');

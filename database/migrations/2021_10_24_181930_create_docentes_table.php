@@ -18,7 +18,7 @@ class CreateDocentesTable extends Migration
             $table->string('nombre')->nullable();
             $table->string('apellido_p');
             $table->string('apellido_m');
-            $table->string('matricula')->unique();
+            $table->string('matricula')->unique()->nullable();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
 
             $table->timestamps();

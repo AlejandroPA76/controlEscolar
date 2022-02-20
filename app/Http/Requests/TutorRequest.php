@@ -27,7 +27,8 @@ class TutorRequest extends FormRequest
             'nombre'=>'required|min:3|max:30',
             'apellido_p'=>'required', 'min:3', 'max:20',
             'apellido_m'=>'required', 'min:3', 'max:20',
-            'email'=>'required|email|unique:users',
+            //'email'=>'required|email|unique:users',
+            'email' => 'required|email|unique:users',
             'password'=>'required',
             
             // 'nombrealumno[]'=>'required|min:3|max:30',
@@ -44,8 +45,6 @@ class TutorRequest extends FormRequest
         return [
         'apellido_p.required' => 'El primer apellido es requerido',
         'apellido_m.required' => 'El segundo apellido es requerido',
-        'apellido_m_a.required' => 'El segundo apellido es requerido',
-        'apellido_p_a.required' => 'El segundo apellido es requerido',
         'email.required' => 'El usuario es necesario',
         'password.required' => 'Crea una contraseña',
         'matricula.required' => 'La matricula es requerido'

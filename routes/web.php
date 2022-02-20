@@ -133,3 +133,7 @@ Route::get('grupo/asignado/lista/estudiante/observacion/{id}',[App\Http\Controll
 Route::delete('grupo/asignado/lista/estudiante/dar/baja/{id}',[App\Http\Controllers\ListaGrupoController::class, 'destroy'])->name('baja.estudiante');
 
 Route::get('/mispagos',[App\Http\Controllers\TutorController::class, 'misPagos'])->name('tutor.mispagos');
+
+Route::get('administrativo/pagar-en-efectivo', function () {
+    return view('administrativo.pagos.pagosEfectivo');
+})->name('pagar.efectivo');

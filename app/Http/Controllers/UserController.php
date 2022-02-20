@@ -104,7 +104,7 @@ class UserController extends Controller
         }else{
             // echo ('no está en uso');
             if (auth()->user()->id == $user->id) {
-                return redirect()->route('users.index');
+                return redirect()->route('users.index')->withErrors('No te puedes eliminar a ti mismo');
             }
     
             $user->delete();
