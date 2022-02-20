@@ -24,18 +24,22 @@
                             <h5 class="card-title "><strong> Numero del pago: {{ $pag->id }}</strong> </h5>
                         </div>
                         <ul class="list-group list-group-flush ">
-                              <li class="list-group-item"><strong>id del tutor: </strong> {{ $pag->id_tutor}}</li>
+                            <li class="list-group-item"><strong>id del tutor: </strong> {{ $pag->id_tutor }}</li>
                             <li class="list-group-item"><strong>Nombre: </strong> {{ $pag->nombre_tutor }} </li>
-                            <li class="list-group-item"><strong>Apellido paterno: </strong> {{ $pag->apellido_p_tutor }}</li>
-                            <li class="list-group-item"><strong>Apellido materno: </strong> {{ $pag->apellido_m_tutor}}</li>
-                            <li class="list-group-item"><strong>Numero de Operacion MercadoPago: </strong> {{ $pag->num_operacion }} </li>
+                            <li class="list-group-item"><strong>Apellido paterno: </strong> {{ $pag->apellido_p_tutor }}
+                            </li>
+                            <li class="list-group-item"><strong>Apellido materno: </strong> {{ $pag->apellido_m_tutor }}
+                            </li>
+                            <li class="list-group-item"><strong>Numero de Operacion MercadoPago: </strong>
+                                {{ $pag->num_operacion }} </li>
                             <li class="list-group-item"><strong>Motivo: </strong> {{ $pag->motivo }} </li>
-                             <li class="list-group-item"><strong>Status: </strong> {{ $pag->status }} </li>
-                              <li class="list-group-item"><strong>Cantidad Pagada: </strong> {{ $pag->cantidad_pagada }} </li>
-                               <li class="list-group-item"><strong>Fecha: </strong> {{ $pag->created_at }} </li>
+                            <li class="list-group-item"><strong>Status: </strong> {{ $pag->status }} </li>
+                            <li class="list-group-item"><strong>Cantidad Pagada: </strong> {{ $pag->cantidad_pagada }}
+                            </li>
+                            <li class="list-group-item"><strong>Fecha: </strong> {{ $pag->created_at }} </li>
                         </ul>
                         <div class="card-body d-flex justify-content-between align-items-center">
-                            <a href="{{route('historialPagos')}}" class="btn btn btn-success mr-3"> Volver al
+                            <a href="{{ route('historialPagos') }}" class="btn btn btn-success mr-3"> Volver al
                                 inicio </a>
 
                         </div>

@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Pago;
 use Illuminate\Http\Request;
+use App\Http\Requests\DocenteRequest;
+use Illuminate\Http\Requests\PagoRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
+
 
 class PagoController extends Controller
 {
@@ -40,7 +43,10 @@ class PagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $registrar = Pago::create($request->all());
+        return redirect()->route('historialPagos')->withSuccess('¡Registro de pago exitoso!') ;
+        // echo($registrar);
+        
     }
 
     /**

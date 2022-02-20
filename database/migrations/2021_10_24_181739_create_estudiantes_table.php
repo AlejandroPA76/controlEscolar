@@ -15,14 +15,16 @@ class CreateEstudiantesTable extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('apellido_p');
-            $table->string('apellido_m');
-            $table->string('matricula')->unique();
+            $table->string('nombre')->nullable();
+            $table->string('foto')->nullable();
+            $table->string('apellido_p')->nullable();
+            $table->string('apellido_m')->nullable();
+            $table->string('matricula')->unique()->nullable();
             
-            $table->foreignId('tutor_id')
+            $table->foreignId('tutor_id')->nullable()
             ->constrained('tutors')
             ->onDelete('cascade');
+            
 
             $table->timestamps();
         });

@@ -22,6 +22,7 @@
                                         <th scope="col">Apellido materno</th>
                                         <th scope="col">matricula</th>
                                         <th scope="col">fecha de creacion</th>
+                                        <th scope="col">foto</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -33,6 +34,7 @@
                                         <td>{{ $estudiante->apellido_m }}</td>
                                         <td>{{ $estudiante->matricula }}</td>
                                         <td>{{ $estudiante->created_at }}</td>
+                                        <td><img src="{{ asset('storage').'/'.$estudiante->foto}}" alt="" width="100" height="100"></td>
                                     </tr>
                                 </tbody>
                             </table>

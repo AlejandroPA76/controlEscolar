@@ -13,6 +13,7 @@ class Estudiante extends Model
     protected $fillable = [
         'nombre',
         'apellido_p',
+        'foto',
         'apellido_m',
         'matricula',
         'tutor_id',
@@ -29,5 +30,9 @@ class Estudiante extends Model
 
     public function listaGrupo(){
         return $this->belongsTo(ListaGrupo::class);
+    }
+    
+    public function foto(){
+        return $this->hasOne(Imagen::class);
     }
 }

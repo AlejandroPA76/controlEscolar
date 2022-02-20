@@ -16,6 +16,18 @@ class Pago extends Model
 
     }
 
+    protected $fillable = [
+            'nombre_tutor',
+            'apellido_p_tutor',
+            'apellido_m_tutor',
+            'email',
+            'id_tutor',
+            'num_operacion',
+            'motivo',
+            'status',
+            'cantidad_pagada',
+    ];
+    
     
       
 }

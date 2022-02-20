@@ -24,7 +24,7 @@
                                             {{ session('success') }}
                                         </div>
                                     @endif
-                                    
+
                                     @if ($errors->any())
                                         <div class="alert alert-danger">
                                             <button type="button" class="close"
@@ -43,31 +43,37 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($users as $user)
-                                                    <tr>
-                                                        <td>{{ $user->id }}</td>
-                                                        {{-- <td>{{ $user->name }}</td> --}}
-                                                        <td>{{ $user->email }}</td>
-                                                        <td>
-                                                            @forelse ($user->roles as $role)
-                                                                <span class="badge badge-info">{{ $role->name }}</span>
-                                                            @empty
-                                                                <span class="badge badge-danger">Sin rol de usuario</span>
-                                                            @endforelse
-                                                        </td>
-                                                        <td class="td-actions text-right">
+                                                    @if ($user != 'super@admin.com	')
+                                                        <tr>
+                                                            <td>{{ $user->id }}</td>
+                                                            {{-- <td>{{ $user->name }}</td> --}}
+                                                            <td>{{ $user->email }}</td>
+                                                            <td>
+                                                                @forelse ($user->roles as $role)
+                                                                    <span
+                                                                        class="badge badge-info">{{ $role->name }}</span>
+                                                                @empty
+                                                                    <span class="badge badge-danger">Sin rol de
+                                                                        usuario</span>
+                                                                @endforelse
+                                                            </td>
+                                                            <td class="td-actions text-right">
 
-                                                            <a href="{{ route('users.show', $user->id) }}"
-                                                                class="btn btn-info"><i class="material-icons">Ver</i></a>
-                                                            <a href="{{ route('users.edit', $user->id) }}"
-                                                                class="btn btn-warning"><i
-                                                                    class="material-icons">Editar</i></a>
-                                                            <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                                data-target="#model-delete-{{ $user->id }}">
-                                                                Eliminar
-                                                            </button>
-                                                        </td>
-                                                        @include('users.delete')
-                                                    </tr>
+                                                                <a href="{{ route('users.show', $user->id) }}"
+                                                                    class="btn btn-info"><i
+                                                                        class="material-icons">Ver</i></a>
+                                                                <a href="{{ route('users.edit', $user->id) }}"
+                                                                    class="btn btn-warning"><i
+                                                                        class="material-icons">Editar</i></a>
+                                                                <button type="button" class="btn btn-danger"
+                                                                    data-toggle="modal"
+                                                                    data-target="#model-delete-{{ $user->id }}">
+                                                                    Eliminar
+                                                                </button>
+                                                            </td>
+                                                            @include('users.delete')
+                                                        </tr>
+                                                    @endif
                                                 @endforeach
                                             </tbody>
                                         </table>
