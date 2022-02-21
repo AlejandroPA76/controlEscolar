@@ -124,8 +124,10 @@ class PagoController extends Controller
             ->first();
             //id del pago de mercadopago
         $pago_id=$request->get('payment_id');
+        //mitoken
+        $token=config('services.mercadopago.token');
         //peticion para saber el status y la cantidad del pago
-        $response =Http::get("https://api.mercadopago.com/v1/payments/$pago_id" . "?access_token=APP_USR-8246244589758477-011620-fef0029dc3d260e18119e7448424e915-1058037738");
+        $response =Http::get("https://api.mercadopago.com/v1/payments/$pago_id" . "?access_token=$token");
         //decodificar la respuesta del servidor
         $response= json_decode($response);
         //dump($datous,$pago_id);

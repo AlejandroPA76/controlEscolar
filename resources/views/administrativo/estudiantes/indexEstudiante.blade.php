@@ -32,7 +32,7 @@
                                     <th>Apellido materno</th>
                                     <th>Matricula</th>
                                     <th>Creado</th>
-                                    <th class="text-right">Acciones</th>
+                                    <th>Acciones</th>
                                 </thead>
                                 {{-- cuerpo --}}
                                 <tbody>
@@ -50,11 +50,11 @@
                                                         class="btn btn-info btn-sm">
                                                         <i class="material-icons">Ver</i>
                                                     </a>
-                                                </div>
+                                                
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
                                                     data-target="#exampleModal-{{ $estudiante->id }}">
-                                                    Subir imagen </button>
+                                                    Subir foto </button>
 
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="exampleModal-{{ $estudiante->id }}" tabindex="-1" role="dialog"
@@ -98,7 +98,7 @@
                                                     </div>
                                                 </div>
 
-
+</div>
                                                 {{-- @can('estudiante_destroy')
                                                     <form method="POST" class="d-inLine"
                                                         action="{{ route('admin.destroyEstudiantes', $estudiante->id) }}">

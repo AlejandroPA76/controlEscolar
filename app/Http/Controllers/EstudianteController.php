@@ -7,9 +7,10 @@ use App\Models\Imagen;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
-use illuminate\Support\Facades\Storage;
+//use illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class EstudianteController extends Controller
 {
@@ -110,10 +111,16 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, Estudiante $estudiante)
     {
+        
+
         $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'matricula', 'foto');
+       
         // $foto = request()->except('_token');
         // echo($foto);
-        if($request->hasFile('foto')){
+        if($request->hasFile('foto') and $request->validate(['foto'=>'required|image|max:2048'])){
+
+            $estudiante = Estudiante::findOrFail($estudiante->id);
+            Storage::delete('public/'.$estudiante->foto);
             $data['foto'] = $request->file('foto')->store('uploads', 'public');
         }
 

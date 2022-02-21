@@ -11,6 +11,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Auth::routes();
+
+//agrupe al middleware auth para que solo sea accedido por usuario logeados
+Route::group(['middleware' => 'auth'], function(){
 Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
 Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
@@ -77,7 +81,6 @@ Route::resource('ciclos', CicloEscolarController::class);
 //Route::resource('pagos', PlataformaPagoController::class);
 // Route::resource('imagenes', ImagenController::class);
 
-Route::post('admin/estudiantes/{estudiante}', 'ImagenController@store')->name('imagenes.store');
 
 Route::get('grupos/asignar/{grupo}', 'GrupoController@asignar')->name('grupos.asignar');
 Route::post('grupos/asignar/alumno', 'GrupoController@asignaralumno')->name('grupos.asignaralumno');
@@ -103,13 +106,11 @@ Route::resource('roles', RoleController::class);
 // Route::put('permissions/update/{permission}', 'PermissionController@update')->name('permissions.update');
 // Route::delete('permissions/delete/{permission}', 'PermissionController@destroy')->name('permissions.destroy');
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/pagos/menu',[App\Http\Controllers\PagoController::class, 'index'])->name('pagos.index');
 
@@ -141,7 +142,4 @@ Route::get('grupo/asignado/lista/estudiante/observacion/{id}',[App\Http\Controll
 Route::delete('grupo/asignado/lista/estudiante/dar/baja/{id}',[App\Http\Controllers\ListaGrupoController::class, 'destroy'])->name('baja.estudiante');
 
 Route::get('/mispagos',[App\Http\Controllers\TutorController::class, 'misPagos'])->name('tutor.mispagos');
-
-Route::get('administrativo/pagar-en-efectivo', function () {
-    return view('administrativo.pagos.pagosEfectivo');
-})->name('pagar.efectivo');
+});
