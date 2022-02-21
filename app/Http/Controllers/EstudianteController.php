@@ -117,6 +117,7 @@ class EstudianteController extends Controller
        
         // $foto = request()->except('_token');
         // echo($foto);
+        
         if($request->hasFile('foto') and $request->validate(['foto'=>'required|image|max:2048'])){
 
             $estudiante = Estudiante::findOrFail($estudiante->id);
