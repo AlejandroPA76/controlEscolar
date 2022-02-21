@@ -77,6 +77,11 @@
                                                                         @method('PUT')
                                                                         <div class="form-group">
                                                                             <input type="file" name="foto" accept="image/*">
+                                                                            <br>
+                                                                            <div class="danger">
+                                                                                <label class="text-sm"></label>
+                                                                            </div>
+                                                                            <img src="{{ asset('storage').'/'.$estudiante->foto}}" alt="" width="100" height="100">
                                                                             @error('foto')
                                                                                 <small
                                                                                     class="text-danger">{{ $message }}</small>
