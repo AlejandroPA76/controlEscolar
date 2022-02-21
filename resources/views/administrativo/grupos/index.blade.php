@@ -66,7 +66,7 @@
                                                                 @csrf
                                                                 @method('delete')
                                                                 <input type="submit" class="btn btn-danger  ml-2 btn-sm text-center" value="Eliminar"
-                                                                    onclick="return confirm('deseas borrar?')">
+                                                                    onclick="return confirm('Solo se borrara el grupo, no se borraran datos de los alumnos y docentes')">
                                                             </form>
                                                         </td>
                                                         <td>

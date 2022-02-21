@@ -84,8 +84,12 @@ class ListaGrupoController extends Controller
      */
     public function destroy(ListaGrupo $listaGrupo, Estudiante $estudiante, $id)
     {
+       
         $bajaAlumno=listaGrupo::findOrFail($id);
         $bajaAlumno->delete();
+
+        
+             
         return redirect()->back();
     }
 

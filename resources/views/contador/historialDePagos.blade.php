@@ -66,6 +66,8 @@
                                                 <input type="text" class="form-control" id="recipient-name"
                                                     name="apellido_m_tutor" required>
                                             </div>
+
+                                            <input type="hidden" name="num_operacion" value="Ninguno(Pago en efectivo)">
                                             {{-- <div class="form-group">
                                                 <label>Seleciona al tutor:</label>
                                                 <select class="form-control" name="nombre_tutor" required>
@@ -78,6 +80,7 @@
                                                     @endforeach
                                                 </select>
                                             </div> --}}
+
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label">Email del tutor:</label>
                                                 <input type="text" class="form-control" id="recipient-name" name="email"
@@ -89,9 +92,8 @@
                                                     name="cantidad_pagada" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Status del pago:</label>
-                                                <input type="text" class="form-control" id="recipient-name" required
-                                                    name="status" placeholder="Por eje: status pagado">
+                                                <input type="hidden" class="form-control" id="recipient-name" required
+                                                    name="status" value="pagado">
                                             </div>
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label">Motivo del pago:</label>

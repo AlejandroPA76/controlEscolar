@@ -112,7 +112,7 @@
                 @endcan
 
                 @can('docentes_index')
-                    <a href="{{ route('admin.indexDocentes') }}"
+                    <a href="{{ route('admin.indexDocentes') }}" 
                         class="list-group-item list-group-item-action bg-light">Docentes</a>
                 @endcan
 
@@ -161,6 +161,8 @@
                 @can('mispagos_index')
                 <a href="{{route('tutor.mispagos')}}" class="list-group-item list-group-item-action bg-light">Mis pagos</a>
                 @endcan
+
+        
 
             </div>
         </div>
