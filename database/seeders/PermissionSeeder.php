@@ -101,7 +101,8 @@ class PermissionSeeder extends Seeder
             'roles_tutor',
             'roles_docente',
 
-            'mispagos_index'
+            'mispagos_index',
+            'subir_index',
             
 
 

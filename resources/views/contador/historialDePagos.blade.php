@@ -48,7 +48,7 @@
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label">Nombre del tutor:</label>
                                                 <input type="text" class="form-control" id="recipient-name"
-                                                    name="nombre_tutor">
+                                                    name="nombre_tutor" required>
                                                 @if ($errors->has('nombre'))
                                                     <span class="error text-danger"
                                                         for="input-nombre">{{ $errors->first('nombre') }}</span>

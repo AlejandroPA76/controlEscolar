@@ -52,10 +52,11 @@
                                                     </a>
                                                 
                                                 <!-- Button trigger modal -->
+                                                @can('subir_index')
                                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
                                                     data-target="#exampleModal-{{ $estudiante->id }}">
                                                     Subir foto </button>
-
+                                                    @endcan
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="exampleModal-{{ $estudiante->id }}" tabindex="-1" role="dialog"
                                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -81,7 +82,7 @@
                                                                             <div class="danger">
                                                                                 <label class="text-sm"></label>
                                                                             </div>
-                                                                            <img src="{{ asset('storage').'/'.$estudiante->foto}}" alt="" width="100" height="100">
+                                                                            {{-- <img src="{{ asset('storage').'/'.$estudiante->foto}}" alt="" width="100" height="100"> --}}
                                                                             @error('foto')
                                                                                 <small
                                                                                     class="text-danger">{{ $message }}</small>
