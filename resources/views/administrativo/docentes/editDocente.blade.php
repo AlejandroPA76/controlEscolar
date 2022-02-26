@@ -35,7 +35,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="contraseña"> Contraseña</label>
                                     <input type="password" class="form-control" name="contraseña"
-                                        value="{{ $docentes->password }}" required required>
+                                        >
                                 </div>
                             </div>
                             <br>

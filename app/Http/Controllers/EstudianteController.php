@@ -107,17 +107,10 @@ class EstudianteController extends Controller
     public function update(Request $request, Estudiante $estudiante)
     {
         $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'matricula', 'foto');
-<<<<<<< HEAD
 
-
-        if ($request->hasFile('foto') and $request->validate(['foto' => 'required|image|max:2048'])) {
-=======
-       
-        // $foto = request()->except('_token');
-        // echo($foto);
         
         if($request->hasFile('foto') and $request->validate(['foto'=>'required|image|max:2048'])){
->>>>>>> e662c8667ebde5cc38f2113d4bb8b1813eb037d3
+
 
             $estudiante = Estudiante::findOrFail($estudiante->id);
             Storage::delete('public/' . $estudiante->foto);

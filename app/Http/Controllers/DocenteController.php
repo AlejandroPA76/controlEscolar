@@ -100,9 +100,13 @@ class DocenteController extends Controller
      */
     public function edit(Docente $docentes)
     {
-        return view('administrativo.docentes.editDocente')->with([
-            'docentes' => $docentes,
-        ]);
+        $docentes=DB::table('docentes')
+        ->select('docentes.id','docentes.nombre','docentes.apellido_p','docentes.apellido_m','docentes.matricula','user_id','users.email','users.password')
+        ->join('users','docentes.user_id','=','users.id')
+        ->where('docentes.id','=',$docentes->id)
+        ->first();
+    
+        return view('administrativo.docentes.editDocente',compact('docentes'));
     }
 
     /**
@@ -115,9 +119,15 @@ class DocenteController extends Controller
     public function update(Request $request, Docente $docentes)
     {
         $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'usuario');
+        $mail=$request->usuario;
         $contraseña = $request->input('contraseña');
-        if ($contraseña)
+        if ($contraseña){
             $data['contraseña'] = bcrypt($contraseña);
+        }
+         $dmail =DB::table('users')
+            ->where('docentes.id','LIKE',$docentes->id)
+            ->join('docentes','users.id','=','docentes.user_id')
+            ->update(['email'=>$mail]);
 
         $docentes->update($data);
         return redirect()->route('admin.showDocentes', $docentes->id)

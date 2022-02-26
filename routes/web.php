@@ -15,6 +15,13 @@ Auth::routes();
 
 //agrupe al middleware auth para que solo sea accedido por usuario logeados
 Route::group(['middleware' => 'auth'], function(){
+
+Route::get('admin/index/estudiantes', 'EstudianteController@index')->name('admin.indexEstudiantes');
+Route::get('admin/show-estudiantes/{estudiante}', 'EstudianteController@show')->name('admin.showEstudiantes');
+
+
+Route::group(['middleware' => ['role:Admin']], function () {
+
 Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
 Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
@@ -22,7 +29,7 @@ Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show']
 Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
 Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
-
+    //
 
 // ---------------------------------------------------------------------------------
 Route::get('panel/index', 'AdministrativoController@index')->name('panel.index');
@@ -43,7 +50,7 @@ Route::put('admin/tutores/{tutor}/update', 'TutorController@update')->name('admi
 Route::delete('admin/tutores/destroy/{tutor}', 'TutorController@destroy')->name('admin.destroyTutores');
 // ----------------------------------------------------------------------------------------------------------------
 
-Route::get('admin/index/estudiantes', 'EstudianteController@index')->name('admin.indexEstudiantes');
+
 
 Route::post('admin/index/estudiantes/{estudiante}', 'EstudianteController@store')->name('subir.foto');
 
@@ -51,7 +58,7 @@ Route::get('admin/created/estudiantes', 'EstudianteController@create')->name('ad
 
 // Route::post('admin/store/estudiantes', 'EstudianteController@store')->name('admin.storeEstudiantes');
 
-Route::get('admin/show-estudiantes/{estudiante}', 'EstudianteController@show')->name('admin.showEstudiantes');
+
 
 Route::get('admin/edit-estudiantes/{estudiante}', 'EstudianteController@edit')->name('admin.editEstudiantes');
 
@@ -85,8 +92,15 @@ Route::resource('ciclos', CicloEscolarController::class);
 Route::get('grupos/asignar/{grupo}', 'GrupoController@asignar')->name('grupos.asignar');
 Route::post('grupos/asignar/alumno', 'GrupoController@asignaralumno')->name('grupos.asignaralumno');
 
+Route::delete('grupo/asignado/lista/estudiante/dar/baja/{id}',[App\Http\Controllers\ListaGrupoController::class, 'destroy'])->name('baja.estudiante');
 // ---------------------------------------------------------------------------
+//ruta pagos admin
+Route::get('admin/historial/pagos/ver/{id}',[App\Http\Controllers\ContadorController::class, 'show'])->name('verPago');
+Route::get('admin/historial/pagos',[App\Http\Controllers\ContadorController::class, 'historialPagos'])->name('historialPagos');
+Route::post('/pagos/registrar',[App\Http\Controllers\PagoController::class, 'store'])->name('pagos.store');
+});
 
+//fin del rol admin
 Route::get('menu/contador', function () {
     return view('contador.menuContador');
 })->name('menuContador');
@@ -106,15 +120,16 @@ Route::resource('roles', RoleController::class);
 // Route::put('permissions/update/{permission}', 'PermissionController@update')->name('permissions.update');
 // Route::delete('permissions/delete/{permission}', 'PermissionController@destroy')->name('permissions.destroy');
 
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['role:Tutor']], function () {
+
+Route::get('grupo/asignado',[App\Http\Controllers\ObservacionController::class, 'index'])->name('docente.grupo_asignados');
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/pagos/menu',[App\Http\Controllers\PagoController::class, 'index'])->name('pagos.index');
 
-Route::post('/pagos/registrar',[App\Http\Controllers\PagoController::class, 'store'])->name('pagos.store');
+
 
 Route::post('pagar/confirmar',[App\Http\Controllers\PagoController::class, 'payment'])->name('pagar.a');
 
@@ -122,14 +137,17 @@ Route::get('pagar/aprovado',[App\Http\Controllers\PagoController::class, 'succes
 
 Route::get('pagar/rechazado',[App\Http\Controllers\PagoController::class, 'fail'])->name('rechazado.a');
 
-Route::get('admin/historial/pagos',[App\Http\Controllers\ContadorController::class, 'historialPagos'])->name('historialPagos');
-
-Route::get('admin/historial/pagos/ver/{id}',[App\Http\Controllers\ContadorController::class, 'show'])->name('verPago');
 
 
+
+});
+//rol docente
+
+Route::group(['middleware' => ['role:Docente']], function () {
 //////////////////docente observaciones/////////////////////////////
 
-Route::get('grupo/asignado',[App\Http\Controllers\ObservacionController::class, 'index'])->name('docente.grupo_asignados');
+
+
 
 Route::get('grupo/asignado/lista/{id}',[App\Http\Controllers\ObservacionController::class, 'showList'])->name('docente.grupo_asignados_estudiantes');
 
@@ -138,8 +156,11 @@ Route::get('grupo/asignado/lista/enviar/{id}',[App\Http\Controllers\ObservacionC
 Route::post('grupo/asignado/lista/send',[App\Http\Controllers\ObservacionController::class, 'sendMensaje'])->name('docente.grupo_asignados_estudiantes_send');
 
 Route::get('grupo/asignado/lista/estudiante/observacion/{id}',[App\Http\Controllers\ObservacionController::class, 'showObservacionEstudiante'])->name('docente.grupo_asignados_observacion_estudiante');
+});
 
-Route::delete('grupo/asignado/lista/estudiante/dar/baja/{id}',[App\Http\Controllers\ListaGrupoController::class, 'destroy'])->name('baja.estudiante');
 
 Route::get('/mispagos',[App\Http\Controllers\TutorController::class, 'misPagos'])->name('tutor.mispagos');
 });
+
+Route::group(['middleware' => ['role:Docente|Tutor']], function () {
+Route::get('grupo/asignado',[App\Http\Controllers\ObservacionController::class, 'index'])->name('docente.grupo_asignados');});
