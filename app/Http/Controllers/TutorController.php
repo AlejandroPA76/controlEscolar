@@ -157,16 +157,20 @@ class TutorController extends Controller
     {
         $data = $request->only('nombre', 'apellido_p', 'apellido_m');
         $correo = $request->input('email');
+        $contraseña = $request->input('password');
+       
+       if($correo)
         $data1 = DB::table('users')
             ->where('tutors.id', 'LIKE', $tutor->id)
             ->join('tutors', 'users.id', '=', 'tutors.user_id')
             ->update(['email' => $correo]);
 
-        $contraseña = $request->input('contraseña');
         if ($contraseña)
-            $data['contraseña'] = bcrypt($contraseña);
-
-        $tutor->update($data);
+          $data1 = DB::table('users')
+            ->where('tutors.id', 'LIKE', $tutor->id)
+            ->join('tutors', 'users.id', '=', 'tutors.user_id')
+            ->update(['password' => bcrypt($contraseña)]);            
+        
 
         $tutor->update($data);
         $roles = $request->input('roles', []);

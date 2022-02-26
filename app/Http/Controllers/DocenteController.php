@@ -121,13 +121,18 @@ class DocenteController extends Controller
         $data = $request->only('nombre', 'apellido_p', 'apellido_m', 'usuario');
         $mail=$request->usuario;
         $contraseña = $request->input('contraseña');
-        if ($contraseña){
-            $data['contraseña'] = bcrypt($contraseña);
-        }
-         $dmail =DB::table('users')
+        if($mail)
+            $dmail =DB::table('users')
             ->where('docentes.id','LIKE',$docentes->id)
             ->join('docentes','users.id','=','docentes.user_id')
             ->update(['email'=>$mail]);
+
+        if ($contraseña)
+         $dmail =DB::table('users')
+            ->where('docentes.id','LIKE',$docentes->id)
+            ->join('docentes','users.id','=','docentes.user_id')
+            ->update(['password'=>bcrypt($contraseña)]);
+
 
         $docentes->update($data);
         return redirect()->route('admin.showDocentes', $docentes->id)
