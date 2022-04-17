@@ -1,62 +1,30 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+### **Sistema de control administrativo para el Centro Educativo Albert Einstein.**
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+##### Este sistema se realizo como parte de nuestra residencia profesional donde se tenia como objetivo los siguientes puntos:
 
-## About Laravel
+* Realizar las observaciones a los alumnos de forma individual. 
+* Pagar la colegiatura dentro del sistema.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+___
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+##### Menu de inicio de la pagina:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<img src="https://lh3.googleusercontent.com/JhJwQSS93xo3sa9XdIsK9QGQEHwsj3uoW8ZG7b_GWCk-g_1rNGMZyJzfg-09xZyHmdtim-iF-ZwGlwRZYPE6BQSYeYG0BMFL8a3xRwZ0YcDf7MnO5QqA_spH0tJ5Tzn4bHv8qHRPqldSVUkXgeWx4Ss7F6gXWfLPi6c6YQUBZ6Nt5xQe7Q4YAEKxTASWm-XAVddUM1D0uECXRuDXWj02J5nI3hHw9b_ApqDIgMMCMrSUCBcgY-a5jjhqt660USbbYSoJScuQpu6QmzwaNsWtpqSgH_mUmzWWwrxg5k4HSSHRH37zOxXGbUzIUiipDvti9qtoY_smiTP7fjusLesA0IeiZ7IgWWjRjDkvEAbrj_fhd6GOitR-f7tRZ_gkWndaYLCepAw3QE1cRH3kAq4WW09d_AthTr1vep2oBOE-cQ-nzgIx7Otxb60L7k_jtKeCcRS8lFWDIHhaRQmjKtA7rwJJk8SzA_7T-oO9cddOwIW13mLKWvbzkv5uxMqY4HdqDCbxSJ8SXAZVHtiNC6IpDbTT7cMVP0GX3JzvvBa_p-S8iiNBcJe2nGS0T9O-5S9xXx5kzRs6aMw7n_OgeB8LsCGGBIRfqA8tYlk2yh3lmOEIUhi9TGjg6i_pz259OEuHxtWeDRodnpxJLwPfcowHEjOnqfSgbLdzyVS8HrTO8ud0PjJ-62axYORAIuMBu5sUAmZYq5KqL9A_Mp5Bstl7O9PACPaBbT2Rx2djIlWaf00nzj1t1NEc6R7eVZb-=w1196-h572-no?authuser=0" alt="JuveR" width="700px" >
 
-## Learning Laravel
+##### Menu administrativo:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+###### Este menu es unicamente para el personal administrativo, donde se pueden realizar muchas acciones, como por ejemplo registrar tutores, alumnos, docente, crear grupos, asignar docentes a los grupos, entre otras cosas mas. 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<img src="https://lh3.googleusercontent.com/J_olEIx-becLjLJF8uYJcwRodYk8vPd4tlOlketco53yfC_8CegjOKtWbq5tanRkzxbLUy6duX9aoMH26rD07j_G4iJ-LI_MchjdDuC_uCgud63MaX5mZjOrbZdumiIa_rsaKqMyGJBbyhABuMyFufoqmDewOn8n7WNWqyK0hCgs98zUMcU0XtnzItRQidMhTmDcRMlsHn9PLT-CGvbBppf2oKmKclj8W-LLpRGPLqPFva7aZQcYueSDi6V85DglVzhB17KD1eyGSPcfWCr-rYwT0e8V7s3taIQjaxNP1CcJEu3Yi-DACQh1-Tgq3eOCiZp58lTq4n6VhLpoGlAbtRdALhoMdZcMyqexg5cpflCMosdPkD6Vxh9TmntCBlhkGfYZuqDQp24mURgDwDE-5OENcrz3CE5V9oneYiqtULyJjmdbRbTSyiTQpUTYrUkEv6RgDomKIRw8lv9M3pYrDG8ZOO_W7rUuNLqGrwEA-lbXB4GWQcX11Io9JldM_-EfWqmDJEpa7xvjjWgZWcW_nOcSyqKpSC9q2pDGFeTOyrH1W8Q05Vqmfge4Jt35MJYhxxG4XQE_lEFPe_MgjxUNtZHOkL0dvjB8QEvzpRReYMUrwkdgTFbwga_ptimRwhlr9XleZBB19-DXVBJyCchL9s9aw0NbDzzrSw1rEwMpj8pcD38rYUYVMk13Vdj46qaKAkL45BoYN-zsW-SOmh0dA4uZdf51dabZq1p3vizwkDLiPx1d4dqOWnBWK6Z-=w1196-h572-no?authuser=0" alt="JuveR" width="700px" >
 
-## Laravel Sponsors
+##### Menu tutor:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+###### Los usuarios tutores tienen la posiblidad de ver a sus estudiantes, ver las observaciones que el docente a puesto, realizar el pago correspondiente, y ver los pagos realizados.
+<img src="https://lh3.googleusercontent.com/BtIimjKG55l1KAN3lHew6wCAryjWp6FMr3ZtohiSXd2DviAnufS2K8kGF3DUPTU8iYBlHFPz5YZQiyTBsz8O0dc-EkT54WJ8nPSQZDeDRCaqhUSm7McZGuLWFGQ9xF9fgFQxEQN93RdlzZ8L4eSxhR-3uZJpzQQM7v2UWoWl-WiCzXJLzWdDiF8Nkbxt2cOU-BHYUMQPlGHPgOV47Ms2lyFw56GQe3-k5WARgfePfxK2zL0mXo78skKfdSHm9LbHwb13socgcDgsGIwgkhuDFSnvu1aNNy7yDAsA35fzRRAo9b5vbzabOTtn_Bp4JI8AfUJ6RPWSH3jeXGKMTV81a-J1colIY3BLvMSitCkisHcCCkf0GpqK6g70328n1w-sJKhlRcN8WcYknFvZzP8u_fQHj0hLgiuWq4ozJ2nDntMPpvOIKrYjLMna7Trr2orlMjObIeQb8ZXxSEG7Zirf5pL5FL_WrBBLL3oNNEiWt3wGsNv6iub65aO0STl_FbL_jw2ed4F11lSI0pNP1j70YOdHKqUyWPUShcGjhcWX9whbN4VrfvmwtB6EXPsWw1-dYVOz8TPBTacJZJAcUjuRqtwFsZmlmhSrGxqf1yz19U0660jQ4OFkiDrsbxmmyB6aOAYoKkoPV_XQCNbKxC0-PdDo888x_Hgz8KY0Yd7UyYjoP0L0qLTLjHi3ogROT6jiFHQv1ymOSQbWSXVefpc0R3Hceu8rG8BZSyOF8OSrMLpLSLHl6XepaEvzM-__=w1196-h572-no?authuser=0" alt="JuveR" width="700px" >
 
-### Premium Partners
+##### Menu docente:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+###### Para los docente se tiene un menu muy reservado en donde unicamente pueden ver los grupos que tiene acargo y realizar las observaciones a los estudiantes.
+<img src="https://lh3.googleusercontent.com/nlSUrM-rB7AC1dmXeuc3EPVa_Shm-BrZZJDGmestKPYuOZPQsN46RHILhVNVw_EJgHF1LqedtdyhvYm1yxnIR3qrZbMwRnSTm3yq0OjBAYURBkFrON2UGnvWebnmmre_f2jUFXAz2e6bm5tGy4kWk9rrnas2koU_ppmH1Ms-c65rTjqFInDDjBu_i-WK4mwFvf0fUYD6dFs__uNG2M7cGS8uSxt1twk0nRDoyHVkPaXVG8nW1tBdhPtvpzEnGBfT8VFNy1HAdzljAib3Iz6x3x22wNXtgtc__WapaS-ye3CJsr3ISOMClcr11pIxBJLH3ioruDeMhzVu5-9U3x6WlcbEtKL5AktrghS9HmTpEvfrtuNemakvV9tobEIyFOWYPWqDrVIKITc4u2HizW3GvGDDj1V3Hd2CcnEH2h605XTpk9DotnYy7qOS2rHlvieA7ZUkpmLLEg4YbOmiuriLoMP7HXCiRnmo-132WgHZKziekbGpAyocCSI_0VswboM4IDD9vsYfF2xOD_3dXNSSQLUl3O2PgFaXCzmxysSBxgbgd6ZElPhjY7mShYhNy4cAwVYfegFR56mM2b6dGUB6b6x-6-MsXi5QagR_SV5NXstHYuyipVpj8UMMehHy78tnNf424vWAkad89qoMzoin9Ypr-I-BZDQIciaW5hEFq1sOyW84GSmRK5kAec_uKncukV5rBbbKGOD3Ew0KF0xZEFrRLthL3OE5K5e_Qx1wBQbq85p5eNVVVaYO0-gf=w1196-h572-no?authuser=0" alt="JuveR" width="700px" >
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
