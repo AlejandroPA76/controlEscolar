@@ -9,22 +9,22 @@ ___
 
 ##### Menu de inicio de la pagina:
 
-<img src="https://lh3.googleusercontent.com/JhJwQSS93xo3sa9XdIsK9QGQEHwsj3uoW8ZG7b_GWCk-g_1rNGMZyJzfg-09xZyHmdtim-iF-ZwGlwRZYPE6BQSYeYG0BMFL8a3xRwZ0YcDf7MnO5QqA_spH0tJ5Tzn4bHv8qHRPqldSVUkXgeWx4Ss7F6gXWfLPi6c6YQUBZ6Nt5xQe7Q4YAEKxTASWm-XAVddUM1D0uECXRuDXWj02J5nI3hHw9b_ApqDIgMMCMrSUCBcgY-a5jjhqt660USbbYSoJScuQpu6QmzwaNsWtpqSgH_mUmzWWwrxg5k4HSSHRH37zOxXGbUzIUiipDvti9qtoY_smiTP7fjusLesA0IeiZ7IgWWjRjDkvEAbrj_fhd6GOitR-f7tRZ_gkWndaYLCepAw3QE1cRH3kAq4WW09d_AthTr1vep2oBOE-cQ-nzgIx7Otxb60L7k_jtKeCcRS8lFWDIHhaRQmjKtA7rwJJk8SzA_7T-oO9cddOwIW13mLKWvbzkv5uxMqY4HdqDCbxSJ8SXAZVHtiNC6IpDbTT7cMVP0GX3JzvvBa_p-S8iiNBcJe2nGS0T9O-5S9xXx5kzRs6aMw7n_OgeB8LsCGGBIRfqA8tYlk2yh3lmOEIUhi9TGjg6i_pz259OEuHxtWeDRodnpxJLwPfcowHEjOnqfSgbLdzyVS8HrTO8ud0PjJ-62axYORAIuMBu5sUAmZYq5KqL9A_Mp5Bstl7O9PACPaBbT2Rx2djIlWaf00nzj1t1NEc6R7eVZb-=w1196-h572-no?authuser=0" alt="JuveR" width="700px" >
+<img src="https://raw.githubusercontent.com/AlejandroPA76/imgs/main/Screenshot_20220417_000141.png" alt="JuveR" width="700px" >
 
 ##### Menu administrativo:
 
 ###### Este menu es unicamente para el personal administrativo, donde se pueden realizar muchas acciones, como por ejemplo registrar tutores, alumnos, docente, crear grupos, asignar docentes a los grupos, entre otras cosas mas. 
 
-<img src="https://lh3.googleusercontent.com/J_olEIx-becLjLJF8uYJcwRodYk8vPd4tlOlketco53yfC_8CegjOKtWbq5tanRkzxbLUy6duX9aoMH26rD07j_G4iJ-LI_MchjdDuC_uCgud63MaX5mZjOrbZdumiIa_rsaKqMyGJBbyhABuMyFufoqmDewOn8n7WNWqyK0hCgs98zUMcU0XtnzItRQidMhTmDcRMlsHn9PLT-CGvbBppf2oKmKclj8W-LLpRGPLqPFva7aZQcYueSDi6V85DglVzhB17KD1eyGSPcfWCr-rYwT0e8V7s3taIQjaxNP1CcJEu3Yi-DACQh1-Tgq3eOCiZp58lTq4n6VhLpoGlAbtRdALhoMdZcMyqexg5cpflCMosdPkD6Vxh9TmntCBlhkGfYZuqDQp24mURgDwDE-5OENcrz3CE5V9oneYiqtULyJjmdbRbTSyiTQpUTYrUkEv6RgDomKIRw8lv9M3pYrDG8ZOO_W7rUuNLqGrwEA-lbXB4GWQcX11Io9JldM_-EfWqmDJEpa7xvjjWgZWcW_nOcSyqKpSC9q2pDGFeTOyrH1W8Q05Vqmfge4Jt35MJYhxxG4XQE_lEFPe_MgjxUNtZHOkL0dvjB8QEvzpRReYMUrwkdgTFbwga_ptimRwhlr9XleZBB19-DXVBJyCchL9s9aw0NbDzzrSw1rEwMpj8pcD38rYUYVMk13Vdj46qaKAkL45BoYN-zsW-SOmh0dA4uZdf51dabZq1p3vizwkDLiPx1d4dqOWnBWK6Z-=w1196-h572-no?authuser=0" alt="JuveR" width="700px" >
+<img src="https://raw.githubusercontent.com/AlejandroPA76/imgs/main/Screenshot_20220417_001551.png" alt="JuveR" width="700px" >
 
 ##### Menu tutor:
 
 ###### Los usuarios tutores tienen la posiblidad de ver a sus estudiantes, ver las observaciones que el docente a puesto, realizar el pago correspondiente, y ver los pagos realizados.
-<img src="https://lh3.googleusercontent.com/BtIimjKG55l1KAN3lHew6wCAryjWp6FMr3ZtohiSXd2DviAnufS2K8kGF3DUPTU8iYBlHFPz5YZQiyTBsz8O0dc-EkT54WJ8nPSQZDeDRCaqhUSm7McZGuLWFGQ9xF9fgFQxEQN93RdlzZ8L4eSxhR-3uZJpzQQM7v2UWoWl-WiCzXJLzWdDiF8Nkbxt2cOU-BHYUMQPlGHPgOV47Ms2lyFw56GQe3-k5WARgfePfxK2zL0mXo78skKfdSHm9LbHwb13socgcDgsGIwgkhuDFSnvu1aNNy7yDAsA35fzRRAo9b5vbzabOTtn_Bp4JI8AfUJ6RPWSH3jeXGKMTV81a-J1colIY3BLvMSitCkisHcCCkf0GpqK6g70328n1w-sJKhlRcN8WcYknFvZzP8u_fQHj0hLgiuWq4ozJ2nDntMPpvOIKrYjLMna7Trr2orlMjObIeQb8ZXxSEG7Zirf5pL5FL_WrBBLL3oNNEiWt3wGsNv6iub65aO0STl_FbL_jw2ed4F11lSI0pNP1j70YOdHKqUyWPUShcGjhcWX9whbN4VrfvmwtB6EXPsWw1-dYVOz8TPBTacJZJAcUjuRqtwFsZmlmhSrGxqf1yz19U0660jQ4OFkiDrsbxmmyB6aOAYoKkoPV_XQCNbKxC0-PdDo888x_Hgz8KY0Yd7UyYjoP0L0qLTLjHi3ogROT6jiFHQv1ymOSQbWSXVefpc0R3Hceu8rG8BZSyOF8OSrMLpLSLHl6XepaEvzM-__=w1196-h572-no?authuser=0" alt="JuveR" width="700px" >
+<img src="https://raw.githubusercontent.com/AlejandroPA76/imgs/main/Screenshot_20220417_002216.png" alt="JuveR" width="700px" >
 
 ##### Menu docente:
 
 ###### Para los docente se tiene un menu muy reservado en donde unicamente pueden ver los grupos que tiene acargo y realizar las observaciones a los estudiantes.
-<img src="https://lh3.googleusercontent.com/nlSUrM-rB7AC1dmXeuc3EPVa_Shm-BrZZJDGmestKPYuOZPQsN46RHILhVNVw_EJgHF1LqedtdyhvYm1yxnIR3qrZbMwRnSTm3yq0OjBAYURBkFrON2UGnvWebnmmre_f2jUFXAz2e6bm5tGy4kWk9rrnas2koU_ppmH1Ms-c65rTjqFInDDjBu_i-WK4mwFvf0fUYD6dFs__uNG2M7cGS8uSxt1twk0nRDoyHVkPaXVG8nW1tBdhPtvpzEnGBfT8VFNy1HAdzljAib3Iz6x3x22wNXtgtc__WapaS-ye3CJsr3ISOMClcr11pIxBJLH3ioruDeMhzVu5-9U3x6WlcbEtKL5AktrghS9HmTpEvfrtuNemakvV9tobEIyFOWYPWqDrVIKITc4u2HizW3GvGDDj1V3Hd2CcnEH2h605XTpk9DotnYy7qOS2rHlvieA7ZUkpmLLEg4YbOmiuriLoMP7HXCiRnmo-132WgHZKziekbGpAyocCSI_0VswboM4IDD9vsYfF2xOD_3dXNSSQLUl3O2PgFaXCzmxysSBxgbgd6ZElPhjY7mShYhNy4cAwVYfegFR56mM2b6dGUB6b6x-6-MsXi5QagR_SV5NXstHYuyipVpj8UMMehHy78tnNf424vWAkad89qoMzoin9Ypr-I-BZDQIciaW5hEFq1sOyW84GSmRK5kAec_uKncukV5rBbbKGOD3Ew0KF0xZEFrRLthL3OE5K5e_Qx1wBQbq85p5eNVVVaYO0-gf=w1196-h572-no?authuser=0" alt="JuveR" width="700px" >
+<img src="https://raw.githubusercontent.com/AlejandroPA76/imgs/main/Screenshot_20220417_002506.png" alt="JuveR" width="700px" >
 
 
